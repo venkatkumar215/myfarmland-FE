@@ -18,9 +18,13 @@ import { handleApiError } from "../../utilis/api-errorHandler/errorHandler";
 
 type Props = {
   setVerifyOTPFlag: React.Dispatch<React.SetStateAction<boolean>>;
+  setVerifyMobileNumber: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const SendOtpComponent: React.FC<Props> = ({ setVerifyOTPFlag }) => {
+const SendOtpComponent: React.FC<Props> = ({
+  setVerifyOTPFlag,
+  setVerifyMobileNumber,
+}) => {
   const {
     control,
     handleSubmit,
@@ -57,6 +61,7 @@ const SendOtpComponent: React.FC<Props> = ({ setVerifyOTPFlag }) => {
       console.log("result", result);
       if (result.success) {
         setVerifyOTPFlag(true);
+        setVerifyMobileNumber(mobile);
         console.log("OTP sent successfully!");
       } else {
         console.log(result.message || "Failed to send OTP");

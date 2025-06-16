@@ -10,11 +10,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { verifyOtpApi } from "../../api/otpService";
 
-type Props = {};
+type Props = {
+  mobileNumber: string;
+};
 
 const OTP_LENGTH = 6;
 
-const VerifyOtpComponent: React.FC<Props> = ({ ...props }) => {
+const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
   const inputsRef = useRef<Array<any>>([]);
   const [otp, setOtp] = useState<string[]>(Array(OTP_LENGTH).fill(""));
 
@@ -53,8 +55,6 @@ const VerifyOtpComponent: React.FC<Props> = ({ ...props }) => {
    * @param {OtpFormData} data
    */
   const onSubmit = (data: OtpFormData) => {
-    console.log("Form Data:", data); // Should show { otp: "123456" }
-    // You can now send the data.otp to backend
     verifyOtp(data.otp);
   };
 
@@ -63,7 +63,7 @@ const VerifyOtpComponent: React.FC<Props> = ({ ...props }) => {
     try {
       const payload = {
         otp: otp.trim(),
-        mobile: "7092027870", // Replace with the actual mobile number
+        mobile: mobileNumber, // Replace with the actual mobile number
       };
       // Call your API to verify the OTP
       const result = await verifyOtpApi(payload);

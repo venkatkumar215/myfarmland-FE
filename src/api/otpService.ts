@@ -17,11 +17,11 @@ export async function sendOtp(
 }
 
 export async function verifyOtpApi(
-  otp: VerifyOtpPayload
+  payload: VerifyOtpPayload
 ): Promise<VerifyOtpResponse> {
   const response = await apiClient.post<VerifyOtpResponse>(
     "/api/auth/verify-otp",
-    { otp }
+    payload
   );
   return response.data;
 }

@@ -10,6 +10,7 @@ type Props = {};
 
 const LogIn: React.FC<Props> = () => {
   const [verifyOTPFlag, setVerifyOTPFlag] = useState<boolean>(false);
+  const [verifyMobileNumber, setVerifyMobileNumber] = useState<string>("");
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
   return (
@@ -24,13 +25,14 @@ const LogIn: React.FC<Props> = () => {
         <View style={styles.actionContainer}>
           <SendOtpComponent
             setVerifyOTPFlag={setVerifyOTPFlag}
+            setVerifyMobileNumber={setVerifyMobileNumber}
           ></SendOtpComponent>
         </View>
       )}
 
       {verifyOTPFlag && (
         <View style={styles.actionContainer}>
-          <VerifyOtpComponent></VerifyOtpComponent>
+          <VerifyOtpComponent mobileNumber={verifyMobileNumber}></VerifyOtpComponent>
         </View>
       )}
     </SafeAreaView>
