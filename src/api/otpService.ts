@@ -1,6 +1,8 @@
 import {
   SendOtpPayload,
   SendOtpResponse,
+  VerifyOtpPayload,
+  VerifyOtpResponse,
 } from "../config/type/api-type/otp-type";
 import apiClient from "./apiClient";
 
@@ -10,6 +12,16 @@ export async function sendOtp(
   const response = await apiClient.post<SendOtpResponse>(
     "/api/auth/request-otp",
     payload
+  );
+  return response.data;
+}
+
+export async function verifyOtpApi(
+  otp: VerifyOtpPayload
+): Promise<VerifyOtpResponse> {
+  const response = await apiClient.post<VerifyOtpResponse>(
+    "/api/auth/verify-otp",
+    { otp }
   );
   return response.data;
 }

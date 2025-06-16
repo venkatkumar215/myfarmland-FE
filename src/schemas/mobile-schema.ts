@@ -11,3 +11,12 @@ export const mobileSchema = z.object({
       ERROR_CONSTANTS.MOBILE_NUMBER_VALIDATIDATION.INVALID_MOBILE_NUMBER
     ),
 });
+
+export const otpSchema = z.object({
+  otp: z
+    .string()
+    .length(6, ERROR_CONSTANTS.OTP_VALIDATION.OTP_LENGTH)
+    .regex(/^\d{6}$/, ERROR_CONSTANTS.OTP_VALIDATION.INVALID_OTP),
+});
+export type MobileNumberFormData = z.infer<typeof mobileSchema>;
+export type OtpFormData = z.infer<typeof otpSchema>;

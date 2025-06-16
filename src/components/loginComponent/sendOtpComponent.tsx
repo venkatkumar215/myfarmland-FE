@@ -7,7 +7,10 @@ import { Controller, useForm } from "react-hook-form";
 import MyfarmInput from "../common/input/myfarm-input";
 import MyfarmButton from "../common/button/myfarm-button";
 import { z } from "zod";
-import { mobileSchema } from "../../schemas/mobile-schema";
+import {
+  MobileNumberFormData,
+  mobileSchema,
+} from "../../schemas/mobile-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SendOtpPayload } from "../../config/type/api-type/otp-type";
 import { sendOtp } from "../../api/otpService";
@@ -16,7 +19,6 @@ import { handleApiError } from "../../utilis/api-errorHandler/errorHandler";
 type Props = {
   setVerifyOTPFlag: React.Dispatch<React.SetStateAction<boolean>>;
 };
-type MobileNumberFormData = z.infer<typeof mobileSchema>;
 
 const SendOtpComponent: React.FC<Props> = ({ setVerifyOTPFlag }) => {
   const {
@@ -27,10 +29,24 @@ const SendOtpComponent: React.FC<Props> = ({ setVerifyOTPFlag }) => {
     resolver: zodResolver(mobileSchema),
   });
 
+  /**
+   * Description placeholder
+   * Function to handle form submission
+   * It sends the mobile number to the backend to request an OTP.
+   * @param {MobileNumberFormData} data
+   */
   const onSubmit = (data: MobileNumberFormData): void => {
     sendOTP(data.mobileNumber);
   };
 
+  /**
+   * Description placeholder
+   * Function to send OTP to the provided mobile number.
+   * It constructs a payload with the mobile number and calls the `sendOtp` API service.
+   * @async
+   * @param {string} mobile
+   * @returns {*}
+   */
   const sendOTP = async (mobile: string) => {
     const payload: SendOtpPayload = {
       mobile: mobile.trim(),

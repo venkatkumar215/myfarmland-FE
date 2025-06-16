@@ -1,30 +1,79 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { View, StyleSheet } from "react-native";
 import MyfarmInput from "../common/input/myfarm-input";
 import MyfarmButton from "../common/button/myfarm-button";
 import CONSTANTS from "../../config/constants/common-constant";
 import MyFarmText from "../common/text/myfarm-text";
+import { OtpFormData, otpSchema } from "../../schemas/mobile-schema";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { verifyOtpApi } from "../../api/otpService";
 
 type Props = {};
 
 const OTP_LENGTH = 6;
-const VerifyOtpComponent: React.FC<Props> = ({ ...props }) => {
-  const inputsRef = React.useRef<Array<any>>([]);
-  const [otp, setOtp] = useState<Array<string>>(Array(OTP_LENGTH).fill(""));
 
-  const onSubmit = (data: any): void => {
-    // sendOTP(data.mobileNumber);
-  };
+const VerifyOtpComponent: React.FC<Props> = ({ ...props }) => {
+  const inputsRef = useRef<Array<any>>([]);
+  const [otp, setOtp] = useState<string[]>(Array(OTP_LENGTH).fill(""));
+
+  const {
+    control,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm<OtpFormData>({
+    resolver: zodResolver(otpSchema),
+    defaultValues: {
+      otp: "",
+    },
+  });
 
   const handleChange = (text: string, index: number) => {
     setOtp((prevOtp) => {
       const newOtp = [...prevOtp];
       newOtp[index] = text;
+
+      // Join and update the form field
+      const otpString = newOtp.join("");
+      setValue("otp", otpString); // Register OTP in form
+
       return newOtp;
     });
-    // Move to next input if text is entered and it's not the last one
+
     if (text && index < inputsRef.current.length - 1) {
       inputsRef.current[index + 1]?.focus();
+    }
+  };
+
+  /**
+   * Function to handle form submission
+   *
+   * @param {OtpFormData} data
+   */
+  const onSubmit = (data: OtpFormData) => {
+    console.log("Form Data:", data); // Should show { otp: "123456" }
+    // You can now send the data.otp to backend
+    verifyOtp(data.otp);
+  };
+
+  // This function prepares the payload and calls the API
+  const verifyOtp = async (otp: string) => {
+    try {
+      const payload = {
+        otp: otp.trim(),
+        mobile: "7092027870", // Replace with the actual mobile number
+      };
+      // Call your API to verify the OTP
+      const result = await verifyOtpApi(payload);
+      if (result.success) {
+        console.log("OTP verified successfully!");
+      } else {
+        console.log(result.message || "Failed to verify OTP");
+      }
+    } catch (error) {
+      console.error("Error verifying OTP:", error);
     }
   };
 
@@ -35,13 +84,15 @@ const VerifyOtpComponent: React.FC<Props> = ({ ...props }) => {
           {CONSTANTS.LOG_IN.ENTER_OTP_VERIFY}
         </MyFarmText>
       </View>
+
       <View style={styles.titleText}>
         <MyFarmText style={styles.textCenter} fontSize={"lg"}>
           {CONSTANTS.LOG_IN.OTP_VERIFY_MESSAGE}
         </MyFarmText>
       </View>
+
       <View style={styles.otpContainer}>
-        {otp?.map((digit, index) => (
+        {otp.map((digit, index) => (
           <View key={index} style={styles.verifyOTPInput}>
             <MyfarmInput
               ref={(ref) => {
@@ -53,22 +104,31 @@ const VerifyOtpComponent: React.FC<Props> = ({ ...props }) => {
               value={digit}
               onChangeText={(text) => handleChange(text, index)}
               bottomBorder
-            ></MyfarmInput>
+            />
           </View>
         ))}
       </View>
+
+      {errors.otp && (
+        <MyFarmText style={{ color: "red", textAlign: "center" }}>
+          {errors.otp.message}
+        </MyFarmText>
+      )}
+
       <View style={styles.resendOtpText}>
         <MyFarmText style={styles.textCenter}>
           {CONSTANTS.LOG_IN.DONT_RECEIVE_OTP}
         </MyFarmText>
       </View>
+
       <View style={styles.buttonContainer}>
         <MyfarmButton
-          title={CONSTANTS.LOG_IN.VERIFY_OTP}
-          onPress={onSubmit}
+          title={CONSTANTS.LOG_IN.SEND_OTP}
+          onPress={handleSubmit(onSubmit)}
           bold
-        ></MyfarmButton>
+        />
       </View>
+
       <View style={styles.termsContainer}>
         <MyFarmText>
           {CONSTANTS.LOG_IN.AGREE}{" "}
@@ -80,6 +140,7 @@ const VerifyOtpComponent: React.FC<Props> = ({ ...props }) => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     display: "flex",
@@ -93,7 +154,6 @@ const styles = StyleSheet.create({
   textCenter: {
     textAlign: "center",
   },
-
   otpContainer: {
     marginVertical: 10,
     display: "flex",
