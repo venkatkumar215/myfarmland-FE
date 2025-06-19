@@ -1,9 +1,8 @@
 import axios from "axios";
-import env from "../config/env";
 
 const apiClient = axios.create({
-  // baseURL: "http:10.105.224.44:3000/",
-  baseURL: "http://192.168.10.143:3000/",
+  baseURL: "http:10.105.224.44:3000/",
+  // baseURL: "http://192.168.10.143:3000/",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
@@ -39,3 +38,4 @@ apiClient.interceptors.response.use(
 );
 
 export default apiClient;
+

@@ -63,7 +63,7 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
     try {
       const payload = {
         otp: otp.trim(),
-        mobile: mobileNumber, // Replace with the actual mobile number
+        mobile:'+91' + mobileNumber.trim(), // Replace with the actual mobile number
       };
       // Call your API to verify the OTP
       const result = await verifyOtpApi(payload);
@@ -123,7 +123,7 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
 
       <View style={styles.buttonContainer}>
         <MyfarmButton
-          title={CONSTANTS.LOG_IN.SEND_OTP}
+          title={CONSTANTS.LOG_IN.VERIFY_OTP}
           onPress={handleSubmit(onSubmit)}
           bold
         />

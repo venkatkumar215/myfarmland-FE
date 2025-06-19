@@ -53,12 +53,11 @@ const SendOtpComponent: React.FC<Props> = ({
    */
   const sendOTP = async (mobile: string) => {
     const payload: SendOtpPayload = {
-      mobile: mobile.trim(),
+      mobile: "+91" + mobile.trim(),
     };
 
     try {
       const result = await sendOtp(payload);
-      console.log("result", result);
       if (result.success) {
         setVerifyOTPFlag(true);
         setVerifyMobileNumber(mobile);
