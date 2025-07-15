@@ -15,5 +15,6 @@ export interface VerifyOtpPayload {
 export interface VerifyOtpResponse {
   success: boolean;
   message: string;
-  jwtToken?: string; // Optional JWT token if the OTP verification is successful
+  token?: string; // Optional JWT token if the OTP verification is successful
+  userId?: string; // Optional user ID if the OTP verification is successful
 }

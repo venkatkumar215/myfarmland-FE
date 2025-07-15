@@ -9,6 +9,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { verifyOtpApi } from "../../api/otpService";
+import { getToken, saveToken } from "../../utilis/tokenStorage/tokenStorage";
 
 type Props = {
   mobileNumber: string;
@@ -63,11 +64,19 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
     try {
       const payload = {
         otp: otp.trim(),
-        mobile:'+91' + mobileNumber.trim(), // Replace with the actual mobile number
+        mobile: "+91" + mobileNumber.trim(), // Replace with the actual mobile number
       };
       // Call your API to verify the OTP
       const result = await verifyOtpApi(payload);
+      console.log("result", result);
       if (result.success) {
+        if (result.token) {
+          console.log(result.userId);
+          saveToken(result.token);
+
+        } else {
+          console.error("Token is missing in the response.");
+        }
         console.log("OTP verified successfully!");
       } else {
         console.log(result.message || "Failed to verify OTP");

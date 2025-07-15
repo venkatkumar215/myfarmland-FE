@@ -17,12 +17,15 @@ export default function App() {
     return null; // or splash screen
   }
 
+  
   return (
     <>
       <ThemeProvider>
         <SafeAreaProvider>
           <NavigationContainer>
             <StatusBar style="auto" />
+
+
             <LogIn />
 
             {/* <AppNavigator /> */}

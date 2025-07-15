@@ -1,8 +1,9 @@
 import axios from "axios";
+import { getToken } from "../utilis/tokenStorage/tokenStorage";
 
 const apiClient = axios.create({
-  baseURL: "http:10.105.224.44:3000/",
-  // baseURL: "http://192.168.10.143:3000/",
+  // baseURL: "http:10.105.224.44:3000/",
+  baseURL: "http://192.168.10.143:3000/",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
@@ -10,12 +11,21 @@ const apiClient = axios.create({
 });
 
 // Optional: interceptors for auth, logging, etc.
-
-apiClient.interceptors.request.use((request) => {
-  console.log("📤 Request:", request.method?.toUpperCase(), request.url);
-  console.log("📤 Request:", request.data);
-  return request;
-});
+apiClient.interceptors.request.use(
+  async (request) => {
+    const token = await getToken();
+    if (token) {
+      request.headers.Authorization = `Bearer ${token}`;
+    }
+    console.log("📤 Request:", request.method?.toUpperCase(), request.url);
+    console.log("📤 Request Body:", request.data);
+    return request;
+  },
+  (error) => {
+    console.error("❌ Request Error:", error);
+    return Promise.reject(error);
+  }
+);
 
 apiClient.interceptors.response.use(
   (response) => {
@@ -38,4 +48,3 @@ apiClient.interceptors.response.use(
 );
 
 export default apiClient;
-
