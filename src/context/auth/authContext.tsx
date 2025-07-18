@@ -1,20 +1,20 @@
 import React, { createContext, useState, useEffect } from "react";
-import { getToken } from "../../utilis/tokenStorage/tokenStorage";
 import { AuthContextType } from "../../config/type/ui-type/auth-type";
-
-
-
+import { getToken } from "../../utilis/auth/authHelper";
 
 // Define the shape of the authentication context
 export const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
-  loading: true,
+  loading: false,
   setIsAuthenticated: () => {},
 });
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
+  console.log("AuthProvider initialized");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const checkAuth = async () => {

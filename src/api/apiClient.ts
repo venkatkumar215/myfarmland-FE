@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getToken } from "../utilis/tokenStorage/tokenStorage";
+import { getToken } from "../utilis/auth/authHelper";
 
 const apiClient = axios.create({
   // baseURL: "http:10.105.224.44:3000/",

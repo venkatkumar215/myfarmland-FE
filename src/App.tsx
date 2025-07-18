@@ -7,6 +7,8 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import LogIn from "./screens/logIn/logIn.screen";
 import OTPVerificationScreen from "./components/loginComponent/verifyOtpComponent";
+import AuthNavigator from "./navigator/authNavigation";
+import { AuthProvider } from "./context/auth/authContext";
 
 export default function App() {
   // Load custom fonts
@@ -17,21 +19,18 @@ export default function App() {
     return null; // or splash screen
   }
 
-  
   return (
     <>
-      <ThemeProvider>
-        <SafeAreaProvider>
-          <NavigationContainer>
-            <StatusBar style="auto" />
-
-
-            <LogIn />
-
-            {/* <AppNavigator /> */}
-          </NavigationContainer>
-        </SafeAreaProvider>
-      </ThemeProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <SafeAreaProvider>
+            <NavigationContainer>
+              <StatusBar style="auto" />
+              <AuthNavigator />
+            </NavigationContainer>
+          </SafeAreaProvider>
+        </ThemeProvider>
+      </AuthProvider>
     </>
   );
 }

@@ -10,7 +10,7 @@ import { z } from "zod";
 import {
   MobileNumberFormData,
   mobileSchema,
-} from "../../schemas/mobile-schema";
+} from "../../schemas/mobileNumber-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SendOtpPayload } from "../../config/type/api-type/otp-type";
 import { sendOtp } from "../../api/otpService";

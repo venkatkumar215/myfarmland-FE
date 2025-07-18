@@ -4,12 +4,13 @@ import MyfarmInput from "../common/input/myfarm-input";
 import MyfarmButton from "../common/button/myfarm-button";
 import CONSTANTS from "../../config/constants/common-constant";
 import MyFarmText from "../common/text/myfarm-text";
-import { OtpFormData, otpSchema } from "../../schemas/mobile-schema";
+import { OtpFormData, otpSchema } from "../../schemas/mobileNumber-schema";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { verifyOtpApi } from "../../api/otpService";
-import { getToken, saveToken } from "../../utilis/tokenStorage/tokenStorage";
+import { getToken, saveToken } from "../../utilis/auth/tokenStorage";
+import { loginWithCustomToken } from "../../utilis/auth/authHelper";
 
 type Props = {
   mobileNumber: string;
@@ -68,12 +69,10 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
       };
       // Call your API to verify the OTP
       const result = await verifyOtpApi(payload);
-      console.log("result", result);
+      
       if (result.success) {
         if (result.token) {
-          console.log(result.userId);
-          saveToken(result.token);
-
+          loginWithCustomToken(result.token);
         } else {
           console.error("Token is missing in the response.");
         }
