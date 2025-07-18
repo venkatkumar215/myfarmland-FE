@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import MyFarmText from "../common/text/myfarm-text";
 import CONSTANTS from "../../config/constants/common-constant";
@@ -15,16 +15,64 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SendOtpPayload } from "../../config/type/api-type/otp-type";
 import { sendOtp } from "../../api/otpService";
 import { handleApiError } from "../../utilis/api-errorHandler/errorHandler";
+import { useTheme } from "../../context/theme/themeContext";
+import { ThemeType } from "../../config/type/ui-type/theme-type";
 
 type Props = {
   setVerifyOTPFlag: React.Dispatch<React.SetStateAction<boolean>>;
   setVerifyMobileNumber: React.Dispatch<React.SetStateAction<string>>;
 };
 
+/**
+ *
+ * SendOtpComponent is a component that allows users to enter their mobile number and request an OTP.
+ *
+ * @param {ThemeType} theme
+ * @returns {*}
+ */
+const createStyle = (theme: ThemeType) =>
+  StyleSheet.create({
+    container: {
+      display: "flex",
+      justifyContent: "flex-start",
+      alignItems: "center",
+      flex: 2,
+    },
+    titleText: {
+      marginVertical: 5,
+    },
+    textCenter: {
+      textAlign: "center",
+    },
+    mobileText: {
+      marginVertical: 20,
+    },
+    mobileNumberContainer: {
+      display: "flex",
+      flexDirection: "row",
+      textAlignVertical: "center",
+      width: "75%",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    buttonContainer: {
+      marginVertical: 10,
+    },
+    termsContainer: {
+      display: "flex",
+      flexDirection: "row",
+
+      marginVertical: 10,
+    },
+  });
+
 const SendOtpComponent: React.FC<Props> = ({
   setVerifyOTPFlag,
   setVerifyMobileNumber,
 }) => {
+  const theme = useTheme();
+  const styles = useMemo(() => createStyle(theme), [theme]);
+
   const {
     control,
     handleSubmit,
@@ -120,40 +168,5 @@ const SendOtpComponent: React.FC<Props> = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    flex: 2,
-  },
-  titleText: {
-    marginVertical: 5,
-  },
-  textCenter: {
-    textAlign: "center",
-  },
-  mobileText: {
-    marginVertical: 20,
-  },
-  mobileNumberContainer: {
-    display: "flex",
-    flexDirection: "row",
-    textAlignVertical: "center",
-    width: "75%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonContainer: {
-    marginVertical: 10,
-  },
-  termsContainer: {
-    display: "flex",
-    flexDirection: "row",
-
-    marginVertical: 10,
-  },
-});
 
 export default SendOtpComponent;

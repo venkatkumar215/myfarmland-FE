@@ -9,6 +9,14 @@ import {
 import { ThemeType } from "../../../config/type/ui-type/theme-type";
 import { useTheme } from "../../../context/theme/themeContext";
 
+/**
+ *
+ * MyFarmText is a custom text component that applies theme-based styles.
+ *
+ * @interface Props
+ * @typedef {Props}
+ * @extends {TextProps}
+ */
 interface Props extends TextProps {
   style?: StyleProp<TextStyle>;
   children: React.ReactNode;
@@ -16,6 +24,30 @@ interface Props extends TextProps {
   fontSize?: keyof ThemeType["fonts"]["fontSize"];
   color?: keyof ThemeType["colors"]["text"];
 }
+
+/**
+ * * createStyles generates styles for the MyFarmText component based on the theme, font size, boldness, and color.
+ *
+ * @param {ThemeType} theme
+ * @param {keyof ThemeType["fonts"]["fontSize"]} fontSize
+ * @param {boolean} bold
+ * @param {keyof ThemeType["colors"]["text"]} color
+ * @returns {*}
+ */
+const createStyles = (
+  theme: ThemeType,
+  fontSize: keyof ThemeType["fonts"]["fontSize"],
+  bold: boolean,
+  color: keyof ThemeType["colors"]["text"]
+) =>
+  StyleSheet.create({
+    text: {
+      fontWeight: bold ? "bold" : "normal",
+      fontSize: theme.fonts.fontSize[fontSize] || theme.fonts.fontSize.md,
+      color: theme.colors.text[color] || theme.colors.text.primary,
+      fontFamily: theme.fonts.fontFamily,
+    },
+  });
 
 const MyFarmText: React.FC<Props> = ({
   children,
@@ -38,20 +70,5 @@ const MyFarmText: React.FC<Props> = ({
     </Text>
   );
 };
-
-const createStyles = (
-  theme: ThemeType,
-  fontSize: keyof ThemeType["fonts"]["fontSize"],
-  bold: boolean,
-  color: keyof ThemeType["colors"]["text"]
-) =>
-  StyleSheet.create({
-    text: {
-      fontWeight: bold ? "bold" : "normal",
-      fontSize: theme.fonts.fontSize[fontSize] || theme.fonts.fontSize.md,
-      color: theme.colors.text[color] || theme.colors.text.primary,
-      fontFamily: theme.fonts.fontFamily,
-    },
-  });
 
 export default MyFarmText;

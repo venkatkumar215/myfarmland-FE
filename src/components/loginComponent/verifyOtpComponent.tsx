@@ -5,20 +5,55 @@ import MyfarmButton from "../common/button/myfarm-button";
 import CONSTANTS from "../../config/constants/common-constant";
 import MyFarmText from "../common/text/myfarm-text";
 import { OtpFormData, otpSchema } from "../../schemas/mobileNumber-schema";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { verifyOtpApi } from "../../api/otpService";
-import { getToken, saveToken } from "../../utilis/auth/tokenStorage";
 import { loginWithCustomToken } from "../../utilis/auth/authHelper";
 
 type Props = {
   mobileNumber: string;
 };
 
-const OTP_LENGTH = 6;
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    flex: 2,
+  },
+  titleText: {
+    marginVertical: 5,
+  },
+  textCenter: {
+    textAlign: "center",
+  },
+  otpContainer: {
+    marginVertical: 10,
+    display: "flex",
+    flexDirection: "row",
+  },
+  otpInput: {
+    width: 40,
+    height: 50,
+    borderWidth: 1,
+  },
+  verifyOTPInput: {
+    marginRight: 10,
+    marginLeft: 10,
+  },
+  resendOtpText: {
+    marginVertical: 10,
+  },
+  buttonContainer: {
+    marginVertical: 10,
+  },
+  termsContainer: {
+    marginVertical: 10,
+  },
+});
 
 const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
+  const OTP_LENGTH = 6; // Assuming OTP length is 6
   const inputsRef = useRef<Array<any>>([]);
   const [otp, setOtp] = useState<string[]>(Array(OTP_LENGTH).fill(""));
 
@@ -69,7 +104,7 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
       };
       // Call your API to verify the OTP
       const result = await verifyOtpApi(payload);
-      
+
       if (result.success) {
         if (result.token) {
           loginWithCustomToken(result.token);
@@ -148,43 +183,5 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    flex: 2,
-  },
-  titleText: {
-    marginVertical: 5,
-  },
-  textCenter: {
-    textAlign: "center",
-  },
-  otpContainer: {
-    marginVertical: 10,
-    display: "flex",
-    flexDirection: "row",
-  },
-  otpInput: {
-    width: 40,
-    height: 50,
-    borderWidth: 1,
-  },
-  verifyOTPInput: {
-    marginRight: 10,
-    marginLeft: 10,
-  },
-  resendOtpText: {
-    marginVertical: 10,
-  },
-  buttonContainer: {
-    marginVertical: 10,
-  },
-  termsContainer: {
-    marginVertical: 10,
-  },
-});
 
 export default VerifyOtpComponent;

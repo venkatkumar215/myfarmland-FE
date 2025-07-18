@@ -1,16 +1,21 @@
-import React from "react";
+import React, { use, useMemo } from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
 import { home_action_list } from "../../config/constants/home-constant";
 import { useTheme } from "../../context/theme/themeContext";
 import MyFarmText from "../common/text/myfarm-text";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { ThemeType } from "../../config/type/ui-type/theme-type";
 
 type Props = {};
 
-const HomeActionList: React.FC<Props> = () => {
-  const theme = useTheme();
-
-  const styles = StyleSheet.create({
+/**
+ * HomeActionList is a component that displays a list of actions available on the home screen.
+ *
+ * @param {ThemeType} theme
+ * @returns {*}
+ */
+const createStyle = (theme: ThemeType) =>
+  StyleSheet.create({
     container: {
       display: "flex",
       flexDirection: "column",
@@ -45,6 +50,11 @@ const HomeActionList: React.FC<Props> = () => {
       paddingRight: 15,
     },
   });
+
+const HomeActionList: React.FC<Props> = () => {
+  const theme = useTheme();
+
+  const styles = useMemo(() => createStyle(theme), [theme]);
 
   const imageMap = {
     animal: require("../../../assets/images/cow.png"),

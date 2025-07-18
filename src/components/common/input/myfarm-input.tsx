@@ -10,6 +10,19 @@ import {
 import { ThemeType } from "../../../config/type/ui-type/theme-type";
 import { useTheme } from "../../../context/theme/themeContext";
 
+// Define the props for the MyfarmInput component
+// It extends the TextInput props and adds custom properties for styling and error handling
+type Props = React.ComponentProps<typeof TextInput> & {
+  children?: React.ReactNode;
+  fontSize?: keyof ThemeType["fonts"]["fontSize"];
+  errorMessage?: string;
+  errorFlag?: boolean;
+  style?: StyleProp<TextStyle>;
+  bottomBorder?: boolean;
+};
+
+// Create styles for the MyfarmInput component
+// This function generates styles based on the current theme and other properties
 const styles = (
   theme: ThemeType,
   fontSize: keyof ThemeType["fonts"]["fontSize"],
@@ -41,15 +54,6 @@ const styles = (
       marginBottom: 5,
     },
   });
-
-type Props = React.ComponentProps<typeof TextInput> & {
-  children?: React.ReactNode;
-  fontSize?: keyof ThemeType["fonts"]["fontSize"];
-  errorMessage?: string;
-  errorFlag?: boolean;
-  style?: StyleProp<TextStyle>;
-  bottomBorder?: boolean;
-};
 
 const MyfarmInput = forwardRef<TextInput, Props>(
   (

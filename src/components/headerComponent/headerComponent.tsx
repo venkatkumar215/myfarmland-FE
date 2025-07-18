@@ -7,6 +7,13 @@ import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 import CONSTANTS from "../../config/constants/common-constant";
 import { ThemeType } from "../../config/type/ui-type/theme-type";
 
+/**
+ *
+ * HeaderComponent is a reusable header component that displays a title, optional icons, and handles actions.
+ *
+ * @interface HeaderComponentProps
+ * @typedef {HeaderComponentProps}
+ */
 interface HeaderComponentProps {
   title?: string;
   showNotification?: boolean;
@@ -14,6 +21,36 @@ interface HeaderComponentProps {
   rightIcon?: React.ReactNode;
   onRightIconPress?: () => void;
 }
+
+/**
+ *
+ * createStyle generates styles for the HeaderComponent based on the current theme.
+ *
+ * @param {ThemeType} theme
+ * @returns {*}
+ */
+const createStyle = (theme: ThemeType) =>
+  StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      height: 65,
+      alignItems: "center",
+      backgroundColor: theme.colors.icon.active,
+      paddingHorizontal: 10,
+    },
+    headerLogo: {
+      flexDirection: "row",
+      alignItems: "center",
+      flex: 1,
+    },
+    headerIcon: {
+      marginRight: 10,
+    },
+    headerActionIcon: {
+      alignItems: "flex-end",
+      justifyContent: "center",
+    },
+  });
 
 const HeaderComponent: React.FC<HeaderComponentProps> = ({
   title = CONSTANTS.HEADER_TITLE.MY_FARM_LAND,
@@ -62,28 +99,5 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
     </SafeAreaView>
   );
 };
-
-const createStyle = (theme: ThemeType) =>
-  StyleSheet.create({
-    container: {
-      flexDirection: "row",
-      height: 65,
-      alignItems: "center",
-      backgroundColor: theme.colors.icon.active,
-      paddingHorizontal: 10,
-    },
-    headerLogo: {
-      flexDirection: "row",
-      alignItems: "center",
-      flex: 1,
-    },
-    headerIcon: {
-      marginRight: 10,
-    },
-    headerActionIcon: {
-      alignItems: "flex-end",
-      justifyContent: "center",
-    },
-  });
 
 export default HeaderComponent;

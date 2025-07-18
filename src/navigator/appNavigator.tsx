@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, View } from "react-native";
 import HeaderComponent from "../components/headerComponent/headerComponent";
 import { useTheme } from "../context/theme/themeContext";
-import { ThemeType } from "../config/type/ui-type/theme-type";
 import tabList from "../config/constants/navigator-constant";
 
 type RootTabParamList = {

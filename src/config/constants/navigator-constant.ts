@@ -1,7 +1,7 @@
 // Define the type for the tab list
 
-import { FontAwesome5, FontAwesome6 } from "@expo/vector-icons";
-import TabList from "../type/ui-type/navigator-type ";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { TabList } from "../type/ui-type/navigator-type ";
 import { SettingScreen } from "../../screens/setting/settingScreen";
 import { CropScreen } from "../../screens/crops/cropScreen";
 import { HomeScreen } from "../../screens/home/homeScreen";
