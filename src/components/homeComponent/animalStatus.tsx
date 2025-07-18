@@ -10,8 +10,6 @@ type Props = {};
 // This component displays the status of animals on the farm
 // It uses the animal_list constant to get the list of animals and their details
 
-const theme = useTheme();
-
 /**
  *
  * This function creates styles for the AnimalStatus component based on the current theme.

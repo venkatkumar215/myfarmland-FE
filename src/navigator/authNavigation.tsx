@@ -3,6 +3,7 @@ import { AuthContext } from "../context/auth/authContext";
 import AppNavigator from "./appNavigator";
 import LogIn from "../screens/logIn/logIn.screen";
 import { LoadingSpinner } from "../components/common/spinner/loadingSpinner";
+import { Text, View } from "react-native";
 
 const AuthNavigator = () => {
   const { isAuthenticated, loading } = useContext(AuthContext);
@@ -11,7 +12,7 @@ const AuthNavigator = () => {
     return <LoadingSpinner visible={loading} />;
   }
 
-  return isAuthenticated ? <AppNavigator /> : <LogIn />;
+  return isAuthenticated ? <LogIn /> : <AppNavigator />;
 };
 
 export default AuthNavigator;
