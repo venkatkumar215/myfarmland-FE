@@ -39,6 +39,7 @@ export const logoutFireBase = async () => {
  */
 export const getToken = async (): Promise<string | null> => {
   const user = auth.currentUser;
+  console.log("user", user);
   if (!user) return null;
   return await user.getIdToken(); // auto-refreshes if needed
 };

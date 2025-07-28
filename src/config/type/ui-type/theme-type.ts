@@ -1,4 +1,4 @@
-export interface FontSizeType {
+export interface IFontSizeType {
   xs: number;
   sm: number;
   md: number;
@@ -7,7 +7,7 @@ export interface FontSizeType {
   xxl: number;
   xxxl: number;
 }
-export interface ThemeType {
+export interface IThemeType {
   dark: boolean;
   colors: {
     background: {
@@ -39,9 +39,10 @@ export interface ThemeType {
     error: {
       primary: string;
     };
+    border: { primary: string };
   };
   fonts: {
-    fontSize: FontSizeType;
+    fontSize: IFontSizeType;
     fontFamily: string;
   };
 }

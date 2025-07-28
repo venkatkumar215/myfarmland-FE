@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
 import { useTheme } from "../../context/theme/themeContext";
-import { ThemeType } from "../../config/type/ui-type/theme-type";
+import { IThemeType } from "../../config/type/ui-type/theme-type";
 import { SafeAreaView } from "react-native-safe-area-context";
-import VerifyOtpComponent from "../../components/loginComponent/verifyOtpComponent";
-import SendOtpComponent from "../../components/loginComponent/sendOtpComponent";
+import VerifyOtpComponent from "../../components/login/verifyOtp";
+import SendOtpComponent from "../../components/login/sendOtp";
 
 type Props = {};
 
@@ -32,14 +32,16 @@ const LogIn: React.FC<Props> = () => {
 
       {verifyOTPFlag && (
         <View style={styles.actionContainer}>
-          <VerifyOtpComponent mobileNumber={verifyMobileNumber}></VerifyOtpComponent>
+          <VerifyOtpComponent
+            mobileNumber={verifyMobileNumber}
+          ></VerifyOtpComponent>
         </View>
       )}
     </SafeAreaView>
   );
 };
 
-const createStyle = (theme: ThemeType) =>
+const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     container: {
       display: "flex",

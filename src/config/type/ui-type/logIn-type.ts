@@ -1,4 +1,4 @@
-export interface CountryFlagType {
+export interface ICountryFlagType {
   code: string;
   name: string;
 }

@@ -4,17 +4,17 @@ import { home_action_list } from "../../config/constants/home-constant";
 import { useTheme } from "../../context/theme/themeContext";
 import MyFarmText from "../common/text/myfarm-text";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { ThemeType } from "../../config/type/ui-type/theme-type";
+import { IThemeType } from "../../config/type/ui-type/theme-type";
 
 type Props = {};
 
 /**
  * HomeActionList is a component that displays a list of actions available on the home screen.
  *
- * @param {ThemeType} theme
+ * @param {IThemeType} theme
  * @returns {*}
  */
-const createStyle = (theme: ThemeType) =>
+const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     container: {
       display: "flex",

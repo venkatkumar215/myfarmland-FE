@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import MyFarmText from "../../components/common/text/myfarm-text";
-import AnimalStatus from "../../components/homeComponent/animalStatus";
-import HomeActionList from "../../components/homeComponent/homeActionList";
+import AnimalStatus from "../../components/home/animalStatus";
+import HomeActionList from "../../components/home/homeActionList";
 import CONSTANTS from "../../config/constants/common-constant";
 
 type Props = {};

@@ -1,8 +1,8 @@
 // theme.ts
 
-import { FontSizeType, ThemeType } from "../config/type/ui-type/theme-type";
+import { IFontSizeType, IThemeType } from "../config/type/ui-type/theme-type";
 
-export const fontSize: FontSizeType = {
+export const fontSize: IFontSizeType = {
   xs: 8,
   sm: 10,
   md: 12,
@@ -13,7 +13,7 @@ export const fontSize: FontSizeType = {
 };
 
 // This file defines the light and dark themes for the application.
-export const lightTheme: ThemeType = {
+export const lightTheme: IThemeType = {
   dark: false,
   colors: {
     // Define the colors used in the light theme
@@ -46,6 +46,9 @@ export const lightTheme: ThemeType = {
     error: {
       primary: "#FF0000",
     },
+    border: {
+      primary: "#b5b5b1",
+    },
   },
   // Define the font sizes,family used in the theme
   fonts: {
@@ -54,7 +57,7 @@ export const lightTheme: ThemeType = {
   },
 };
 
-export const darkTheme: ThemeType = {
+export const darkTheme: IThemeType = {
   dark: true,
   colors: {
     background: {
@@ -85,6 +88,9 @@ export const darkTheme: ThemeType = {
     },
     error: {
       primary: "#FF0000",
+    },
+    border: {
+      primary: "#eae9e8",
     },
   },
   // Define the font sizes used in the theme

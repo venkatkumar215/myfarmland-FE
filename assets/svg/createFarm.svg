@@ -1,0 +1,40 @@
+<svg width="160" height="140" viewBox="0 0 160 140" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="160" height="140" rx="20" fill="#EAF3E3"/>
+
+  <!-- Sun -->
+  <circle cx="30" cy="25" r="10" fill="#FFD54F"/>
+
+  <!-- Grass -->
+  <path d="M0 120 Q20 110, 40 120 T80 120 T120 120 Q140 110, 160 120 V140 H0 Z" fill="#A3B18A"/>
+
+  <!-- Barn -->
+  <rect x="40" y="65" width="45" height="35" fill="#A3B18A"/>
+  <polygon points="40,65 62.5,45 85,65" fill="#6F8C52"/>
+  <rect x="60" y="78" width="10" height="22" fill="#4D4D4D" rx="2"/>
+
+  <!-- Tractor -->
+  <rect x="95" y="80" width="20" height="10" fill="#6F8C52"/>
+  <rect x="90" y="85" width="30" height="10" fill="#6F8C52"/>
+  <!-- Wheels -->
+  <circle cx="97" cy="98" r="6" fill="#4D4D4D"/>
+  <circle cx="115" cy="98" r="8" fill="#4D4D4D"/>
+  <!-- Driver -->
+  <circle cx="100" cy="78" r="3" fill="#4D4D4D"/>
+  <line x1="100" y1="81" x2="100" y2="85" stroke="#4D4D4D" stroke-width="2"/>
+
+  <!-- Animals -->
+  <!-- Cow -->
+  <circle cx="30" cy="105" r="6" fill="#A1887F"/>
+  <rect x="26" y="108" width="8" height="4" fill="#6F8C52"/>
+  <circle cx="28" cy="102" r="2" fill="#4D4D4D"/>
+
+  <!-- Goat -->
+  <circle cx="45" cy="108" r="4.5" fill="#BDB76B"/>
+  <circle cx="44" cy="106" r="1.5" fill="#4D4D4D"/>
+  <line x1="43" y1="103" x2="44" y2="106" stroke="#4D4D4D" stroke-width="1"/>
+
+  <!-- Chicken -->
+  <circle cx="60" cy="112" r="3.5" fill="#DDA15E"/>
+  <circle cx="59" cy="110" r="1" fill="#4D4D4D"/>
+</svg>

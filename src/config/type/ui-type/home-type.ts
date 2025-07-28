@@ -1,4 +1,4 @@
-export interface AnimalType {
+export interface IAnimalType {
   name: string;
   iconName: string;
   iconLibrary: any;
@@ -6,7 +6,7 @@ export interface AnimalType {
   size: number;
 }
 
-export interface HomeActionType {
+export interface IHomeActionType {
   name: string;
   imgKey: "animal" | "task" | "feed" | "crop";
 }

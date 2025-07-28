@@ -6,7 +6,7 @@ import {
   StyleProp,
   TextStyle,
 } from "react-native";
-import { ThemeType } from "../../../config/type/ui-type/theme-type";
+import { IThemeType } from "../../../config/type/ui-type/theme-type";
 import { useTheme } from "../../../context/theme/themeContext";
 
 /**
@@ -21,24 +21,24 @@ interface Props extends TextProps {
   style?: StyleProp<TextStyle>;
   children: React.ReactNode;
   bold?: boolean;
-  fontSize?: keyof ThemeType["fonts"]["fontSize"];
-  color?: keyof ThemeType["colors"]["text"];
+  fontSize?: keyof IThemeType["fonts"]["fontSize"];
+  color?: keyof IThemeType["colors"]["text"];
 }
 
 /**
  * * createStyles generates styles for the MyFarmText component based on the theme, font size, boldness, and color.
  *
- * @param {ThemeType} theme
- * @param {keyof ThemeType["fonts"]["fontSize"]} fontSize
+ * @param {IThemeType} theme
+ * @param {keyof IThemeType["fonts"]["fontSize"]} fontSize
  * @param {boolean} bold
- * @param {keyof ThemeType["colors"]["text"]} color
+ * @param {keyof IThemeType["colors"]["text"]} color
  * @returns {*}
  */
 const createStyles = (
-  theme: ThemeType,
-  fontSize: keyof ThemeType["fonts"]["fontSize"],
+  theme: IThemeType,
+  fontSize: keyof IThemeType["fonts"]["fontSize"],
   bold: boolean,
-  color: keyof ThemeType["colors"]["text"]
+  color: keyof IThemeType["colors"]["text"]
 ) =>
   StyleSheet.create({
     text: {

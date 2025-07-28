@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect } from "react";
-import { AuthContextType } from "../../config/type/ui-type/auth-type";
+import { IAuthContextType } from "../../config/type/ui-type/auth-type";
 import { getToken } from "../../utilis/auth/authHelper";
 
 // Define the shape of the authentication context
-export const AuthContext = createContext<AuthContextType>({
+export const AuthContext = createContext<IAuthContextType>({
   isAuthenticated: false,
   loading: false,
   setIsAuthenticated: () => {},

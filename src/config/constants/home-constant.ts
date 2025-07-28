@@ -6,9 +6,9 @@ import {
 } from "@expo/vector-icons";
 
 import CONSTANTS from "./common-constant";
-import { AnimalType, HomeActionType } from "../type/ui-type/home-type";
+import { IAnimalType, IHomeActionType } from "../type/ui-type/home-type";
 
-export const animal_list: AnimalType[] = [
+export const animal_list: IAnimalType[] = [
   {
     name: CONSTANTS.ANIMAL_LIST.COW,
     iconName: "cow",
@@ -39,7 +39,7 @@ export const animal_list: AnimalType[] = [
   },
 ];
 
-export const home_action_list: HomeActionType[] = [
+export const home_action_list: IHomeActionType[] = [
   {
     name: CONSTANTS.HOME_ACTION_LIST.ANIMAL_MANAGEMENT,
     imgKey: "animal",

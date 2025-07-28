@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { StyleSheet, View } from "react-native";
 import { animal_list } from "../../config/constants/home-constant";
-import { AnimalType } from "../../config/type/ui-type/home-type";
+import { IAnimalType } from "../../config/type/ui-type/home-type";
 import MyFarmText from "../common/text/myfarm-text";
 import { useTheme } from "../../context/theme/themeContext";
-import { ThemeType } from "../../config/type/ui-type/theme-type";
+import { IThemeType } from "../../config/type/ui-type/theme-type";
 
 type Props = {};
 // This component displays the status of animals on the farm
@@ -14,9 +14,9 @@ type Props = {};
  *
  * This function creates styles for the AnimalStatus component based on the current theme.
  *
- * @param {ThemeType} theme
+ * @param {IThemeType} theme
  */
-const createStyle = (theme: ThemeType) =>
+const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     animalDetail: {
       display: "flex",
@@ -40,7 +40,7 @@ const AnimalStatus: React.FC<Props> = () => {
 
   const styles = useMemo(() => createStyle(theme), [theme]);
   // This function returns the font icon for the animal
-  const getFontIcon = (animalList: AnimalType) => {
+  const getFontIcon = (animalList: IAnimalType) => {
     return React.createElement(animalList.iconLibrary, {
       name: animalList.iconName,
       size: animalList.size,

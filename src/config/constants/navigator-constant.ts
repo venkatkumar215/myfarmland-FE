@@ -1,7 +1,7 @@
 // Define the type for the tab list
 
 import { FontAwesome5 } from "@expo/vector-icons";
-import { TabList } from "../type/ui-type/navigator-type ";
+import { ITabList } from "../type/ui-type/navigator-type ";
 import { SettingScreen } from "../../screens/setting/settingScreen";
 import { CropScreen } from "../../screens/crops/cropScreen";
 import { HomeScreen } from "../../screens/home/homeScreen";
@@ -9,7 +9,7 @@ import { TaskScreen } from "../../screens/task/taskScreen";
 import CONSTANTS from "./common-constant";
 
 // This is a list of tabs with their names, icons, and components
-const tabList: TabList[] = [
+const tabList: ITabList[] = [
   {
     name: CONSTANTS.TAB_LIST.HOME,
     iconName: "home",

@@ -1,15 +1,15 @@
 import {
-  SendOtpPayload,
-  SendOtpResponse,
-  VerifyOtpPayload,
-  VerifyOtpResponse,
+  ISendOtpPayload,
+  ISendOtpResponse,
+  IVerifyOtpPayload,
+  IVerifyOtpResponse,
 } from "../config/type/api-type/otp-type";
 import apiClient from "./apiClient";
 
 export async function sendOtp(
-  payload: SendOtpPayload
-): Promise<SendOtpResponse> {
-  const response = await apiClient.post<SendOtpResponse>(
+  payload: ISendOtpPayload
+): Promise<ISendOtpResponse> {
+  const response = await apiClient.post<ISendOtpResponse>(
     "/api/auth/request-otp",
     payload
   );
@@ -17,9 +17,9 @@ export async function sendOtp(
 }
 
 export async function verifyOtpApi(
-  payload: VerifyOtpPayload
-): Promise<VerifyOtpResponse> {
-  const response = await apiClient.post<VerifyOtpResponse>(
+  payload: IVerifyOtpPayload
+): Promise<IVerifyOtpResponse> {
+  const response = await apiClient.post<IVerifyOtpResponse>(
     "/api/auth/verify-otp",
     payload
   );

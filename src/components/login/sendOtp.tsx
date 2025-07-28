@@ -12,11 +12,11 @@ import {
   mobileSchema,
 } from "../../schemas/mobileNumber-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { SendOtpPayload } from "../../config/type/api-type/otp-type";
+import { ISendOtpPayload } from "../../config/type/api-type/otp-type";
 import { sendOtp } from "../../api/otpService";
 import { handleApiError } from "../../utilis/api-errorHandler/errorHandler";
 import { useTheme } from "../../context/theme/themeContext";
-import { ThemeType } from "../../config/type/ui-type/theme-type";
+import { IThemeType } from "../../config/type/ui-type/theme-type";
 
 type Props = {
   setVerifyOTPFlag: React.Dispatch<React.SetStateAction<boolean>>;
@@ -27,10 +27,10 @@ type Props = {
  *
  * SendOtpComponent is a component that allows users to enter their mobile number and request an OTP.
  *
- * @param {ThemeType} theme
+ * @param {IThemeType} theme
  * @returns {*}
  */
-const createStyle = (theme: ThemeType) =>
+const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     container: {
       display: "flex",
@@ -100,7 +100,7 @@ const SendOtpComponent: React.FC<Props> = ({
    * @returns {*}
    */
   const sendOTP = async (mobile: string) => {
-    const payload: SendOtpPayload = {
+    const payload: ISendOtpPayload = {
       mobile: "+91" + mobile.trim(),
     };
 

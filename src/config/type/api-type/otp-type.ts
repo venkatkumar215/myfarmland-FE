@@ -1,18 +1,18 @@
-export interface SendOtpPayload {
+export interface ISendOtpPayload {
   mobile: string;
 }
 
-export interface SendOtpResponse {
+export interface ISendOtpResponse {
   success: boolean;
   message: string;
 }
 
-export interface VerifyOtpPayload {
+export interface IVerifyOtpPayload {
   mobile: string;
   otp: string;
 }
 
-export interface VerifyOtpResponse {
+export interface IVerifyOtpResponse {
   success: boolean;
   message: string;
   token?: string; // Optional JWT token if the OTP verification is successful

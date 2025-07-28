@@ -5,7 +5,7 @@ import MyFarmText from "../common/text/myfarm-text";
 import { useTheme } from "../../context/theme/themeContext";
 import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 import CONSTANTS from "../../config/constants/common-constant";
-import { ThemeType } from "../../config/type/ui-type/theme-type";
+import { IThemeType } from "../../config/type/ui-type/theme-type";
 
 /**
  *
@@ -26,10 +26,10 @@ interface HeaderComponentProps {
  *
  * createStyle generates styles for the HeaderComponent based on the current theme.
  *
- * @param {ThemeType} theme
+ * @param {IThemeType} theme
  * @returns {*}
  */
-const createStyle = (theme: ThemeType) =>
+const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     container: {
       flexDirection: "row",
@@ -52,7 +52,7 @@ const createStyle = (theme: ThemeType) =>
     },
   });
 
-const HeaderComponent: React.FC<HeaderComponentProps> = ({
+const Header: React.FC<HeaderComponentProps> = ({
   title = CONSTANTS.HEADER_TITLE.MY_FARM_LAND,
   showNotification = true,
   leftIcon,
@@ -100,4 +100,4 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({
   );
 };
 
-export default HeaderComponent;
+export default Header;

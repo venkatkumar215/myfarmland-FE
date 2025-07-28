@@ -5,14 +5,14 @@ import {
   StyleSheet,
   GestureResponderEvent,
 } from "react-native";
-import { ThemeType } from "../../../config/type/ui-type/theme-type";
+import { IThemeType } from "../../../config/type/ui-type/theme-type";
 import { useTheme } from "../../../context/theme/themeContext";
 
 interface ButtonProps {
   onPress?: (event: GestureResponderEvent) => void;
   title: string;
   disabled?: boolean;
-  fontSize?: keyof ThemeType["fonts"]["fontSize"];
+  fontSize?: keyof IThemeType["fonts"]["fontSize"];
   type?: "primary" | "secondary";
   bold?: boolean;
   // add more props as needed
@@ -45,8 +45,8 @@ const MyfarmButton: React.FC<ButtonProps> = ({
 };
 
 const createStyle = (
-  theme: ThemeType,
-  fontSize: keyof ThemeType["fonts"]["fontSize"] = "lg",
+  theme: IThemeType,
+  fontSize: keyof IThemeType["fonts"]["fontSize"] = "lg",
   type: ButtonProps["type"] = "primary",
   bold: boolean = false
 ) =>
