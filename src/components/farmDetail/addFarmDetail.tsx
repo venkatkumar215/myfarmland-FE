@@ -6,9 +6,10 @@ import MyFarmStepper from "../common/stepper/myFarmLand-stepper";
 interface Props {}
 
 const AddFarmDetails: React.FC<Props> = () => {
+  
   return (
     <View>
-      <MyFarmStepper title="Farm Setup"></MyFarmStepper>
+      <MyFarmStepper title="Farm Setup" noOfSteps={5}></MyFarmStepper>
     </View>
   );
 };

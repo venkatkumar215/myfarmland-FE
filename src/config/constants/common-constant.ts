@@ -38,5 +38,7 @@ const CONSTANTS = {
     DONT_RECEIVE_OTP: "Don't receive the OTP?",
     RESEND: "Resend",
   },
+  PREVIOUS: "Previous",
+  NEXT: "Next",
 };
 export default CONSTANTS;
