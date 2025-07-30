@@ -5,47 +5,57 @@ import { IThemeType } from "../../../config/type/ui-type";
 import { useTheme } from "../../../context/theme/themeContext";
 import MyfarmButton from "../button/myfarm-button";
 import { globalStyle } from "../../../styles/globalStyle";
+import CONSTANTS from "../../../config/constants/common-constant";
 
 interface Props {
   children?: ReactNode;
   noOfSteps?: number;
   title: string;
+  activeStep: number;
+  info?: string;
+  onPressNext?: (currentStep: number) => void;
+  onPressPrevious?: (currentStep: number) => void;
 }
 
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     container: {
       width: "100%",
+      height: "100%",
     },
     stepContainer: {
       backgroundColor: "green",
       padding: 20,
+      flex: 1,
+      minHeight: 10,
+      maxHeight: 100,
     },
     stepInfoContainer: {
       alignItems: "center",
       justifyContent: "space-between",
     },
     stepTitle: {
-      flexGrow: 1,
+      flex: 1,
     },
     stepInfo: {
-      flexGrow: 1,
+      flex: 1,
       alignItems: "flex-end",
     },
     stepActionContainer: {
       padding: 20,
     },
     previousButton: {
-      flexGrow: 1,
+      flex: 1,
       paddingRight: 10,
     },
     nextButton: {
-      flexGrow: 1,
+      flex: 1,
     },
     childrenContainer: {
-      flexGrow: 1,
+      flex: 1,
     },
     stepMarkContainer: {
+      flex: 1,
       justifyContent: "space-evenly",
       alignItems: "center",
       gap: 5,
@@ -53,7 +63,7 @@ const createStyle = (theme: IThemeType) =>
       paddingBottom: 10,
     },
     stepMark: {
-      flexGrow: 1,
+      flex: 1,
       minHeight: 5,
       borderRadius: 5,
     },
@@ -64,22 +74,24 @@ const createStyle = (theme: IThemeType) =>
       backgroundColor: "black",
     },
   });
-const MyFarmStepper: React.FC<Props> = ({ children, noOfSteps, title }) => {
+
+const MyFarmStepper: React.FC<Props> = ({ ...props }) => {
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
-  // This state can be used to track the total number of steps in the process
-  const [totalSteps, setTotalSteps] = React.useState<number>(noOfSteps || 3);
   // This state can be used to track the current step in the process
-  const [currentStep, setCurrentStep] = React.useState<number>(0);
-
-  const [totalStepsArray, setTotalStepsArray] = React.useState<Array<number>>(
-    []
+  const [currentStep, setCurrentStep] = React.useState<number>(
+    props.activeStep ?? 0
   );
+  // This state can be used to track the total number of steps in the process
+  const totalSteps = props.noOfSteps ?? 3;
+
+  const totalStepsArray = useMemo(() => {
+    return Array.from({ length: totalSteps }, (_, i) => i);
+  }, [totalSteps]);
 
   useEffect(() => {
-    const arr = Array.from({ length: totalSteps }, (_, i) => i);
-    setTotalStepsArray(arr);
-  }, [totalSteps]);
+    setCurrentStep(props.activeStep ?? 0);
+  }, [props.activeStep]);
 
   return (
     <View style={[styles.container, globalStyle.column]}>
@@ -87,17 +99,17 @@ const MyFarmStepper: React.FC<Props> = ({ children, noOfSteps, title }) => {
         <View style={[globalStyle.row, styles.stepInfoContainer]}>
           <View style={styles.stepTitle}>
             <MyFarmText fontSize="xxl" bold color="secondary">
-              {title}
+              {props.title}
             </MyFarmText>
           </View>
           <View style={styles.stepInfo}>
             <MyFarmText fontSize="xxl" bold color="secondary">
-              Step 1 of {totalSteps}
+              {CONSTANTS.STEP_of_1} {totalSteps}
             </MyFarmText>
           </View>
         </View>
         <View style={[globalStyle.row, styles.stepMarkContainer]}>
-          {totalStepsArray?.map((steps, index) => (
+          {totalStepsArray?.map((_, index) => (
             <View
               key={index}
               style={[
@@ -107,28 +119,40 @@ const MyFarmStepper: React.FC<Props> = ({ children, noOfSteps, title }) => {
             ></View>
           ))}
         </View>
-        <View></View>
+        <View>
+          <MyFarmText fontSize="lg" color="secondary">
+            {props.info}
+          </MyFarmText>
+        </View>
       </View>
-      <View style={styles.childrenContainer}>{children}</View>
+      <View style={styles.childrenContainer}>{props.children}</View>
       <View style={[globalStyle.row, styles.stepActionContainer]}>
         <View style={styles.previousButton}>
           <MyfarmButton
-            title="Previous"
-            onPress={() =>
-              setCurrentStep(currentStep === 0 ? 0 : currentStep - 1)
-            }
+            title={CONSTANTS.PREVIOUS}
+            onPress={() => {
+              if (currentStep > 0) {
+                props.onPressPrevious?.(currentStep);
+                setCurrentStep(currentStep - 1);
+              }
+            }}
+            bold
+            fontSize="xl"
+            disabled={currentStep === 0}
           ></MyfarmButton>
         </View>
         <View style={styles.nextButton}>
           <MyfarmButton
-            title="Next"
-            onPress={() =>
-              setCurrentStep(
-                currentStep === totalSteps - 1
-                  ? totalSteps - 1
-                  : currentStep + 1
-              )
-            }
+            title={CONSTANTS.NEXT}
+            onPress={() => {
+              if (currentStep < totalSteps - 1) {
+                props.onPressNext?.(currentStep);
+                setCurrentStep(currentStep + 1);
+              }
+            }}
+            bold
+            fontSize="xl"
+            disabled={currentStep === totalSteps - 1}
           ></MyfarmButton>
         </View>
       </View>

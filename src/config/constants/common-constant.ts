@@ -40,5 +40,10 @@ const CONSTANTS = {
   },
   PREVIOUS: "Previous",
   NEXT: "Next",
+  FARM_SETUP: "Farm Setup",
+  BASIC_FARM_DETAIL: "Basic Information about your Farm",
+  FARM_SIZE_DETAIL: "Set up your farm size ans location",
+  ANIMAL_SIZE_DETAIL: "Choose the animal you raise ",
+  STEP_of_1:"Step 1 of"
 };
 export default CONSTANTS;
