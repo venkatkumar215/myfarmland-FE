@@ -7,11 +7,13 @@ import { LoadingSpinner } from "../components/common/spinner/loadingSpinner";
 const AuthNavigator = () => {
   const { isAuthenticated, loading } = useContext(AuthContext);
 
+  
+
   if (loading) {
     return <LoadingSpinner visible={loading} />;
   }
-
-  return isAuthenticated ? <LogIn /> : <AppNavigator />;
+  
+  return isAuthenticated ? <AppNavigator /> : <LogIn />;
 };
 
 export default AuthNavigator;

@@ -16,5 +16,5 @@ export interface IVerifyOtpResponse {
   success: boolean;
   message: string;
   token?: string; // Optional JWT token if the OTP verification is successful
-  userId?: string; // Optional user ID if the OTP verification is successful
+  userId: string; // Optional user ID if the OTP verification is successful
 }

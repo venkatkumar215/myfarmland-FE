@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { View, StyleSheet } from "react-native";
 import MyfarmInput from "../common/input/myfarm-input";
 import MyfarmButton from "../common/button/myfarm-button";
@@ -9,6 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { verifyOtpApi } from "../../api/otpService";
 import { loginWithCustomToken } from "../../utilis/auth/authHelper";
+import { AuthContext } from "../../context/auth/authContext";
 
 type Props = {
   mobileNumber: string;
@@ -57,6 +58,11 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
   const inputsRef = useRef<Array<any>>([]);
   const [otp, setOtp] = useState<string[]>(Array(OTP_LENGTH).fill(""));
 
+  const {  setUserToken } = useContext(AuthContext);
+  const {  setUserId } = useContext(AuthContext);
+  const { setIsAuthenticated } = useContext(AuthContext);
+
+
   const {
     control,
     handleSubmit,
@@ -104,10 +110,15 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
       };
       // Call your API to verify the OTP
       const result = await verifyOtpApi(payload);
-
+  
       if (result.success) {
+       
         if (result.token) {
-          loginWithCustomToken(result.token);
+          setIsAuthenticated(true)
+          setUserToken(result.token);
+          setUserId(result.userId);
+// commented temporaryly need to check firebase config
+          // loginWithCustomToken(result.token);
         } else {
           console.error("Token is missing in the response.");
         }

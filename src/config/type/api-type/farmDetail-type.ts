@@ -3,6 +3,7 @@ export interface IFarmDetailPayLoad {
 }
 
 export interface IFarmDetailResponse {
+  farmDetail: any;
   success: boolean;
   message: string;
 }
