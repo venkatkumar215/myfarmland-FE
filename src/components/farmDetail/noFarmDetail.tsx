@@ -1,10 +1,12 @@
 import React, { useMemo, useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import { useTheme } from "../../context/theme/themeContext";
 import { IThemeType } from "../../config/type/ui-type";
 import MyfarmButton from "../common/button/myfarm-button";
 import MyFarmText from "../common/text/myfarm-text";
 import AddFarmDetails from "./addFarmDetail";
+import { globalStyle } from "../../styles/globalStyle";
+import CONSTANTS from "../../config/constants/common-constant";
 interface Props {}
 
 const createStyle = (theme: IThemeType) =>
@@ -19,14 +21,18 @@ const createStyle = (theme: IThemeType) =>
       backgroundColor: theme.colors.background.primary,
     },
     containerBox: {
-      borderWidth: 2,
-      borderColor: theme.colors.border.primary,
-      borderRadius: 10,
       padding: 20,
       alignItems: "center",
       justifyContent: "space-around",
       minHeight: 200,
-      gap: 12,
+      gap: 15,
+    },
+    image: {
+      minHeight: 100,
+      minWidth: 100,
+      maxHeight: 200,
+      maxWidth: 200,
+      resizeMode: "cover",
     },
   });
 
@@ -43,18 +49,19 @@ const NoFarmDetailComponent: React.FC<Props> = () => {
         <View style={styles.noFarmDetailcontainer}>
           <View style={styles.containerBox}>
             <View>
-              <MyFarmText fontSize="xxxl" bold>
-                Icon
-              </MyFarmText>
+              <Image
+                source={require("../../../assets/images/Sunny-Barn-Field--Streamline-Ux.png")}
+                style={styles.image}
+              ></Image>
             </View>
             <View>
-              <MyFarmText bold fontSize="xl">
-                No Farm Details Found
+              <MyFarmText bold fontSize="xxxl">
+                {CONSTANTS.FARM_DETAIL.NO_FARM_DETAILS_FOUND}
               </MyFarmText>
             </View>
             <View>
               <MyFarmText>
-                It Looks like you haven't set up a farm yet
+                {CONSTANTS.FARM_DETAIL.FARM_SETUP_MESSAGE}
               </MyFarmText>
             </View>
             <View>
@@ -62,8 +69,9 @@ const NoFarmDetailComponent: React.FC<Props> = () => {
                 onPress={() => {
                   setCreateNewFarmDetail(true);
                 }}
-                title="Create Farm"
+                title={CONSTANTS.FARM_DETAIL.CREATE_FARM}
                 fontSize="xl"
+                bold
               ></MyfarmButton>
             </View>
           </View>

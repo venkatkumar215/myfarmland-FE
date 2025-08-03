@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import { useTheme } from "../../context/theme/themeContext";
 import { IThemeType } from "../../config/type/ui-type/theme-type";
 import { SafeAreaView } from "react-native-safe-area-context";

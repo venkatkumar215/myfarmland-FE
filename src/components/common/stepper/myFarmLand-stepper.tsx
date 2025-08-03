@@ -24,7 +24,7 @@ const createStyle = (theme: IThemeType) =>
       height: "100%",
     },
     stepContainer: {
-      backgroundColor: "green",
+      backgroundColor: theme.colors.btn.primary,
       padding: 20,
       flex: 1,
       minHeight: 10,

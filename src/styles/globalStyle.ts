@@ -16,4 +16,11 @@ export const globalStyle = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  width100: {
+    width: "100%",
+  },
+  flex1:{
+    flex:1
+  }
+  
 });

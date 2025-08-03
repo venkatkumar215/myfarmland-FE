@@ -44,6 +44,17 @@ const CONSTANTS = {
   BASIC_FARM_DETAIL: "Basic Information about your Farm",
   FARM_SIZE_DETAIL: "Set up your farm size ans location",
   ANIMAL_SIZE_DETAIL: "Choose the animal you raise ",
-  STEP_of_1:"Step 1 of"
+  STEP_of_1: "Step 1 of",
+  FARM_DETAIL: {
+    NO_FARM_DETAILS_FOUND: "No Farm Details Found",
+    FARM_SETUP_MESSAGE: "It Looks like you havenot set up a farm yet",
+    CREATE_FARM: "Create Farm",
+    WELCOME_TO_FARM_FLOW: "Welcome to Farmflow",
+    DIGITAL_FARM_MANAGEMENT: "Your Digital farm management companion",
+    FARM_DETAIL: " Farm Name :*",
+    FARM_LOCATION: "Farm Location :",
+    TOTAL_AREA: "Total Area: *",
+    UNIT: "Unit: *",
+  },
 };
 export default CONSTANTS;

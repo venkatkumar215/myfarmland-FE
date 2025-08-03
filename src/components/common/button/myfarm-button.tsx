@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { IThemeType } from "../../../config/type/ui-type/theme-type";
 import { useTheme } from "../../../context/theme/themeContext";
+import MyFarmText from "../text/myfarm-text";
 
 interface ButtonProps {
   onPress?: (event: GestureResponderEvent) => void;
@@ -39,7 +40,7 @@ const MyfarmButton: React.FC<ButtonProps> = ({
       activeOpacity={0.7}
       disabled={disabled}
     >
-      <Text style={styles.text}>{title}</Text>
+      <MyFarmText style={styles.text}>{title}</MyFarmText>
     </TouchableOpacity>
   );
 };
