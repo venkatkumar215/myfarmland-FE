@@ -75,23 +75,29 @@ const createStyle = (theme: IThemeType) =>
     },
   });
 
-const MyFarmStepper: React.FC<Props> = ({ ...props }) => {
+const MyFarmStepper: React.FC<Props> = ({
+  children,
+  noOfSteps,
+  title,
+  activeStep,
+  info,
+  onPressNext,
+  onPressPrevious,
+}) => {
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
   // This state can be used to track the current step in the process
-  const [currentStep, setCurrentStep] = React.useState<number>(
-    props.activeStep ?? 0
-  );
+  const [currentStep, setCurrentStep] = React.useState<number>(activeStep ?? 0);
   // This state can be used to track the total number of steps in the process
-  const totalSteps = props.noOfSteps ?? 3;
+  const totalSteps = noOfSteps ?? 3;
 
   const totalStepsArray = useMemo(() => {
     return Array.from({ length: totalSteps }, (_, i) => i);
   }, [totalSteps]);
 
   useEffect(() => {
-    setCurrentStep(props.activeStep ?? 0);
-  }, [props.activeStep]);
+    setCurrentStep(activeStep ?? 0);
+  }, [activeStep]);
 
   return (
     <View style={[styles.container, globalStyle.column]}>
@@ -99,7 +105,7 @@ const MyFarmStepper: React.FC<Props> = ({ ...props }) => {
         <View style={[globalStyle.row, styles.stepInfoContainer]}>
           <View style={styles.stepTitle}>
             <MyFarmText fontSize="xxl" bold color="secondary">
-              {props.title}
+              {title}
             </MyFarmText>
           </View>
           <View style={styles.stepInfo}>
@@ -121,18 +127,18 @@ const MyFarmStepper: React.FC<Props> = ({ ...props }) => {
         </View>
         <View>
           <MyFarmText fontSize="lg" color="secondary">
-            {props.info}
+            {info}
           </MyFarmText>
         </View>
       </View>
-      <View style={styles.childrenContainer}>{props.children}</View>
+      <View style={styles.childrenContainer}>{children}</View>
       <View style={[globalStyle.row, styles.stepActionContainer]}>
         <View style={styles.previousButton}>
           <MyfarmButton
             title={CONSTANTS.PREVIOUS}
             onPress={() => {
               if (currentStep > 0) {
-                props.onPressPrevious?.(currentStep);
+                onPressPrevious?.(currentStep);
                 setCurrentStep(currentStep - 1);
               }
             }}
@@ -146,7 +152,7 @@ const MyFarmStepper: React.FC<Props> = ({ ...props }) => {
             title={CONSTANTS.NEXT}
             onPress={() => {
               if (currentStep < totalSteps - 1) {
-                props.onPressNext?.(currentStep);
+                onPressNext?.(currentStep);
                 setCurrentStep(currentStep + 1);
               }
             }}

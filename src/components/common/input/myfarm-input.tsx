@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { IThemeType } from "../../../config/type/ui-type/theme-type";
 import { useTheme } from "../../../context/theme/themeContext";
+import { globalStyle } from "../../../styles/globalStyle";
 
 // Define the props for the MyfarmInput component
 // It extends the TextInput props and adds custom properties for styling and error handling
@@ -19,6 +20,7 @@ type Props = React.ComponentProps<typeof TextInput> & {
   errorFlag?: boolean;
   style?: StyleProp<TextStyle>;
   bottomBorder?: boolean;
+  rightIcon?: React.ReactNode;
 };
 
 // Create styles for the MyfarmInput component
@@ -34,9 +36,16 @@ const styles = (
       marginVertical: 8,
       flexDirection: "column",
     },
-    input: {
+    inputContainer: {
+      position: "relative",
       width: "100%",
       height: 50,
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    input: {
+      flex: 1,
+      height: "100%",
       borderColor: theme.colors.inputText.secondary,
       borderWidth: 1,
       borderBottomWidth: bottomBorder ? 2 : 1,
@@ -45,8 +54,16 @@ const styles = (
       borderRightWidth: bottomBorder ? 0 : 1,
       borderRadius: bottomBorder ? 0 : 10,
       paddingHorizontal: 12,
+      paddingRight: 40, // extra padding for the right icon
       fontSize: theme.fonts.fontSize[fontSize],
       backgroundColor: theme.colors.inputText.primary,
+    },
+    rightIconWrapper: {
+      position: "absolute",
+      right: 12,
+      height: 50,
+      justifyContent: "center",
+      alignItems: "center",
     },
     errorText: {
       color: theme.colors.error.primary,
@@ -64,6 +81,7 @@ const MyfarmInput = forwardRef<TextInput, Props>(
       errorFlag = false,
       bottomBorder = false,
       style,
+      rightIcon,
       ...props
     },
     ref
@@ -77,7 +95,19 @@ const MyfarmInput = forwardRef<TextInput, Props>(
 
     return (
       <View style={computedStyles.container}>
-        <TextInput ref={ref} style={[computedStyles.input, style]} {...props} />
+        <View style={computedStyles.inputContainer}>
+          <TextInput
+            ref={ref}
+            style={[computedStyles.input, style]}
+            {...props}
+          />
+          {rightIcon && (
+            <View style={computedStyles.rightIconWrapper}>
+              {rightIcon}
+            </View>
+          )}
+        </View>
+
         {errorFlag && !!errorMessage && (
           <Text style={computedStyles.errorText}>{errorMessage}</Text>
         )}
@@ -85,4 +115,5 @@ const MyfarmInput = forwardRef<TextInput, Props>(
     );
   }
 );
+
 export default MyfarmInput;

@@ -1,13 +1,17 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import MyFarmText from "../../common/text/myfarm-text";
 import { Image, StyleSheet, View } from "react-native";
 import { useTheme } from "../../../context/theme/themeContext";
-import { IThemeType } from "../../../config/type/ui-type";
+import { IDropDownOptions, IThemeType } from "../../../config/type/ui-type";
 import { globalStyle } from "../../../styles/globalStyle";
 import MyfarmInput from "../../common/input/myfarm-input";
 import CONSTANTS from "../../../config/constants/common-constant";
+import { IBasicFarmDetail } from "../../../config/type/ui-type/farmDetail-type";
+import MyFarmLandDropDown from "../../common/dropdown/myFarm-dropDown.component";
 
-interface Props {}
+interface Props {
+  getBasicFarmDetail?: (basicDetail: IBasicFarmDetail) => void;
+}
 
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
@@ -36,9 +40,38 @@ const createStyle = (theme: IThemeType) =>
     },
   });
 
-const FarmBasicDetail: React.FC<Props> = () => {
+const FarmBasicDetail: React.FC<Props> = ({ getBasicFarmDetail }) => {
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
+  const [farmLandName, setfarmLandName] = useState<string>("");
+  const [location, setlocation] = useState<string>("");
+  const [totalArea, settotalArea] = useState<string>("0");
+  const [unit, setUnit] = useState<string>("");
+
+  const unitOptions: Array<IDropDownOptions> = [
+    { label: "Acres", value: "Acres" },
+    { label: "Cents", value: "Cents" },
+  ];
+
+  useEffect(() => {
+    const basicFarmDetail: IBasicFarmDetail = {
+      farmLandName: { value: farmLandName },
+      location: { value: location },
+      totalArea: {
+        value: totalArea,
+      },
+      unit: {
+        value: unit,
+      },
+    };
+
+    //To avoid firing emit on every keystroke, add a debounce:settimeout is used
+    const timeout = setTimeout(() => {
+      getBasicFarmDetail && getBasicFarmDetail(basicFarmDetail);
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, [farmLandName, location]);
 
   return (
     <View style={[globalStyle.column, styles.container]}>
@@ -57,28 +90,38 @@ const FarmBasicDetail: React.FC<Props> = () => {
           <MyFarmText bold fontSize="lg">
             {CONSTANTS.FARM_DETAIL.FARM_DETAIL}
           </MyFarmText>
-          <MyfarmInput placeholder="eg.myfarmland"></MyfarmInput>
+          <MyfarmInput
+            placeholder="eg.myfarmland"
+            onChangeText={(event) => setfarmLandName(event)}
+          ></MyfarmInput>
         </View>
         <View style={[globalStyle.width100]}>
           <MyFarmText bold fontSize="lg">
             {CONSTANTS.FARM_DETAIL.FARM_LOCATION}
           </MyFarmText>
-          <MyfarmInput placeholder="City/state,country"></MyfarmInput>
+          <MyfarmInput
+            placeholder="City/state,country"
+            onChangeText={(event) => setlocation(event)}
+          ></MyfarmInput>
         </View>
         <View style={[globalStyle.width100, globalStyle.row]}>
           <View
             style={[globalStyle.column, globalStyle.flex1, styles.totalArea]}
           >
-            <MyFarmText bold fontSize="md">
+            <MyFarmText bold fontSize="lg">
               {CONSTANTS.FARM_DETAIL.TOTAL_AREA}
             </MyFarmText>
-            <MyfarmInput></MyfarmInput>
+            <MyfarmInput
+              placeholder="Enter number"
+              onChangeText={(event) => settotalArea(event)}
+            ></MyfarmInput>
           </View>
           <View style={[globalStyle.column, globalStyle.flex1]}>
-            <MyFarmText bold fontSize="md">
-              {CONSTANTS.FARM_DETAIL.UNIT}
-            </MyFarmText>
-            <MyfarmInput></MyfarmInput>
+            <MyFarmLandDropDown
+              title={CONSTANTS.FARM_DETAIL.UNIT}
+              titleBold
+              options={unitOptions}
+            ></MyFarmLandDropDown>
           </View>
         </View>
       </View>
