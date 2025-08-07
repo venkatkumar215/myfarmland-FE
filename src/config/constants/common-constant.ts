@@ -51,10 +51,10 @@ const CONSTANTS = {
     CREATE_FARM: "Create Farm",
     WELCOME_TO_FARM_FLOW: "Welcome to Farmflow",
     DIGITAL_FARM_MANAGEMENT: "Your Digital farm management companion",
-    FARM_DETAIL: " Farm Name :*",
+    FARM_DETAIL: " Farm Name :",
     FARM_LOCATION: "Farm Location :",
-    TOTAL_AREA: "Total Area: *",
-    UNIT: "Unit: *",
+    TOTAL_AREA: "Total Area: ",
+    UNIT: "Unit: ",
   },
 };
 export default CONSTANTS;

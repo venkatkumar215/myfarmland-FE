@@ -23,7 +23,7 @@ export const lightTheme: IThemeType = {
     },
     text: {
       primary: "#2E2E2E",
-      secondary: "#a9adb0",
+      secondary: "#FFFFFF",
     },
     btn: {
       primary: "#356a40",

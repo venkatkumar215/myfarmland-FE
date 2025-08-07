@@ -6,7 +6,7 @@ export const farmDetailSchema = z.object({
     value: z.string().trim().min(1, ERROR_CONSTANTS.FARM_DETAIL.REQUIRED),
   }),
   location: z.object({
-    value: z.string().optional(),
+    value: z.string().trim().min(1, ERROR_CONSTANTS.FARM_DETAIL.REQUIRED),
   }),
   totalArea: z.object({
     value: z.string().trim().min(1, ERROR_CONSTANTS.FARM_DETAIL.REQUIRED),

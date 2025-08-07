@@ -41,7 +41,6 @@ const AddFarmDetails: React.FC<Props> = () => {
         setCurrentStep((prev) => Math.min(prev + 1, totalSteps - 1));
       } else {
         const issue = validatedResult.error.issues[0];
-        console.log("validatedResult.error", validatedResult.error);
 
         const property = issue?.path?.[0];
         updateFarmDetailContext(property, false, issue?.message);

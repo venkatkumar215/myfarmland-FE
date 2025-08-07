@@ -89,7 +89,7 @@ const FarmBasicDetail: React.FC<Props> = ({}) => {
       </View>
       <View style={[globalStyle.column, styles.farmContianer]}>
         <View style={[globalStyle.column, globalStyle.width100]}>
-          <MyFarmText bold fontSize="lg">
+          <MyFarmText bold fontSize="lg" enableStar>
             {CONSTANTS.FARM_DETAIL.FARM_DETAIL}
           </MyFarmText>
           <MyfarmInput
@@ -106,7 +106,7 @@ const FarmBasicDetail: React.FC<Props> = ({}) => {
           ></MyfarmInput>
         </View>
         <View style={[globalStyle.width100]}>
-          <MyFarmText bold fontSize="lg">
+          <MyFarmText bold fontSize="lg" enableStar>
             {CONSTANTS.FARM_DETAIL.FARM_LOCATION}
           </MyFarmText>
           <MyfarmInput
@@ -124,7 +124,7 @@ const FarmBasicDetail: React.FC<Props> = ({}) => {
           <View
             style={[globalStyle.column, globalStyle.flex1, styles.totalArea]}
           >
-            <MyFarmText bold fontSize="lg">
+            <MyFarmText bold fontSize="lg" enableStar>
               {CONSTANTS.FARM_DETAIL.TOTAL_AREA}
             </MyFarmText>
 

@@ -31,7 +31,7 @@ const AppNavigator: React.FC = () => {
 
   useEffect(() => {
     try {
-      console.log(auth.currentUser);
+
       const payLoad = {
         userId: userId ? userId : "O59SX5T5sVQycMmuutsdV8OgDN63",
       };

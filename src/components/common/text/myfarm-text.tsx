@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import {
   Text,
   StyleSheet,
@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { IThemeType } from "../../../config/type/ui-type/theme-type";
 import { useTheme } from "../../../context/theme/themeContext";
+import { globalStyle } from "../../../styles/globalStyle";
 
 /**
  *
@@ -23,6 +24,7 @@ interface Props extends TextProps {
   bold?: boolean;
   fontSize?: keyof IThemeType["fonts"]["fontSize"];
   color?: keyof IThemeType["colors"]["text"];
+  enableStar?: boolean;
 }
 
 /**
@@ -44,8 +46,11 @@ const createStyles = (
     text: {
       fontWeight: bold ? "bold" : "normal",
       fontSize: theme.fonts.fontSize[fontSize] || theme.fonts.fontSize.md,
-      color: theme.colors.text[color] || theme.colors.text.primary,
+      color: theme.colors.text[color],
       fontFamily: theme.fonts.fontFamily,
+    },
+    textStart: {
+      color: "red",
     },
   });
 
@@ -55,6 +60,7 @@ const MyFarmText: React.FC<Props> = ({
   fontSize = "md",
   color = "primary",
   style,
+  enableStar = false,
   ...props
 }) => {
   const theme = useTheme();
@@ -64,9 +70,11 @@ const MyFarmText: React.FC<Props> = ({
     [theme, fontSize, bold, color]
   );
 
+
   return (
-    <Text style={[styles.text, style]} {...props}>
+    <Text style={[styles.text, style, globalStyle.row]} {...props}>
       {children}
+      {enableStar && <Text style={[styles.textStart]}> {"*"}</Text>}
     </Text>
   );
 };
