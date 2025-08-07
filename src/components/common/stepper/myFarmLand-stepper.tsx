@@ -15,6 +15,8 @@ interface Props {
   info?: string;
   onPressNext?: (currentStep: number) => void;
   onPressPrevious?: (currentStep: number) => void;
+  disableSelfNext?: boolean;
+  disableSelfPrv?: boolean;
 }
 
 const createStyle = (theme: IThemeType) =>
@@ -83,6 +85,8 @@ const MyFarmStepper: React.FC<Props> = ({
   info,
   onPressNext,
   onPressPrevious,
+  disableSelfNext = false,
+  disableSelfPrv = false,
 }) => {
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
@@ -139,7 +143,7 @@ const MyFarmStepper: React.FC<Props> = ({
             onPress={() => {
               if (currentStep > 0) {
                 onPressPrevious?.(currentStep);
-                setCurrentStep(currentStep - 1);
+                !disableSelfPrv && setCurrentStep(currentStep - 1);
               }
             }}
             bold
@@ -153,7 +157,7 @@ const MyFarmStepper: React.FC<Props> = ({
             onPress={() => {
               if (currentStep < totalSteps - 1) {
                 onPressNext?.(currentStep);
-                setCurrentStep(currentStep + 1);
+                !disableSelfNext && setCurrentStep(currentStep + 1);
               }
             }}
             bold

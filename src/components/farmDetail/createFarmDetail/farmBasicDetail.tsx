@@ -1,17 +1,23 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import MyFarmText from "../../common/text/myfarm-text";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { useTheme } from "../../../context/theme/themeContext";
 import { IDropDownOptions, IThemeType } from "../../../config/type/ui-type";
 import { globalStyle } from "../../../styles/globalStyle";
 import MyfarmInput from "../../common/input/myfarm-input";
 import CONSTANTS from "../../../config/constants/common-constant";
-import { IBasicFarmDetail } from "../../../config/type/ui-type/farmDetail-type";
+import { FarmDetailKey } from "../../../config/type/ui-type/farmDetail-type";
 import MyFarmLandDropDown from "../../common/dropdown/myFarm-dropDown.component";
+import { FarmDetailContext } from "../../../context/farmDetail/farmDetailContext";
+import { unitOptions } from "../../../config/constants/farmDetail-constant";
 
-interface Props {
-  getBasicFarmDetail?: (basicDetail: IBasicFarmDetail) => void;
-}
+interface Props {}
 
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
@@ -21,15 +27,16 @@ const createStyle = (theme: IThemeType) =>
       justifyContent: "flex-start",
     },
     titleContainer: {
-      gap: 15,
-      paddingBottom: 10,
+      gap: 10,
+      marginBottom: 20,
       alignItems: "center",
+      maxHeight: 150,
     },
     image: {
-      minHeight: 50,
-      minWidth: 50,
-      maxHeight: 100,
-      maxWidth: 100,
+      minHeight: 30,
+      minWidth: 30,
+      maxHeight: 80,
+      maxWidth: 80,
       resizeMode: "cover",
     },
     farmName: {
@@ -38,40 +45,34 @@ const createStyle = (theme: IThemeType) =>
     totalArea: {
       marginRight: 25,
     },
+    farmContianer: {
+      gap: 15,
+    },
   });
 
-const FarmBasicDetail: React.FC<Props> = ({ getBasicFarmDetail }) => {
+const FarmBasicDetail: React.FC<Props> = ({}) => {
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
-  const [farmLandName, setfarmLandName] = useState<string>("");
-  const [location, setlocation] = useState<string>("");
-  const [totalArea, settotalArea] = useState<string>("0");
-  const [unit, setUnit] = useState<string>("");
+  const { farmDetail, setFarmDetail } = useContext(FarmDetailContext);
 
-  const unitOptions: Array<IDropDownOptions> = [
-    { label: "Acres", value: "Acres" },
-    { label: "Cents", value: "Cents" },
-  ];
-
-  useEffect(() => {
-    const basicFarmDetail: IBasicFarmDetail = {
-      farmLandName: { value: farmLandName },
-      location: { value: location },
-      totalArea: {
-        value: totalArea,
-      },
-      unit: {
-        value: unit,
-      },
-    };
-
-    //To avoid firing emit on every keystroke, add a debounce:settimeout is used
-    const timeout = setTimeout(() => {
-      getBasicFarmDetail && getBasicFarmDetail(basicFarmDetail);
-    }, 300);
-
-    return () => clearTimeout(timeout);
-  }, [farmLandName, location]);
+  const updateContextValue = useCallback(
+    (key: FarmDetailKey, value: string | number) => {
+      setFarmDetail((prev) => {
+        if (!prev) return null;
+        return {
+          ...prev,
+          basicDetail: {
+            ...prev.basicDetail,
+            [key]: {
+              ...prev.basicDetail[key],
+              value,
+            },
+          },
+        };
+      });
+    },
+    [setFarmDetail]
+  );
 
   return (
     <View style={[globalStyle.column, styles.container]}>
@@ -85,14 +86,23 @@ const FarmBasicDetail: React.FC<Props> = ({ getBasicFarmDetail }) => {
           {CONSTANTS.FARM_DETAIL.WELCOME_TO_FARM_FLOW}
         </MyFarmText>
         <MyFarmText>{CONSTANTS.FARM_DETAIL.DIGITAL_FARM_MANAGEMENT}</MyFarmText>
-
+      </View>
+      <View style={[globalStyle.column, styles.farmContianer]}>
         <View style={[globalStyle.column, globalStyle.width100]}>
           <MyFarmText bold fontSize="lg">
             {CONSTANTS.FARM_DETAIL.FARM_DETAIL}
           </MyFarmText>
           <MyfarmInput
             placeholder="eg.myfarmland"
-            onChangeText={(event) => setfarmLandName(event)}
+            onChangeText={(event) => updateContextValue("farmLandName", event)}
+            errorFlag={
+              farmDetail?.basicDetail.farmLandName.valid ? false : true
+            }
+            errorMessage={
+              farmDetail?.basicDetail?.farmLandName?.errorMessage
+                ? farmDetail?.basicDetail?.farmLandName?.errorMessage
+                : ""
+            }
           ></MyfarmInput>
         </View>
         <View style={[globalStyle.width100]}>
@@ -101,7 +111,13 @@ const FarmBasicDetail: React.FC<Props> = ({ getBasicFarmDetail }) => {
           </MyFarmText>
           <MyfarmInput
             placeholder="City/state,country"
-            onChangeText={(event) => setlocation(event)}
+            onChangeText={(event) => updateContextValue("location", event)}
+            errorFlag={farmDetail?.basicDetail.location?.valid ? false : true}
+            errorMessage={
+              farmDetail?.basicDetail?.location?.errorMessage
+                ? farmDetail?.basicDetail?.location?.errorMessage
+                : ""
+            }
           ></MyfarmInput>
         </View>
         <View style={[globalStyle.width100, globalStyle.row]}>
@@ -111,9 +127,17 @@ const FarmBasicDetail: React.FC<Props> = ({ getBasicFarmDetail }) => {
             <MyFarmText bold fontSize="lg">
               {CONSTANTS.FARM_DETAIL.TOTAL_AREA}
             </MyFarmText>
+
             <MyfarmInput
               placeholder="Enter number"
-              onChangeText={(event) => settotalArea(event)}
+              keyboardType="numeric"
+              onChangeText={(event) => updateContextValue("totalArea", event)}
+              errorFlag={farmDetail?.basicDetail.totalArea.valid ? false : true}
+              errorMessage={
+                farmDetail?.basicDetail?.totalArea?.errorMessage
+                  ? farmDetail?.basicDetail?.totalArea?.errorMessage
+                  : ""
+              }
             ></MyfarmInput>
           </View>
           <View style={[globalStyle.column, globalStyle.flex1]}>
@@ -121,6 +145,8 @@ const FarmBasicDetail: React.FC<Props> = ({ getBasicFarmDetail }) => {
               title={CONSTANTS.FARM_DETAIL.UNIT}
               titleBold
               options={unitOptions}
+              initialValue={unitOptions[0]}
+              onSelect={(event) => updateContextValue("unit", event.value)}
             ></MyFarmLandDropDown>
           </View>
         </View>

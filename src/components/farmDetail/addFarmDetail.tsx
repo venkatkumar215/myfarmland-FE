@@ -1,42 +1,88 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { View } from "react-native";
 import MyFarmStepper from "../common/stepper/myFarmLand-stepper";
 import FarmBasicDetail from "./createFarmDetail/farmBasicDetail";
 import SetFarmSize from "./createFarmDetail/setFarmSize";
 import SetAnimalSize from "./createFarmDetail/setAnimalSize";
 import CONSTANTS from "../../config/constants/common-constant";
-import { IStepDetail } from "../../config/type/ui-type/farmDetail-type";
+import {
+  FarmDetailKey,
+  IFarmDetail,
+  IFarmDetailKey,
+} from "../../config/type/ui-type/farmDetail-type";
+import { FarmDetailContext } from "../../context/farmDetail/farmDetailContext";
+
+import {
+  stepDetails,
+  validKeys,
+} from "../../config/constants/farmDetail-constant";
 
 interface Props {}
 
-const stepDetails: Array<IStepDetail> = [
-  {
-    title: CONSTANTS.BASIC_FARM_DETAIL,
-    componentName: FarmBasicDetail,
-  },
-  {
-    title: CONSTANTS.FARM_SIZE_DETAIL,
-    componentName: SetFarmSize,
-  },
-  {
-    title: CONSTANTS.ANIMAL_SIZE_DETAIL,
-    componentName: SetAnimalSize,
-  },
-];
-
 const AddFarmDetails: React.FC<Props> = () => {
-  const [currentStep, setcurrentStep] = useState<number>(0);
+  const [currentStep, setCurrentStep] = useState<number>(0);
+  const { farmDetail, setFarmDetail } = useContext(FarmDetailContext);
 
   const totalSteps = stepDetails.length;
-
   const ComponentToRender = stepDetails[currentStep].componentName;
 
   const handleOnPressNext = () => {
-    setcurrentStep((prev) => Math.min(prev + 1, totalSteps - 1));
+    const { schema, id } = stepDetails[currentStep];
+
+    if (!farmDetail?.[id as keyof IFarmDetail]) {
+      return;
+    }
+    if (schema) {
+      const validatedResult = schema.safeParse(
+        farmDetail?.[id as keyof IFarmDetail]
+      );
+
+      if (validatedResult.success) {
+        setCurrentStep((prev) => Math.min(prev + 1, totalSteps - 1));
+      } else {
+        const issue = validatedResult.error.issues[0];
+        console.log("validatedResult.error", validatedResult.error);
+
+        const property = issue?.path?.[0];
+        updateFarmDetailContext(property, false, issue?.message);
+      }
+    } else {
+      // No schema to validate for this step
+      setCurrentStep((prev) => Math.min(prev + 1, totalSteps - 1));
+    }
   };
-  const handleOnpressPrevious = () => {
-    setcurrentStep((prev) => Math.max(prev - 1, 0));
+
+  const handleOnPressPrevious = () => {
+    setCurrentStep((prev) => Math.max(prev - 1, 0));
   };
+
+  const updateFarmDetailContext = (
+    property: any,
+    validFlag: boolean,
+    errorMessage: string
+  ) => {
+    if (!farmDetail || typeof property !== "string") return;
+    if (!validKeys.includes(property as FarmDetailKey)) return;
+
+    const stepId = stepDetails[currentStep].id as IFarmDetailKey;
+    const key = property as FarmDetailKey;
+
+    const updatedFarmDetail = { ...farmDetail };
+
+    validKeys.forEach((basicDetailKey) => {
+      if (updatedFarmDetail[stepId][basicDetailKey]) {
+        updatedFarmDetail[stepId][basicDetailKey].errorMessage =
+          basicDetailKey === key ? errorMessage : "";
+        updatedFarmDetail[stepId][basicDetailKey].valid =
+          basicDetailKey === key ? false : true;
+        updatedFarmDetail[stepId][basicDetailKey].value =
+          updatedFarmDetail[stepId][basicDetailKey].value ?? "";
+      }
+    });
+
+    setFarmDetail(updatedFarmDetail);
+  };
+
   return (
     <View>
       <MyFarmStepper
@@ -44,12 +90,15 @@ const AddFarmDetails: React.FC<Props> = () => {
         noOfSteps={totalSteps}
         activeStep={currentStep}
         onPressNext={handleOnPressNext}
-        onPressPrevious={handleOnpressPrevious}
+        onPressPrevious={handleOnPressPrevious}
         info={stepDetails[currentStep].title}
+        disableSelfNext
+        disableSelfPrv
       >
         {ComponentToRender ? <ComponentToRender /> : null}
       </MyFarmStepper>
     </View>
   );
 };
+
 export default AddFarmDetails;

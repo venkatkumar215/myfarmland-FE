@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo } from "react";
+import React, { forwardRef, useEffect, useMemo } from "react";
 import {
   StyleSheet,
   TextInput,
@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import { IThemeType } from "../../../config/type/ui-type/theme-type";
 import { useTheme } from "../../../context/theme/themeContext";
-import { globalStyle } from "../../../styles/globalStyle";
 
 // Define the props for the MyfarmInput component
 // It extends the TextInput props and adds custom properties for styling and error handling
@@ -102,9 +101,7 @@ const MyfarmInput = forwardRef<TextInput, Props>(
             {...props}
           />
           {rightIcon && (
-            <View style={computedStyles.rightIconWrapper}>
-              {rightIcon}
-            </View>
+            <View style={computedStyles.rightIconWrapper}>{rightIcon}</View>
           )}
         </View>
 

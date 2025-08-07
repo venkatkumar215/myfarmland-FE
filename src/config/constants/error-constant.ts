@@ -7,5 +7,8 @@ const ERROR_CONSTANTS = {
     OTP_LENGTH: "OTP must be 6 digits",
     INVALID_OTP: "Enter a valid OTP",
   },
+  FARM_DETAIL: {
+    REQUIRED: "Mandatory field",
+  },
 };
 export default ERROR_CONSTANTS;

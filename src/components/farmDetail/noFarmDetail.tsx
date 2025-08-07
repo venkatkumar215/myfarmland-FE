@@ -7,6 +7,7 @@ import MyFarmText from "../common/text/myfarm-text";
 import AddFarmDetails from "./addFarmDetail";
 import { globalStyle } from "../../styles/globalStyle";
 import CONSTANTS from "../../config/constants/common-constant";
+import { FarmDetailProvider } from "../../context/farmDetail/farmDetailContext";
 interface Props {}
 
 const createStyle = (theme: IThemeType) =>
@@ -42,42 +43,44 @@ const NoFarmDetailComponent: React.FC<Props> = () => {
   const [createNewFarmDetail, setCreateNewFarmDetail] =
     useState<boolean>(false);
   return (
-    <View>
-      {createNewFarmDetail ? (
-        <AddFarmDetails />
-      ) : (
-        <View style={styles.noFarmDetailcontainer}>
-          <View style={styles.containerBox}>
-            <View>
-              <Image
-                source={require("../../../assets/images/Sunny-Barn-Field--Streamline-Ux.png")}
-                style={styles.image}
-              ></Image>
-            </View>
-            <View>
-              <MyFarmText bold fontSize="xxxl">
-                {CONSTANTS.FARM_DETAIL.NO_FARM_DETAILS_FOUND}
-              </MyFarmText>
-            </View>
-            <View>
-              <MyFarmText>
-                {CONSTANTS.FARM_DETAIL.FARM_SETUP_MESSAGE}
-              </MyFarmText>
-            </View>
-            <View>
-              <MyfarmButton
-                onPress={() => {
-                  setCreateNewFarmDetail(true);
-                }}
-                title={CONSTANTS.FARM_DETAIL.CREATE_FARM}
-                fontSize="xl"
-                bold
-              ></MyfarmButton>
+    <FarmDetailProvider>
+      <View>
+        {createNewFarmDetail ? (
+          <AddFarmDetails />
+        ) : (
+          <View style={styles.noFarmDetailcontainer}>
+            <View style={styles.containerBox}>
+              <View>
+                <Image
+                  source={require("../../../assets/images/Sunny-Barn-Field--Streamline-Ux.png")}
+                  style={styles.image}
+                ></Image>
+              </View>
+              <View>
+                <MyFarmText bold fontSize="xxxl">
+                  {CONSTANTS.FARM_DETAIL.NO_FARM_DETAILS_FOUND}
+                </MyFarmText>
+              </View>
+              <View>
+                <MyFarmText>
+                  {CONSTANTS.FARM_DETAIL.FARM_SETUP_MESSAGE}
+                </MyFarmText>
+              </View>
+              <View>
+                <MyfarmButton
+                  onPress={() => {
+                    setCreateNewFarmDetail(true);
+                  }}
+                  title={CONSTANTS.FARM_DETAIL.CREATE_FARM}
+                  fontSize="xl"
+                  bold
+                ></MyfarmButton>
+              </View>
             </View>
           </View>
-        </View>
-      )}
-    </View>
+        )}
+      </View>
+    </FarmDetailProvider>
   );
 };
 
