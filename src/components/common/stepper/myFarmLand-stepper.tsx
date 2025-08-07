@@ -114,7 +114,9 @@ const MyFarmStepper: React.FC<Props> = ({
           </View>
           <View style={styles.stepInfo}>
             <MyFarmText fontSize="xxl" bold color="secondary">
-              {CONSTANTS.STEP_of_1} {totalSteps}
+              {CONSTANTS.STEP_of_1} {currentStep + 1}
+              {CONSTANTS.OF}
+              {totalSteps}
             </MyFarmText>
           </View>
         </View>
