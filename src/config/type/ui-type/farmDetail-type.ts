@@ -14,9 +14,9 @@ export interface IBasicFarmDetail {
     errorMessage?: string | null;
   };
   location?: {
-    value: string | null;
+    value: string;
     valid?: boolean;
-    errorMessage?: string ;
+    errorMessage?: string;
   };
   totalArea: {
     value: string;

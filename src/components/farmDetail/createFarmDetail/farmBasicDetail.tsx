@@ -94,6 +94,7 @@ const FarmBasicDetail: React.FC<Props> = ({}) => {
           </MyFarmText>
           <MyfarmInput
             placeholder="eg.myfarmland"
+            value={farmDetail?.basicDetail.farmLandName.value}
             onChangeText={(event) => updateContextValue("farmLandName", event)}
             errorFlag={
               farmDetail?.basicDetail.farmLandName.valid ? false : true
@@ -112,6 +113,7 @@ const FarmBasicDetail: React.FC<Props> = ({}) => {
           <MyfarmInput
             placeholder="City/state,country"
             onChangeText={(event) => updateContextValue("location", event)}
+            value={farmDetail?.basicDetail.location?.value}
             errorFlag={farmDetail?.basicDetail.location?.valid ? false : true}
             errorMessage={
               farmDetail?.basicDetail?.location?.errorMessage
@@ -132,6 +134,7 @@ const FarmBasicDetail: React.FC<Props> = ({}) => {
               placeholder="Enter number"
               keyboardType="numeric"
               onChangeText={(event) => updateContextValue("totalArea", event)}
+              value={farmDetail?.basicDetail.totalArea.value}
               errorFlag={farmDetail?.basicDetail.totalArea.valid ? false : true}
               errorMessage={
                 farmDetail?.basicDetail?.totalArea?.errorMessage
@@ -145,8 +148,9 @@ const FarmBasicDetail: React.FC<Props> = ({}) => {
               title={CONSTANTS.FARM_DETAIL.UNIT}
               titleBold
               options={unitOptions}
-              initialValue={unitOptions[0]}
               onSelect={(event) => updateContextValue("unit", event.value)}
+              enableStar
+              value={farmDetail?.basicDetail.unit?.value}
             ></MyFarmLandDropDown>
           </View>
         </View>

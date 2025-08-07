@@ -1,5 +1,5 @@
+import { unitOptions } from "../../config/constants/farmDetail-constant";
 import { IFarmDetail } from "../../config/type/ui-type/farmDetail-type";
-import { isEmptyObject } from "../common/comon";
 
 export function getInitializedFarmDetail(): IFarmDetail {
   return {

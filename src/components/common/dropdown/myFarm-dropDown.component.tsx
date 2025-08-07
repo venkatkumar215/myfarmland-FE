@@ -19,6 +19,8 @@ interface Props {
   options: Array<IOptions>;
   initialValue?: IOptions;
   onSelect?: (selected: IOptions) => void; // optional callback
+  enableStar?: boolean;
+  value?: string;
 }
 
 const createStyle = (
@@ -61,6 +63,9 @@ const MyFarmLandDropDown: React.FC<Props> = ({
   options,
   onSelect,
   initialValue,
+  enableStar = false,
+  value,
+  ...props
 }) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [showDropDown, setshowDropDown] = useState<boolean>(false);
@@ -77,7 +82,12 @@ const MyFarmLandDropDown: React.FC<Props> = ({
     <View style={[globalStyle.column]}>
       {title && (
         <View style={createStyle(theme, null, -1).title}>
-          <MyFarmText fontSize="lg" bold={titleBold}>
+          <MyFarmText
+            fontSize="lg"
+            bold={titleBold}
+            enableStar={enableStar}
+            {...props}
+          >
             {title}
           </MyFarmText>
         </View>
@@ -92,7 +102,7 @@ const MyFarmLandDropDown: React.FC<Props> = ({
           onPress={() => setshowDropDown(!showDropDown)}
         >
           <MyfarmInput
-            value={selectedDropDown?.label || "Select an option"}
+            value={selectedDropDown?.label || value || "Select an option"}
             readOnly
             rightIcon={
               <Pressable onPress={() => setshowDropDown(!showDropDown)}>
@@ -104,6 +114,7 @@ const MyFarmLandDropDown: React.FC<Props> = ({
                 />
               </Pressable>
             }
+            {...props}
           />
         </Pressable>
 
@@ -128,7 +139,7 @@ const MyFarmLandDropDown: React.FC<Props> = ({
                   }}
                   style={styles.dropDownOption}
                 >
-                  <MyFarmText bold fontSize="md">
+                  <MyFarmText bold fontSize="md" {...props}>
                     {option.label}
                   </MyFarmText>
                 </Pressable>
