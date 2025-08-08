@@ -6,6 +6,7 @@ import { useTheme } from "../../../context/theme/themeContext";
 import MyfarmButton from "../button/myfarm-button";
 import { globalStyle } from "../../../styles/globalStyle";
 import CONSTANTS from "../../../config/constants/common-constant";
+import { colorLightTheme } from "../../../styles/theme";
 
 interface Props {
   children?: ReactNode;
@@ -26,7 +27,7 @@ const createStyle = (theme: IThemeType) =>
       height: "100%",
     },
     stepContainer: {
-      backgroundColor: theme.colors.btn.primary,
+      // backgroundColor: theme.colors.btn.primary,
       padding: 20,
       flex: 1,
       minHeight: 10,
@@ -70,10 +71,10 @@ const createStyle = (theme: IThemeType) =>
       borderRadius: 5,
     },
     activeBox: {
-      backgroundColor: "white",
+      backgroundColor: colorLightTheme.secondary,
     },
     inActiveBox: {
-      backgroundColor: "black",
+      backgroundColor: theme.colors.border.primary,
     },
   });
 
@@ -108,12 +109,12 @@ const MyFarmStepper: React.FC<Props> = ({
       <View style={[globalStyle.column, styles.stepContainer]}>
         <View style={[globalStyle.row, styles.stepInfoContainer]}>
           <View style={styles.stepTitle}>
-            <MyFarmText fontSize="xxl" bold color="secondary">
+            <MyFarmText fontSize="xxl" bold color="primary">
               {title}
             </MyFarmText>
           </View>
           <View style={styles.stepInfo}>
-            <MyFarmText fontSize="xxl" bold color="secondary">
+            <MyFarmText fontSize="xxl" bold color="primary">
               {CONSTANTS.STEP_of_1} {currentStep + 1}
               {CONSTANTS.OF}
               {totalSteps}
@@ -132,7 +133,7 @@ const MyFarmStepper: React.FC<Props> = ({
           ))}
         </View>
         <View>
-          <MyFarmText fontSize="lg" color="secondary">
+          <MyFarmText fontSize="lg" color="primary">
             {info}
           </MyFarmText>
         </View>
@@ -151,6 +152,7 @@ const MyFarmStepper: React.FC<Props> = ({
             bold
             fontSize="xl"
             disabled={currentStep === 0}
+            type="secondary"
           ></MyfarmButton>
         </View>
         <View style={styles.nextButton}>

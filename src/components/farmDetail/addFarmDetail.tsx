@@ -1,9 +1,6 @@
 import React, { useContext, useState } from "react";
 import { View } from "react-native";
 import MyFarmStepper from "../common/stepper/myFarmLand-stepper";
-import FarmBasicDetail from "./createFarmDetail/farmBasicDetail";
-import SetFarmSize from "./createFarmDetail/setFarmSize";
-import SetAnimalSize from "./createFarmDetail/setAnimalSize";
 import CONSTANTS from "../../config/constants/common-constant";
 import {
   FarmDetailKey,

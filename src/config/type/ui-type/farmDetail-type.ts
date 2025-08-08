@@ -1,4 +1,7 @@
 import { ZodTypeAny } from "zod";
+import { IDropDownOptions } from "./common-type";
+import { ReactElement } from "react";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export interface IStepDetail {
   id: string;
@@ -6,6 +9,15 @@ export interface IStepDetail {
   componentName: React.ComponentType<any>;
   schema?: ZodTypeAny;
 }
+
+export interface IAnimalOptions extends IDropDownOptions {
+  description: string;
+  iconLibrary?: any;
+  iconName?: string;
+  size?: number;
+}
+
+export interface ICropOptions extends IDropDownOptions {}
 
 export interface IBasicFarmDetail {
   farmLandName: {

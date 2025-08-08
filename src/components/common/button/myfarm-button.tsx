@@ -66,7 +66,8 @@ const createStyle = (
       fontWeight: bold ? "bold" : "normal",
     },
     disabled: {
-      backgroundColor: "#ccc",
+      backgroundColor: "#E0E0E0",
+      color:"#BDBDBD"
     },
   });
 

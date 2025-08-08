@@ -12,6 +12,10 @@ export const fontSize: IFontSizeType = {
   xxxl: 24,
 };
 
+export const colorLightTheme = {
+  primary: "#1B5E20",
+  secondary: "#945034",
+};
 // This file defines the light and dark themes for the application.
 export const lightTheme: IThemeType = {
   dark: false,
@@ -22,32 +26,31 @@ export const lightTheme: IThemeType = {
       secondary: "#FFFFFF",
     },
     text: {
-      primary: "#2E2E2E",
+      primary: "#333333",
       secondary: "#FFFFFF",
     },
     btn: {
-      primary: "#356a40",
-      secondary: "#E1E8D6",
+      primary: colorLightTheme.primary,
+      secondary: colorLightTheme.secondary,
     },
     btnText: {
       primary: "#FFFFFF",
       secondary: "#4D5E3E",
     },
     icon: {
-      active: "#356a40",
-      inactive: "#b5b5b1",
-      primary: "#356a40",
-      secondary: "#F9F9F6",
+      active: colorLightTheme.primary,
+      inactive: "#333333",
     },
     inputText: {
-      primary: "#fff",
-      secondary: "#ccc",
+      primary: "#333333",
+      secondary: "#808080",
     },
     error: {
       primary: "#FF0000",
     },
     border: {
-      primary: "#b5b5b1",
+      primary: "#A9A9A9",
+      secondary: colorLightTheme.secondary,
     },
   },
   // Define the font sizes,family used in the theme
@@ -79,8 +82,6 @@ export const darkTheme: IThemeType = {
     icon: {
       active: "#356a40",
       inactive: "#E1E8D6",
-      primary: "#356a40",
-      secondary: "#F9F9F6",
     },
     inputText: {
       primary: "#fff",
@@ -91,6 +92,7 @@ export const darkTheme: IThemeType = {
     },
     border: {
       primary: "#eae9e8",
+      secondary: "#F5F5F5",
     },
   },
   // Define the font sizes used in the theme

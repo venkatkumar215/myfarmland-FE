@@ -29,8 +29,6 @@ export interface IThemeType {
     icon: {
       active: string;
       inactive: string;
-      primary: string;
-      secondary: string;
     };
     inputText: {
       primary: string;
@@ -39,7 +37,7 @@ export interface IThemeType {
     error: {
       primary: string;
     };
-    border: { primary: string };
+    border: { primary: string; secondary: string };
   };
   fonts: {
     fontSize: IFontSizeType;

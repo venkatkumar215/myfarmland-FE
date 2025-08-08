@@ -1,14 +1,8 @@
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { useCallback, useContext, useMemo } from "react";
 import MyFarmText from "../../common/text/myfarm-text";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { useTheme } from "../../../context/theme/themeContext";
-import { IDropDownOptions, IThemeType } from "../../../config/type/ui-type";
+import { IThemeType } from "../../../config/type/ui-type";
 import { globalStyle } from "../../../styles/globalStyle";
 import MyfarmInput from "../../common/input/myfarm-input";
 import CONSTANTS from "../../../config/constants/common-constant";

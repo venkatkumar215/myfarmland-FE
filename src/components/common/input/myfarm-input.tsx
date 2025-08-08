@@ -45,7 +45,7 @@ const styles = (
     input: {
       flex: 1,
       height: "100%",
-      borderColor: theme.colors.inputText.secondary,
+      borderColor: theme.colors.inputText.primary,
       borderWidth: 1,
       borderBottomWidth: bottomBorder ? 2 : 1,
       borderTopWidth: bottomBorder ? 0 : 1,
@@ -55,7 +55,7 @@ const styles = (
       paddingHorizontal: 12,
       paddingRight: 40, // extra padding for the right icon
       fontSize: theme.fonts.fontSize[fontSize],
-      backgroundColor: theme.colors.inputText.primary,
+      backgroundColor: theme.colors.background.primary,
     },
     rightIconWrapper: {
       position: "absolute",

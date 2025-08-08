@@ -56,6 +56,10 @@ const CONSTANTS = {
     FARM_LOCATION: "Farm Location :",
     TOTAL_AREA: "Total Area: ",
     UNIT: "Unit: ",
+    SELECT_YOUR_ANIMAL: "Select your animal",
+    ANIMAL_SETUP_MESSAGE: "  Choose the animal you place to raise (optional)",
+    CHOOSE_YOUR_CROP: "Choose your crop",
+    CROP_SETUP_MESSAGE: "Select crop you want to grow (optional)",
   },
 };
 export default CONSTANTS;
