@@ -30,7 +30,7 @@ const createStyle = (
 ) =>
   StyleSheet.create({
     title: {
-      marginBottom: 5,
+      marginBottom: 0,
     },
     dropdownContainer: {
       padding: 0,

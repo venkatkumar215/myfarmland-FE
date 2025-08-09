@@ -18,6 +18,7 @@ interface Props {
   onPressPrevious?: (currentStep: number) => void;
   disableSelfNext?: boolean;
   disableSelfPrv?: boolean;
+  
 }
 
 const createStyle = (theme: IThemeType) =>

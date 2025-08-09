@@ -42,8 +42,8 @@ const CONSTANTS = {
   NEXT: "Next",
   FARM_SETUP: "Farm Setup",
   BASIC_FARM_DETAIL: "Basic Information about your Farm",
-  FARM_SIZE_DETAIL: "Set up your farm size ans location",
-  ANIMAL_SIZE_DETAIL: "Choose the animal you raise ",
+  FARM_SIZE_DETAIL: "Select crop you wants to grow(optional)",
+  ANIMAL_SIZE_DETAIL: "Choose the animal you raise (optional)",
   STEP_of_1: "Step",
   OF: " of ",
   FARM_DETAIL: {

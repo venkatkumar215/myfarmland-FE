@@ -25,24 +25,23 @@ export const validKeys: FarmDetailKey[] = [
 ];
 
 export const stepDetails: Array<IStepDetail> = [
-    {
-    id: "animalSizeDetail",
-    title: CONSTANTS.ANIMAL_SIZE_DETAIL,
-    componentName: FarmAnimalDetail,
-  },
-   {
+  {
     id: "basicDetail",
     title: CONSTANTS.BASIC_FARM_DETAIL,
     componentName: FarmBasicDetail,
     schema: farmDetailSchema,
   },
   {
-    id: "farmSizeDetail",
+    id: "cropDetail",
     title: CONSTANTS.FARM_SIZE_DETAIL,
     componentName: FarmCropDetail,
   },
 
- 
+  {
+    id: "animalDetail",
+    title: CONSTANTS.ANIMAL_SIZE_DETAIL,
+    componentName: FarmAnimalDetail,
+  },
 ];
 
 export const unitOptions: Array<IDropDownOptions> = [

@@ -11,8 +11,6 @@ import MyFarmLandDropDown from "../../common/dropdown/myFarm-dropDown.component"
 import { FarmDetailContext } from "../../../context/farmDetail/farmDetailContext";
 import { unitOptions } from "../../../config/constants/farmDetail-constant";
 
-interface Props {}
-
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     container: {
@@ -33,26 +31,26 @@ const createStyle = (theme: IThemeType) =>
       maxWidth: 80,
       resizeMode: "cover",
     },
-    farmName: {
-      width: "100%",
-    },
     totalArea: {
       marginRight: 25,
     },
-    farmContianer: {
+    farmContainer: {
       gap: 15,
     },
   });
 
-const FarmBasicDetail: React.FC<Props> = ({}) => {
+const FarmBasicDetail: React.FC = () => {
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
   const { farmDetail, setFarmDetail } = useContext(FarmDetailContext);
 
+  const { farmLandName, location, totalArea, unit } =
+    farmDetail?.basicDetail || {};
+
   const updateContextValue = useCallback(
     (key: FarmDetailKey, value: string | number) => {
       setFarmDetail((prev) => {
-        if (!prev) return null;
+        if (!prev?.basicDetail) return prev;
         return {
           ...prev,
           basicDetail: {
@@ -70,52 +68,49 @@ const FarmBasicDetail: React.FC<Props> = ({}) => {
 
   return (
     <View style={[globalStyle.column, styles.container]}>
+      {/* Title Section */}
       <View style={[globalStyle.column, styles.titleContainer]}>
         <Image
           source={require("../../../../assets/images/Search-Location-2--Streamline-Ux.png")}
           style={styles.image}
-        ></Image>
-
+        />
         <MyFarmText bold fontSize="xxxl">
           {CONSTANTS.FARM_DETAIL.WELCOME_TO_FARM_FLOW}
         </MyFarmText>
         <MyFarmText>{CONSTANTS.FARM_DETAIL.DIGITAL_FARM_MANAGEMENT}</MyFarmText>
       </View>
-      <View style={[globalStyle.column, styles.farmContianer]}>
-        <View style={[globalStyle.column, globalStyle.width100]}>
+
+      {/* Farm Details */}
+      <View style={[globalStyle.column, styles.farmContainer]}>
+        {/* Farm Name */}
+        <View style={globalStyle.width100}>
           <MyFarmText bold fontSize="lg" enableStar>
             {CONSTANTS.FARM_DETAIL.FARM_DETAIL}
           </MyFarmText>
           <MyfarmInput
-            placeholder="eg.myfarmland"
-            value={farmDetail?.basicDetail.farmLandName.value}
-            onChangeText={(event) => updateContextValue("farmLandName", event)}
-            errorFlag={
-              farmDetail?.basicDetail.farmLandName.valid ? false : true
-            }
-            errorMessage={
-              farmDetail?.basicDetail?.farmLandName?.errorMessage
-                ? farmDetail?.basicDetail?.farmLandName?.errorMessage
-                : ""
-            }
-          ></MyfarmInput>
+            placeholder="eg. myfarmland"
+            value={farmLandName?.value}
+            onChangeText={(val) => updateContextValue("farmLandName", val)}
+            errorFlag={!farmLandName?.valid}
+            errorMessage={farmLandName?.errorMessage || ""}
+          />
         </View>
-        <View style={[globalStyle.width100]}>
+
+        {/* Location */}
+        <View style={globalStyle.width100}>
           <MyFarmText bold fontSize="lg" enableStar>
             {CONSTANTS.FARM_DETAIL.FARM_LOCATION}
           </MyFarmText>
           <MyfarmInput
-            placeholder="City/state,country"
-            onChangeText={(event) => updateContextValue("location", event)}
-            value={farmDetail?.basicDetail.location?.value}
-            errorFlag={farmDetail?.basicDetail.location?.valid ? false : true}
-            errorMessage={
-              farmDetail?.basicDetail?.location?.errorMessage
-                ? farmDetail?.basicDetail?.location?.errorMessage
-                : ""
-            }
-          ></MyfarmInput>
+            placeholder="City/state, country"
+            value={location?.value}
+            onChangeText={(val) => updateContextValue("location", val)}
+            errorFlag={!location?.valid}
+            errorMessage={location?.errorMessage || ""}
+          />
         </View>
+
+        {/* Total Area + Unit */}
         <View style={[globalStyle.width100, globalStyle.row]}>
           <View
             style={[globalStyle.column, globalStyle.flex1, styles.totalArea]}
@@ -123,29 +118,25 @@ const FarmBasicDetail: React.FC<Props> = ({}) => {
             <MyFarmText bold fontSize="lg" enableStar>
               {CONSTANTS.FARM_DETAIL.TOTAL_AREA}
             </MyFarmText>
-
             <MyfarmInput
               placeholder="Enter number"
               keyboardType="numeric"
-              onChangeText={(event) => updateContextValue("totalArea", event)}
-              value={farmDetail?.basicDetail.totalArea.value}
-              errorFlag={farmDetail?.basicDetail.totalArea.valid ? false : true}
-              errorMessage={
-                farmDetail?.basicDetail?.totalArea?.errorMessage
-                  ? farmDetail?.basicDetail?.totalArea?.errorMessage
-                  : ""
-              }
-            ></MyfarmInput>
+              value={totalArea?.value}
+              onChangeText={(val) => updateContextValue("totalArea", val)}
+              errorFlag={!totalArea?.valid}
+              errorMessage={totalArea?.errorMessage || ""}
+            />
           </View>
           <View style={[globalStyle.column, globalStyle.flex1]}>
             <MyFarmLandDropDown
               title={CONSTANTS.FARM_DETAIL.UNIT}
               titleBold
+              initialValue={unitOptions[0]}
               options={unitOptions}
-              onSelect={(event) => updateContextValue("unit", event.value)}
+              onSelect={(opt) => updateContextValue("unit", opt.value)}
               enableStar
-              value={farmDetail?.basicDetail.unit?.value}
-            ></MyFarmLandDropDown>
+              value={unit?.value}
+            />
           </View>
         </View>
       </View>

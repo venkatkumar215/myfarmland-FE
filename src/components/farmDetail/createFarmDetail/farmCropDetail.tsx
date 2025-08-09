@@ -1,8 +1,14 @@
-import React, { useMemo } from "react";
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import MyFarmText from "../../common/text/myfarm-text";
 import { useTheme } from "../../../context/theme/themeContext";
-import { IThemeType } from "../../../config/type/ui-type";
+import { IDropDownOptions, IThemeType } from "../../../config/type/ui-type";
 import { globalStyle } from "../../../styles/globalStyle";
 
 import CONSTANTS from "../../../config/constants/common-constant";
@@ -12,6 +18,7 @@ import {
 } from "../../../config/constants/farmDetail-constant";
 import MyFarmCard from "../../common/card/myfarm-card";
 import MyFarmCheckBox from "../../common/checkBox/myfarm-checkbox";
+import { FarmDetailContext } from "../../../context/farmDetail/farmDetailContext";
 
 interface Props {}
 
@@ -58,6 +65,40 @@ const createStyle = (theme: IThemeType) =>
 const FarmCropDetail: React.FC<Props> = () => {
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
+  const { farmDetail, setFarmDetail } = useContext(FarmDetailContext);
+  const [selectedCrop, setselectedCrop] = useState<Array<IDropDownOptions>>([]);
+
+  const updateSelectedCrop = (event: boolean, crop: IDropDownOptions) => {
+    const updateSelectedCropDetail = [...selectedCrop];
+
+    if (updateSelectedCrop.length === 0) {
+      updateSelectedCropDetail.push(crop);
+    } else if (updateSelectedCrop.length > 0) {
+      if (event) {
+        updateSelectedCropDetail.push(crop);
+      } else {
+        const index = updateSelectedCropDetail.findIndex(
+          (item) => item?.value === crop.value
+        );
+        updateSelectedCropDetail.splice(index, 1);
+      }
+    }
+
+    setselectedCrop(updateSelectedCropDetail);
+
+    const updateContextValue = {
+      ...farmDetail!,
+      cropDetail: {
+        ...farmDetail?.cropDetail,
+        crop: {
+          ...farmDetail?.cropDetail?.crop,
+          value: updateSelectedCropDetail,
+        },
+      },
+    };
+
+    setFarmDetail(updateContextValue);
+  };
 
   return (
     <View style={[globalStyle.column, styles.container]}>
@@ -79,7 +120,10 @@ const FarmCropDetail: React.FC<Props> = () => {
             <View key={index} style={[globalStyle.column]}>
               <MyFarmCard>
                 <View style={[globalStyle.row, styles.cardContainer]}>
-                  <MyFarmCheckBox label={crop.label}></MyFarmCheckBox>
+                  <MyFarmCheckBox
+                    label={crop.label}
+                    handlePress={(event) => updateSelectedCrop(event, crop)}
+                  ></MyFarmCheckBox>
                 </View>
               </MyFarmCard>
             </View>

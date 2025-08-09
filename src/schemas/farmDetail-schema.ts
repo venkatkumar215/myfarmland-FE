@@ -12,7 +12,11 @@ export const farmDetailSchema = z.object({
     value: z.string().trim().min(1, ERROR_CONSTANTS.FARM_DETAIL.REQUIRED),
   }),
   unit: z.object({
-    value: z.string().trim().min(1, ERROR_CONSTANTS.FARM_DETAIL.REQUIRED),
+    value: z
+      .string()
+      .trim()
+      .min(1, ERROR_CONSTANTS.FARM_DETAIL.REQUIRED)
+      .optional(),
   }),
 });
 

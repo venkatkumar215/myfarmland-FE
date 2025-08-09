@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import MyFarmText from "../../common/text/myfarm-text";
 import { useTheme } from "../../../context/theme/themeContext";
-import { IThemeType } from "../../../config/type/ui-type";
+import { IDropDownOptions, IThemeType } from "../../../config/type/ui-type";
 import { globalStyle } from "../../../styles/globalStyle";
 import CONSTANTS from "../../../config/constants/common-constant";
 import { animalOptions } from "../../../config/constants/farmDetail-constant";
@@ -10,6 +10,7 @@ import MyFarmCard from "../../common/card/myfarm-card";
 import { FontAwesome5 } from "@expo/vector-icons";
 import MyFarmCheckBox from "../../common/checkBox/myfarm-checkbox";
 import { IAnimalOptions } from "../../../config/type/ui-type/farmDetail-type";
+import { FarmDetailContext } from "../../../context/farmDetail/farmDetailContext";
 
 interface Props {}
 
@@ -56,12 +57,48 @@ const createStyle = (theme: IThemeType) =>
 const FarmAnimalDetail: React.FC<Props> = () => {
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
+  const [selectedAnimal, setselectedAnimal] = useState<
+    Array<IDropDownOptions> | []
+  >([]);
+  const { farmDetail, setFarmDetail } = useContext(FarmDetailContext);
 
   const getFontIcon = (animalList: IAnimalOptions) => {
     return React.createElement(animalList.iconLibrary, {
       name: animalList.iconName,
       size: animalList.size,
     });
+  };
+
+  const updateSelectedAnimal = (event: boolean, animal: IDropDownOptions) => {
+    const updateSelectedAnimalDetail = [...selectedAnimal];
+
+    if (updateSelectedAnimalDetail.length === 0) {
+      updateSelectedAnimalDetail.push(animal);
+    } else if (updateSelectedAnimalDetail.length > 0) {
+      if (event) {
+        updateSelectedAnimalDetail.push(animal);
+      } else {
+        const index = updateSelectedAnimalDetail.findIndex(
+          (item) => item?.value === animal.value
+        );
+        updateSelectedAnimalDetail.splice(index, 1);
+      }
+    }
+
+    setselectedAnimal(updateSelectedAnimalDetail);
+
+    const updateContextValue = {
+      ...farmDetail!,
+      animalDetail: {
+        ...farmDetail?.animalDetail,
+        animal: {
+          ...farmDetail?.animalDetail?.animal,
+          value: updateSelectedAnimalDetail,
+        },
+      },
+    };
+
+    setFarmDetail(updateContextValue);
   };
 
   return (
@@ -92,7 +129,12 @@ const FarmAnimalDetail: React.FC<Props> = () => {
                     <MyFarmText fontSize="lg">{animal.description}</MyFarmText>
                   </View>
                   <View style={styles.cardCheckBox}>
-                    <MyFarmCheckBox label=""></MyFarmCheckBox>
+                    <MyFarmCheckBox
+                      label=""
+                      handlePress={(event) =>
+                        updateSelectedAnimal(event, animal)
+                      }
+                    ></MyFarmCheckBox>
                   </View>
                 </View>
               </MyFarmCard>

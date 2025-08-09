@@ -66,13 +66,13 @@ const AddFarmDetails: React.FC<Props> = () => {
     const updatedFarmDetail = { ...farmDetail };
 
     validKeys.forEach((basicDetailKey) => {
-      if (updatedFarmDetail[stepId][basicDetailKey]) {
-        updatedFarmDetail[stepId][basicDetailKey].errorMessage =
+      if (updatedFarmDetail.basicDetail[basicDetailKey]) {
+        updatedFarmDetail.basicDetail[basicDetailKey].errorMessage =
           basicDetailKey === key ? errorMessage : "";
-        updatedFarmDetail[stepId][basicDetailKey].valid =
+        updatedFarmDetail.basicDetail[basicDetailKey].valid =
           basicDetailKey === key ? false : true;
-        updatedFarmDetail[stepId][basicDetailKey].value =
-          updatedFarmDetail[stepId][basicDetailKey].value ?? "";
+        updatedFarmDetail.basicDetail[basicDetailKey].value =
+          updatedFarmDetail.basicDetail[basicDetailKey].value ?? "";
       }
     });
 

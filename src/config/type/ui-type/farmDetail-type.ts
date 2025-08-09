@@ -1,7 +1,5 @@
 import { ZodTypeAny } from "zod";
 import { IDropDownOptions } from "./common-type";
-import { ReactElement } from "react";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export interface IStepDetail {
   id: string;
@@ -41,9 +39,24 @@ export interface IBasicFarmDetail {
     errorMessage?: string | null;
   };
 }
-
+export interface ICropFarmDetail {
+  crop: {
+    value: Array<IDropDownOptions> | [];
+    valid?: boolean;
+    errorMessage?: string;
+  };
+}
+export interface IAnimalDetail {
+  animal: {
+    value: Array<IDropDownOptions> | [];
+    valid?: boolean;
+    errorMessage?: string;
+  };
+}
 export interface IFarmDetail {
   basicDetail: IBasicFarmDetail;
+  cropDetail?: ICropFarmDetail;
+  animalDetail?: IAnimalDetail;
 }
 
 export type FarmDetailKey = keyof IBasicFarmDetail;

@@ -9,5 +9,8 @@ export function getInitializedFarmDetail(): IFarmDetail {
       totalArea: { value: "", valid: false, errorMessage: "" },
       unit: { value: "", valid: false, errorMessage: "" },
     },
+    cropDetail: {
+      crop: { value: [], valid: false, errorMessage: "" },
+    },
   };
 }
