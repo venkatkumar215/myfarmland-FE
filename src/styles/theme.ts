@@ -15,6 +15,7 @@ export const fontSize: IFontSizeType = {
 export const colorLightTheme = {
   primary: "#1B5E20",
   secondary: "#945034",
+  tertiary: "#D95D39 ",
 };
 // This file defines the light and dark themes for the application.
 export const lightTheme: IThemeType = {
@@ -32,6 +33,7 @@ export const lightTheme: IThemeType = {
     btn: {
       primary: colorLightTheme.primary,
       secondary: colorLightTheme.secondary,
+      tertiary: colorLightTheme.tertiary,
     },
     btnText: {
       primary: "#FFFFFF",
@@ -74,6 +76,7 @@ export const darkTheme: IThemeType = {
     btn: {
       primary: "#84996B",
       secondary: "#E1E8D6",
+      tertiary: colorLightTheme.tertiary,
     },
     btnText: {
       primary: "#FFFFFF",

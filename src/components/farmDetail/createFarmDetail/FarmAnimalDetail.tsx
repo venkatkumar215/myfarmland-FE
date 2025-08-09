@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useContext, useMemo, useState } from "react";
+import { Image, ScrollView, StyleSheet, View } from "react-native";
 import MyFarmText from "../../common/text/myfarm-text";
 import { useTheme } from "../../../context/theme/themeContext";
 import { IDropDownOptions, IThemeType } from "../../../config/type/ui-type";
@@ -7,7 +7,6 @@ import { globalStyle } from "../../../styles/globalStyle";
 import CONSTANTS from "../../../config/constants/common-constant";
 import { animalOptions } from "../../../config/constants/farmDetail-constant";
 import MyFarmCard from "../../common/card/myfarm-card";
-import { FontAwesome5 } from "@expo/vector-icons";
 import MyFarmCheckBox from "../../common/checkBox/myfarm-checkbox";
 import { IAnimalOptions } from "../../../config/type/ui-type/farmDetail-type";
 import { FarmDetailContext } from "../../../context/farmDetail/farmDetailContext";

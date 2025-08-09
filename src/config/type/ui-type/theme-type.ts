@@ -21,6 +21,7 @@ export interface IThemeType {
     btn: {
       primary: string;
       secondary: string;
+      tertiary: string;
     };
     btnText: {
       primary: string;

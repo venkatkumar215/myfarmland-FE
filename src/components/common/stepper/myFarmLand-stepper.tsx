@@ -18,7 +18,6 @@ interface Props {
   onPressPrevious?: (currentStep: number) => void;
   disableSelfNext?: boolean;
   disableSelfPrv?: boolean;
-  
 }
 
 const createStyle = (theme: IThemeType) =>
@@ -28,7 +27,6 @@ const createStyle = (theme: IThemeType) =>
       height: "100%",
     },
     stepContainer: {
-      // backgroundColor: theme.colors.btn.primary,
       padding: 20,
       flex: 1,
       minHeight: 10,
@@ -68,7 +66,7 @@ const createStyle = (theme: IThemeType) =>
     },
     stepMark: {
       flex: 1,
-      minHeight: 5,
+      height: 5,
       borderRadius: 5,
     },
     activeBox: {
@@ -158,7 +156,11 @@ const MyFarmStepper: React.FC<Props> = ({
         </View>
         <View style={styles.nextButton}>
           <MyfarmButton
-            title={CONSTANTS.NEXT}
+            title={
+              currentStep === totalSteps - 1
+                ? CONSTANTS.COMPLETE_STEP
+                : CONSTANTS.NEXT
+            }
             onPress={() => {
               if (currentStep < totalSteps - 1) {
                 onPressNext?.(currentStep);
@@ -167,7 +169,7 @@ const MyFarmStepper: React.FC<Props> = ({
             }}
             bold
             fontSize="xl"
-            disabled={currentStep === totalSteps - 1}
+            type="primary"
           ></MyfarmButton>
         </View>
       </View>

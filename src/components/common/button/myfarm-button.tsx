@@ -14,7 +14,7 @@ interface ButtonProps {
   title: string;
   disabled?: boolean;
   fontSize?: keyof IThemeType["fonts"]["fontSize"];
-  type?: "primary" | "secondary";
+  type?: "primary" | "secondary" | "tertiary";
   bold?: boolean;
   // add more props as needed
 }
@@ -39,6 +39,9 @@ const MyfarmButton: React.FC<ButtonProps> = ({
       style={[styles.button, disabled && styles.disabled]}
       activeOpacity={0.7}
       disabled={disabled}
+      accessible={true}
+      accessibilityRole="button"
+      accessibilityLabel={`Press to ${title}`}
     >
       <MyFarmText style={styles.text}>{title}</MyFarmText>
     </TouchableOpacity>
@@ -67,7 +70,7 @@ const createStyle = (
     },
     disabled: {
       backgroundColor: "#E0E0E0",
-      color:"#BDBDBD"
+      color: "#BDBDBD",
     },
   });
 

@@ -66,7 +66,7 @@ const FarmCropDetail: React.FC<Props> = () => {
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
   const { farmDetail, setFarmDetail } = useContext(FarmDetailContext);
-  const [selectedCrop, setselectedCrop] = useState<Array<IDropDownOptions>>([]);
+  const [selectedCrop, setSelectedCrop] = useState<Array<IDropDownOptions>>([]);
 
   const updateSelectedCrop = (event: boolean, crop: IDropDownOptions) => {
     const updateSelectedCropDetail = [...selectedCrop];
@@ -84,7 +84,7 @@ const FarmCropDetail: React.FC<Props> = () => {
       }
     }
 
-    setselectedCrop(updateSelectedCropDetail);
+    setSelectedCrop(updateSelectedCropDetail);
 
     const updateContextValue = {
       ...farmDetail!,

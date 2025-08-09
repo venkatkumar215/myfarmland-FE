@@ -40,6 +40,7 @@ const CONSTANTS = {
   },
   PREVIOUS: "Previous",
   NEXT: "Next",
+  COMPLETE_STEP: "Complete Step",
   FARM_SETUP: "Farm Setup",
   BASIC_FARM_DETAIL: "Basic Information about your Farm",
   FARM_SIZE_DETAIL: "Select crop you wants to grow(optional)",
