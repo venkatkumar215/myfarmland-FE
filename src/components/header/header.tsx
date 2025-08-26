@@ -1,103 +1,64 @@
-import React, { useMemo } from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { ThemeContext } from "@react-navigation/native";
+import React, { useContext, useMemo } from "react";
+import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import MyFarmText from "../common/text/myfarm-text";
+import { IThemeType } from "../../config/type/ui-type";
 import { useTheme } from "../../context/theme/themeContext";
-import { Entypo, FontAwesome5 } from "@expo/vector-icons";
+import { globalStyle } from "../../styles/globalStyle";
+import MyFarmText from "../common/text/myfarm-text";
 import CONSTANTS from "../../config/constants/common-constant";
-import { IThemeType } from "../../config/type/ui-type/theme-type";
+import { Entypo, Feather } from "@expo/vector-icons";
 
-/**
- *
- * HeaderComponent is a reusable header component that displays a title, optional icons, and handles actions.
- *
- * @interface HeaderComponentProps
- * @typedef {HeaderComponentProps}
- */
-interface HeaderComponentProps {
-  title?: string;
-  showNotification?: boolean;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
-  onRightIconPress?: () => void;
-}
+interface Props {}
 
-/**
- *
- * createStyle generates styles for the HeaderComponent based on the current theme.
- *
- * @param {IThemeType} theme
- * @returns {*}
- */
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     container: {
-      flexDirection: "row",
       height: 65,
       alignItems: "center",
-      backgroundColor: theme.colors.icon.active,
-      paddingHorizontal: 10,
+      backgroundColor: theme.colors.background.primary,
+      paddingHorizontal: 16,
     },
-    headerLogo: {
-      flexDirection: "row",
-      alignItems: "center",
+    logoContainer: {
       flex: 1,
+      justifyContent: "flex-start",
     },
-    headerIcon: {
-      marginRight: 10,
+    logoText: {
+      color: theme.colors.btn.primary,
+      fontStyle: "italic",
     },
-    headerActionIcon: {
+    actionContainer: {
+      flex: 1,
       alignItems: "flex-end",
-      justifyContent: "center",
+      paddingLeft: 10,
     },
   });
 
-const Header: React.FC<HeaderComponentProps> = ({
-  title = CONSTANTS.HEADER_TITLE.MY_FARM_LAND,
-  showNotification = true,
-  leftIcon,
-  rightIcon,
-  onRightIconPress,
-}) => {
+const HeaderComponent: React.FC<Props> = () => {
   const theme = useTheme();
-
   const styles = useMemo(() => createStyle(theme), [theme]);
 
   return (
     <SafeAreaView edges={["top", "left", "right"]}>
-      <View style={styles.container}>
-        <View style={styles.headerLogo}>
-          <View style={styles.headerIcon}>
-            {leftIcon ?? (
-              <Entypo
-                name="leaf"
-                size={28}
-                color={theme.colors.icon.secondary}
-                accessibilityLabel="Farm Leaf Logo"
-              />
-            )}
+      <View style={[globalStyle.row, styles.container]}>
+        <View style={[styles.logoContainer, globalStyle.row]}>
+          <View>
+            <Entypo
+              name="leaf"
+              size={28}
+              color={theme.colors.btn.primary}
+              accessibilityLabel="Farm Leaf Logo"
+            />
           </View>
-          <MyFarmText bold fontSize="xxl" color="secondary">
-            {title}
+          <MyFarmText bold fontSize="xxl" style={styles.logoText}>
+            {CONSTANTS.HEADER_TITLE.MY_FARM_LAND}
           </MyFarmText>
         </View>
-        <View style={styles.headerActionIcon}>
-          {rightIcon ? (
-            rightIcon
-          ) : showNotification ? (
-            <TouchableOpacity onPress={onRightIconPress}>
-              <FontAwesome5
-                name="bell"
-                size={28}
-                color={theme.colors.icon.secondary}
-                accessibilityLabel="Notifications"
-              />
-            </TouchableOpacity>
-          ) : null}
+        <View style={styles.actionContainer}>
+          <Feather name="user" size={24} color="black" />
         </View>
       </View>
     </SafeAreaView>
   );
 };
-
-export default Header;
+export default HeaderComponent;

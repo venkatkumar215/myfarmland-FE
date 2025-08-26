@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import HeaderComponent from "../components/header/header";
+
 import { useTheme } from "../context/theme/themeContext";
 import { IThemeType } from "../config/type/ui-type";
 import BottomNavComponent from "../components/bottomNav/bottomNav";
@@ -9,6 +9,7 @@ import { handleApiError } from "../utilis/api-errorHandler/errorHandler";
 import { auth } from "../config/firebaseConfig";
 import CreateFarmDetail from "../screens/farmDetail/CreateFarmDetail";
 import { AuthContext } from "../context/auth/authContext";
+import HeaderComponent from "../components/header/header";
 
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
@@ -31,7 +32,6 @@ const AppNavigator: React.FC = () => {
 
   useEffect(() => {
     try {
-
       const payLoad = {
         userId: userId ? userId : "O59SX5T5sVQycMmuutsdV8OgDN63",
       };
@@ -57,7 +57,7 @@ const AppNavigator: React.FC = () => {
   return (
     <>
       <View style={styles.container}>
-        {hasFarmDetail ? (
+        {!hasFarmDetail ? (
           <>
             {/* Header component for the app */}
             <HeaderComponent />
