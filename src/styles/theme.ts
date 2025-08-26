@@ -59,6 +59,9 @@ export const lightTheme: IThemeType = {
   fonts: {
     fontSize: fontSize,
     fontFamily: "Quicksand-Regular",
+    color: {
+      primary: "#000", // for text
+    },
   },
 };
 

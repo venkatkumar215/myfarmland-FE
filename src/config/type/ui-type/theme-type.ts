@@ -43,5 +43,8 @@ export interface IThemeType {
   fonts: {
     fontSize: IFontSizeType;
     fontFamily: string;
+    color?: {
+      primary: string;
+    };
   };
 }

@@ -45,6 +45,7 @@ const styles = (
     input: {
       flex: 1,
       height: "100%",
+      color: theme.fonts.color?.primary,
       borderColor: theme.colors.inputText.primary,
       borderWidth: 1,
       borderBottomWidth: bottomBorder ? 2 : 1,
@@ -53,7 +54,7 @@ const styles = (
       borderRightWidth: bottomBorder ? 0 : 1,
       borderRadius: bottomBorder ? 0 : 10,
       paddingHorizontal: 12,
-      paddingRight: 40, // extra padding for the right icon
+      // paddingRight: 40, // extra padding for the right icon need to take a look 
       fontSize: theme.fonts.fontSize[fontSize],
       backgroundColor: theme.colors.background.primary,
     },

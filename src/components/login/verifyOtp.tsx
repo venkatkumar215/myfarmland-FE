@@ -1,5 +1,5 @@
 import React, { useState, useRef, useContext } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import MyfarmInput from "../common/input/myfarm-input";
 import MyfarmButton from "../common/button/myfarm-button";
 import CONSTANTS from "../../config/constants/common-constant";
@@ -29,9 +29,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   otpContainer: {
-    marginVertical: 10,
     display: "flex",
     flexDirection: "row",
+    margin: 10,
+    justifyContent: "center",
+    alignItems: "center",
   },
   otpInput: {
     width: 40,
@@ -39,8 +41,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   verifyOTPInput: {
-    marginRight: 10,
-    marginLeft: 10,
+    flex: 1,
+    marginRight: 5,
+    marginLeft: 5,
   },
   resendOtpText: {
     marginVertical: 10,
@@ -58,10 +61,9 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
   const inputsRef = useRef<Array<any>>([]);
   const [otp, setOtp] = useState<string[]>(Array(OTP_LENGTH).fill(""));
 
-  const {  setUserToken } = useContext(AuthContext);
-  const {  setUserId } = useContext(AuthContext);
+  const { setUserToken } = useContext(AuthContext);
+  const { setUserId } = useContext(AuthContext);
   const { setIsAuthenticated } = useContext(AuthContext);
-
 
   const {
     control,
@@ -110,14 +112,12 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
       };
       // Call your API to verify the OTP
       const result = await verifyOtpApi(payload);
-  
       if (result.success) {
-       
         if (result.token) {
-          setIsAuthenticated(true)
+          setIsAuthenticated(true);
           setUserToken(result.token);
           setUserId(result.userId);
-// commented temporaryly need to check firebase config
+          // commented temporaryly need to check firebase config
           // loginWithCustomToken(result.token);
         } else {
           console.error("Token is missing in the response.");
@@ -147,7 +147,7 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
 
       <View style={styles.otpContainer}>
         {otp.map((digit, index) => (
-          <View key={index} style={styles.verifyOTPInput}>
+          <View key={index} style={styles.verifyOTPInput}>        
             <MyfarmInput
               ref={(ref) => {
                 inputsRef.current[index] = ref!;
