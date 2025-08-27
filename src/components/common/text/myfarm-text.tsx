@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { IThemeType } from "../../../config/type/ui-type/theme-type";
 import { useTheme } from "../../../context/theme/themeContext";
-import { globalStyle } from "../../../styles/globalStyle";
+import { useGlobalStyle } from "../../../styles/globalStyle";
 
 /**
  *
@@ -64,12 +64,12 @@ const MyFarmText: React.FC<Props> = ({
   ...props
 }) => {
   const theme = useTheme();
+  const globalStyle = useGlobalStyle();
 
   const styles = useMemo(
     () => createStyles(theme, fontSize, bold, color),
     [theme, fontSize, bold, color]
   );
-
 
   return (
     <Text style={[styles.text, style, globalStyle.row]} {...props}>

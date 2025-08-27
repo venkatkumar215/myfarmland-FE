@@ -3,7 +3,7 @@ import { Image, ScrollView, StyleSheet, View } from "react-native";
 import MyFarmText from "../../common/text/myfarm-text";
 import { useTheme } from "../../../context/theme/themeContext";
 import { IDropDownOptions, IThemeType } from "../../../config/type/ui-type";
-import { globalStyle } from "../../../styles/globalStyle";
+import { useGlobalStyle } from "../../../styles/globalStyle";
 import CONSTANTS from "../../../config/constants/common-constant";
 import { animalOptions } from "../../../config/constants/farmDetail-constant";
 import MyFarmCard from "../../common/card/myfarm-card";
@@ -55,6 +55,7 @@ const createStyle = (theme: IThemeType) =>
 
 const FarmAnimalDetail: React.FC<Props> = () => {
   const theme = useTheme();
+  const globalStyle = useGlobalStyle();
   const styles = useMemo(() => createStyle(theme), [theme]);
   const [selectedAnimal, setselectedAnimal] = useState<
     Array<IDropDownOptions> | []

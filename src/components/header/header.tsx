@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { IThemeType } from "../../config/type/ui-type";
 import { useTheme } from "../../context/theme/themeContext";
-import { globalStyle } from "../../styles/globalStyle";
+import { useGlobalStyle } from "../../styles/globalStyle";
 import MyFarmText from "../common/text/myfarm-text";
 import CONSTANTS from "../../config/constants/common-constant";
 import { Entypo, Feather } from "@expo/vector-icons";
@@ -35,6 +35,7 @@ const createStyle = (theme: IThemeType) =>
   });
 
 const HeaderComponent: React.FC<Props> = () => {
+  const globalStyle = useGlobalStyle();
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
 

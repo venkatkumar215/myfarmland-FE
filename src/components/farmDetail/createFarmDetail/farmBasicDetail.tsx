@@ -3,7 +3,7 @@ import MyFarmText from "../../common/text/myfarm-text";
 import { Image, StyleSheet, View } from "react-native";
 import { useTheme } from "../../../context/theme/themeContext";
 import { IThemeType } from "../../../config/type/ui-type";
-import { globalStyle } from "../../../styles/globalStyle";
+import { useGlobalStyle } from "../../../styles/globalStyle";
 import MyfarmInput from "../../common/input/myfarm-input";
 import CONSTANTS from "../../../config/constants/common-constant";
 import { FarmDetailKey } from "../../../config/type/ui-type/farmDetail-type";
@@ -41,6 +41,7 @@ const createStyle = (theme: IThemeType) =>
 
 const FarmBasicDetail: React.FC = () => {
   const theme = useTheme();
+  const globalStyle = useGlobalStyle();
   const styles = useMemo(() => createStyle(theme), [theme]);
   const { farmDetail, setFarmDetail } = useContext(FarmDetailContext);
 

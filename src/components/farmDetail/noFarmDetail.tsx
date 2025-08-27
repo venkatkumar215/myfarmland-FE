@@ -5,7 +5,6 @@ import { IThemeType } from "../../config/type/ui-type";
 import MyfarmButton from "../common/button/myfarm-button";
 import MyFarmText from "../common/text/myfarm-text";
 import AddFarmDetails from "./addFarmDetail";
-import { globalStyle } from "../../styles/globalStyle";
 import CONSTANTS from "../../config/constants/common-constant";
 import { FarmDetailProvider } from "../../context/farmDetail/farmDetailContext";
 interface Props {}

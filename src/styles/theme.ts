@@ -23,7 +23,7 @@ export const lightTheme: IThemeType = {
   colors: {
     // Define the colors used in the light theme
     background: {
-      primary: "#F9F9F6",
+      primary: "#FAFAF5",
       secondary: "#FFFFFF",
     },
     text: {

@@ -62,5 +62,6 @@ const CONSTANTS = {
     CHOOSE_YOUR_CROP: "Choose your crop",
     CROP_SETUP_MESSAGE: "Select crop you want to grow (optional)",
   },
+  WEATHER:'Weather'
 };
 export default CONSTANTS;

@@ -9,7 +9,7 @@ import { Image, ScrollView, StyleSheet, View } from "react-native";
 import MyFarmText from "../../common/text/myfarm-text";
 import { useTheme } from "../../../context/theme/themeContext";
 import { IDropDownOptions, IThemeType } from "../../../config/type/ui-type";
-import { globalStyle } from "../../../styles/globalStyle";
+import { useGlobalStyle } from "../../../styles/globalStyle";
 
 import CONSTANTS from "../../../config/constants/common-constant";
 import {
@@ -64,6 +64,7 @@ const createStyle = (theme: IThemeType) =>
 
 const FarmCropDetail: React.FC<Props> = () => {
   const theme = useTheme();
+  const globalStyle = useGlobalStyle();
   const styles = useMemo(() => createStyle(theme), [theme]);
   const { farmDetail, setFarmDetail } = useContext(FarmDetailContext);
   const [selectedCrop, setSelectedCrop] = useState<Array<IDropDownOptions>>([]);

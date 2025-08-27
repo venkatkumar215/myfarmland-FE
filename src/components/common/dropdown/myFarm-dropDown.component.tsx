@@ -4,7 +4,7 @@ import MyFarmText from "../text/myfarm-text";
 import MyfarmInput from "../input/myfarm-input";
 import { useTheme } from "../../../context/theme/themeContext";
 import { IDropDownOptions, IThemeType } from "../../../config/type/ui-type";
-import { globalStyle } from "../../../styles/globalStyle";
+import { useGlobalStyle } from "../../../styles/globalStyle";
 
 import MyFarmIcons from "../Icons/myFarm-Icons";
 
@@ -71,6 +71,7 @@ const MyFarmLandDropDown: React.FC<Props> = ({
   const [showDropDown, setshowDropDown] = useState<boolean>(false);
 
   const theme = useTheme();
+  const globalStyle = useGlobalStyle();
 
   const dynamicStyle = createStyle(theme, selectedIndex);
   const [selectedDropDown, setselectedDropDown] =

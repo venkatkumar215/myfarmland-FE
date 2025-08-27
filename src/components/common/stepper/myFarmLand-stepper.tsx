@@ -4,7 +4,7 @@ import MyFarmText from "../text/myfarm-text";
 import { IThemeType } from "../../../config/type/ui-type";
 import { useTheme } from "../../../context/theme/themeContext";
 import MyfarmButton from "../button/myfarm-button";
-import { globalStyle } from "../../../styles/globalStyle";
+import { useGlobalStyle } from "../../../styles/globalStyle";
 import CONSTANTS from "../../../config/constants/common-constant";
 import { colorLightTheme } from "../../../styles/theme";
 
@@ -88,6 +88,7 @@ const MyFarmStepper: React.FC<Props> = ({
   disableSelfNext = false,
   disableSelfPrv = false,
 }) => {
+  const globalStyle = useGlobalStyle();
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
   // This state can be used to track the current step in the process
