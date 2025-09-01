@@ -51,6 +51,15 @@ export const useGlobalStyle = () => {
         bgSecondary: {
           backgroundColor: theme.colors.background.secondary,
         },
+        p0: {
+          padding: 0,
+        },
+        p1: {
+          padding: 2,
+        },
+        p2: {
+          padding: 4,
+        },
         pt0: {
           paddingTop: 0,
         },

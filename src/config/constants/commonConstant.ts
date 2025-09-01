@@ -66,5 +66,10 @@ const CONSTANTS = {
   HEALTH_MONITOR: "Health Monitor",
   RECENT_ACTIVITY: "Recent Activity",
   UPCOMING_ACTIVITY: "Upcoming Activity",
+  HEALTH_STATUS: {
+    HEALTHY: "Healthy",
+    CAUTION: "Caution",
+    CRITICAL: "Critical",
+  },
 };
 export default CONSTANTS;

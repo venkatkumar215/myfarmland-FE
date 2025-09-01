@@ -18,14 +18,14 @@ const createStyles = (
 ) =>
   StyleSheet.create({
     cardContainer: {
-      borderColor: theme.colors.border.primary,
-      borderWidth: border ? 1 : 0,
       borderRadius: 12,
       padding: 10,
-      ...(background
-        ? { backgroundColor: theme.colors.background[background] }
-        : { backgroundColor: "transparent" }),
-      ...(border && { borderStyle: "solid" }),
+      borderWidth: border ? 1 : 0,
+      borderColor: theme.colors.border.primary,
+      borderStyle: border ? "solid" : undefined,
+      backgroundColor: background
+        ? theme.colors.background[background]
+        : "transparent",
     },
   });
 const MyFarmCard: React.FC<Props> = ({

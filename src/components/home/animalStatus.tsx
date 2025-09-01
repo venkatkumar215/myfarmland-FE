@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { StyleSheet, View } from "react-native";
-import { animal_list } from "../../config/constants/homeConstant";
+import { animalList } from "../../config/constants/homeConstant";
 import { IAnimalType } from "../../config/type/uiType/homeType";
 import MyFarmText from "../common/text/MyfarmText";
 import { useTheme } from "../../context/theme/ThemeContext";
@@ -43,14 +43,14 @@ const AnimalStatus: React.FC<Props> = () => {
   const getFontIcon = (animalList: IAnimalType) => {
     return React.createElement(animalList.iconLibrary, {
       name: animalList.iconName,
-      size: animalList.size,
+      size: animalList.iconSize,
       solid: true,
       color: "white",
     });
   };
   return (
     <>
-      {animal_list.map((animal, index) => (
+      {animalList.map((animal, index) => (
         <View key={index} style={styles.animalDetail}>
           <View style={styles.animalIcon}>{getFontIcon(animal)}</View>
           <MyFarmText bold>{animal.name}</MyFarmText>

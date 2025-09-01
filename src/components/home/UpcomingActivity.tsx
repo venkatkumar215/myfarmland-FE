@@ -22,7 +22,7 @@ export const UpcomingActivity: React.FC<Props> = () => {
   const globalStyle = useGlobalStyle();
   return (
     <View style={[globalStyle.column, globalStyle.width100]}>
-      <MyFarmText bold fontSize="lg">
+      <MyFarmText bold fontSize="xl">
         {CONSTANTS.UPCOMING_ACTIVITY}
       </MyFarmText>
       <View style={[globalStyle.column, styles.activityContainer]}>

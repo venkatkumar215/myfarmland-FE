@@ -1,6 +1,6 @@
 import React, { use, useMemo } from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
-import { home_action_list } from "../../config/constants/homeConstant";
+import { homeActionList } from "../../config/constants/homeConstant";
 import { useTheme } from "../../context/theme/ThemeContext";
 import MyFarmText from "../common/text/MyfarmText";
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -65,7 +65,7 @@ const HomeActionList: React.FC<Props> = () => {
 
   return (
     <View style={styles.container}>
-      {home_action_list.map((action, index) => (
+      {homeActionList.map((action, index) => (
         <View key={index} style={styles.actionList}>
           <View style={styles.actionIcon}>
             <Image

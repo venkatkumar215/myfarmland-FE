@@ -21,6 +21,10 @@ const createStyle = (theme: IThemeType) =>
       padding: 16,
       gap: 20,
     },
+    sectionOne: {
+      minHeight: 200,
+      maxHeight: 210,
+    },
   });
 
 export const CropScreen = () => {
@@ -33,7 +37,7 @@ export const CropScreen = () => {
 
   return (
     <View style={[globalStyle.column, styles.container]}>
-      <View style={[globalStyle.row, globalStyle.flexGap2]}>
+      <View style={[globalStyle.row, globalStyle.flexGap2, styles.sectionOne]}>
         <View
           style={[globalStyle.flex1, globalStyle.column, globalStyle.flexGap1]}
         >

@@ -16,7 +16,7 @@ export const AnimalCount: React.FC<Props> = () => {
   const globalStyle = useGlobalStyle();
   return (
     <View style={[globalStyle.column, styles.container]}>
-      <MyFarmText style={[globalStyle.alignItemCenter]} bold fontSize="lg">
+      <MyFarmText style={[globalStyle.alignItemCenter]} bold fontSize="xl">
         {CONSTANTS.TOTAL_ANIMALS}
       </MyFarmText>
       <MyFarmText
