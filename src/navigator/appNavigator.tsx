@@ -13,10 +13,10 @@ import { useTheme } from "../context/theme/ThemeContext";
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     container: {
+      backgroundColor: theme.colors.background.primary,
       display: "flex",
       flexDirection: "column",
       flex: 1,
-      backgroundColor: theme.colors.background.primary,
     },
   });
 

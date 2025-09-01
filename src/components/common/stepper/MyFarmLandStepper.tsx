@@ -22,58 +22,58 @@ interface Props {
 
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
+    activeBox: {
+      backgroundColor: colorLightTheme.secondary,
+    },
+    childrenContainer: {
+      flex: 1,
+    },
     container: {
-      width: "100%",
       height: "100%",
+      width: "100%",
     },
-    stepContainer: {
-      padding: 20,
+    inActiveBox: {
+      backgroundColor: theme.colors.border.primary,
+    },
+    nextButton: {
       flex: 1,
-      minHeight: 10,
-      maxHeight: 100,
-    },
-    stepInfoContainer: {
-      alignItems: "center",
-      justifyContent: "space-between",
-    },
-    stepTitle: {
-      flex: 1,
-    },
-    stepInfo: {
-      flex: 1,
-      alignItems: "flex-end",
-    },
-    stepActionContainer: {
-      padding: 20,
     },
     previousButton: {
       flex: 1,
       paddingRight: 10,
     },
-    nextButton: {
+    stepActionContainer: {
+      padding: 20,
+    },
+    stepContainer: {
+      flex: 1,
+      maxHeight: 100,
+      minHeight: 10,
+      padding: 20,
+    },
+    stepInfo: {
+      alignItems: "flex-end",
       flex: 1,
     },
-    childrenContainer: {
-      flex: 1,
-    },
-    stepMarkContainer: {
-      flex: 1,
-      justifyContent: "space-evenly",
+    stepInfoContainer: {
       alignItems: "center",
-      gap: 5,
-      paddingTop: 10,
-      paddingBottom: 10,
+      justifyContent: "space-between",
     },
     stepMark: {
+      borderRadius: 5,
       flex: 1,
       height: 5,
-      borderRadius: 5,
     },
-    activeBox: {
-      backgroundColor: colorLightTheme.secondary,
+    stepMarkContainer: {
+      alignItems: "center",
+      flex: 1,
+      gap: 5,
+      justifyContent: "space-evenly",
+      paddingBottom: 10,
+      paddingTop: 10,
     },
-    inActiveBox: {
-      backgroundColor: theme.colors.border.primary,
+    stepTitle: {
+      flex: 1,
     },
   });
 

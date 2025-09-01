@@ -1,12 +1,11 @@
 import { useTheme } from "@react-navigation/native";
 import React, { useMemo } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { IThemeType } from "../../config/type/uiType";
 import { useGlobalStyle } from "../../styles/globalStyle";
 import MyFarmCard from "../../components/common/card/MyfarmCard";
 import MyFarmText from "../../components/common/text/MyfarmText";
 import { Weather } from "../../components/home/Weather";
-import { Ionicons } from "@expo/vector-icons";
 import { AnimalCount } from "../../components/home/AnimalCount";
 import { Health } from "../../components/home/Health";
 import { RecentActivity } from "../../components/home/RecentActivity";
@@ -16,14 +15,14 @@ const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     container: {
       backgroundColor: theme.colors.background.primary,
-      height: "100%",
-      width: "100%",
-      padding: 16,
       gap: 20,
+      height: "100%",
+      padding: 16,
+      width: "100%",
     },
     sectionOne: {
-      minHeight: 200,
       maxHeight: 210,
+      minHeight: 200,
     },
   });
 
@@ -48,7 +47,7 @@ export const CropScreen = () => {
             <AnimalCount></AnimalCount>
           </MyFarmCard>
         </View>
-        <View style={[globalStyle.flex1]}>
+        <View style={globalStyle.flex1}>
           <MyFarmCard>
             <Health></Health>
           </MyFarmCard>
@@ -56,16 +55,16 @@ export const CropScreen = () => {
       </View>
 
       <View>
-        <MyFarmCard style={[globalStyle.column]}>
+        <MyFarmCard style={globalStyle.column}>
           <RecentActivity></RecentActivity>
         </MyFarmCard>
       </View>
       <View>
-        <MyFarmCard style={[globalStyle.column]}>
+        <MyFarmCard style={globalStyle.column}>
           <UpcomingActivity></UpcomingActivity>
         </MyFarmCard>
       </View>
-      <View style={[globalStyle.row]}>
+      <View style={globalStyle.row}>
         <MyFarmCard>
           <MyFarmText>Growth rate </MyFarmText>
         </MyFarmCard>

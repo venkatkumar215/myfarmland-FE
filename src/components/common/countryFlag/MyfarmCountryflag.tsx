@@ -10,9 +10,9 @@ const styles = StyleSheet.create({
     display: "flex",
   },
   flag: {
-    width: 25,
     height: 20,
     marginRight: 10,
+    width: 25,
   },
 });
 

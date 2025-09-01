@@ -1,9 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import MyFarmText from "../common/text/MyfarmText";
 import { useGlobalStyle } from "../../styles/globalStyle";
 import { Fontisto } from "@expo/vector-icons";
-import CONSTANTS from "../../config/constants/commonConstant";
 
 interface Props {}
 
@@ -12,8 +11,8 @@ const styles = StyleSheet.create({
     gap: 15,
   },
   weatherContianer: {
-    gap: 10,
     alignItems: "center",
+    gap: 10,
   },
 });
 

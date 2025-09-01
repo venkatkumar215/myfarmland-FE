@@ -13,10 +13,10 @@ const styles = StyleSheet.create({
     gap: 7,
   },
   activityItem: {
+    borderBottomWidth: 1,
+    borderColor: "black",
     gap: 5,
     paddingBottom: 4,
-    borderColor: "black",
-    borderBottomWidth: 1,
   },
 });
 
@@ -33,13 +33,13 @@ export const RecentActivity: React.FC<Props> = () => {
         {getRecentActivity?.length > 0 &&
           getRecentActivity?.map((activity, index) => (
             <View key={index} style={[globalStyle.row, styles.activityItem]}>
-              <MyFarmText style={[globalStyle.flex1]}>
+              <MyFarmText style={globalStyle.flex1}>
                 {activity.startDate}
               </MyFarmText>
-              <MyFarmText style={[globalStyle.flex1]}>
+              <MyFarmText style={globalStyle.flex1}>
                 {activity.name}
               </MyFarmText>
-              <View style={[globalStyle.flex1]}>
+              <View style={globalStyle.flex1}>
                 <AntDesign name="checkcircleo" size={14} color="green" />
               </View>
             </View>

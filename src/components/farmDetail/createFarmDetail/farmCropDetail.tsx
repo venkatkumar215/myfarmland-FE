@@ -1,49 +1,27 @@
-import React, {
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
 import MyFarmText from "../../common/text/MyfarmText";
 import { useTheme } from "../../../context/theme/ThemeContext";
-import { IDropDownOptions, IThemeType } from "../../../config/type/uiType";
+import { IDropDownOptions } from "../../../config/type/uiType";
 import { useGlobalStyle } from "../../../styles/globalStyle";
 
 import CONSTANTS from "../../../config/constants/commonConstant";
-import {
-  animalOptions,
-  cropOptional,
-} from "../../../config/constants/farmDetailConstant";
+import { cropOptional } from "../../../config/constants/farmDetailConstant";
 import MyFarmCard from "../../common/card/MyfarmCard";
 import MyFarmCheckBox from "../../common/checkBox/MyfarmCheckbox";
 import { FarmDetailContext } from "../../../context/farmDetail/FarmDetailContext";
 
 interface Props {}
 
-const createStyle = (theme: IThemeType) =>
+const createStyle = () =>
   StyleSheet.create({
-    container: {
-      padding: 20,
-      flex: 1,
-      justifyContent: "flex-start",
-    },
-    titleContainer: {
-      gap: 10,
-      marginBottom: 20,
-      alignItems: "center",
-      maxHeight: 150,
-    },
-    image: {
-      minHeight: 30,
-      minWidth: 30,
-      maxHeight: 80,
-      maxWidth: 80,
-      resizeMode: "cover",
-    },
     AnimalContianer: {
       gap: 15,
+    },
+    cardCheckBox: {
+      alignItems: "flex-end",
+      flex: 1,
+      paddingRight: 10,
     },
     cardContainer: {
       alignItems: "center",
@@ -52,20 +30,33 @@ const createStyle = (theme: IThemeType) =>
       flex: 1,
     },
     cardText: {
-      paddingLeft: 20,
       flex: 8,
+      paddingLeft: 20,
     },
-    cardCheckBox: {
-      alignItems: "flex-end",
-      paddingRight: 10,
+    container: {
       flex: 1,
+      justifyContent: "flex-start",
+      padding: 20,
+    },
+    image: {
+      maxHeight: 80,
+      maxWidth: 80,
+      minHeight: 30,
+      minWidth: 30,
+      resizeMode: "cover",
+    },
+    titleContainer: {
+      alignItems: "center",
+      gap: 10,
+      marginBottom: 20,
+      maxHeight: 150,
     },
   });
 
 const FarmCropDetail: React.FC<Props> = () => {
   const theme = useTheme();
   const globalStyle = useGlobalStyle();
-  const styles = useMemo(() => createStyle(theme), [theme]);
+  const styles = useMemo(() => createStyle(), []);
   const { farmDetail, setFarmDetail } = useContext(FarmDetailContext);
   const [selectedCrop, setSelectedCrop] = useState<Array<IDropDownOptions>>([]);
 
@@ -118,7 +109,7 @@ const FarmCropDetail: React.FC<Props> = () => {
       <ScrollView>
         <View style={[globalStyle.column, styles.AnimalContianer]}>
           {cropOptional.map((crop, index) => (
-            <View key={index} style={[globalStyle.column]}>
+            <View key={index} style={globalStyle.column}>
               <MyFarmCard>
                 <View style={[globalStyle.row, styles.cardContainer]}>
                   <MyFarmCheckBox

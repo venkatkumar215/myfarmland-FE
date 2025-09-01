@@ -5,7 +5,6 @@ import CONSTANTS from "../../config/constants/commonConstant";
 import {
   FarmDetailKey,
   IFarmDetail,
-  IFarmDetailKey,
 } from "../../config/type/uiType/farmDetailType";
 import { FarmDetailContext } from "../../context/farmDetail/FarmDetailContext";
 
@@ -60,7 +59,7 @@ const AddFarmDetails: React.FC<Props> = () => {
     if (!farmDetail || typeof property !== "string") return;
     if (!validKeys.includes(property as FarmDetailKey)) return;
 
-    const stepId = stepDetails[currentStep].id as IFarmDetailKey;
+    // const stepId = stepDetails[currentStep].id as IFarmDetailKey;
     const key = property as FarmDetailKey;
 
     const updatedFarmDetail = { ...farmDetail };

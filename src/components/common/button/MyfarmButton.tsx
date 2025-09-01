@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import {
   TouchableOpacity,
-  Text,
   StyleSheet,
   GestureResponderEvent,
 } from "react-native";
@@ -56,21 +55,21 @@ const createStyle = (
 ) =>
   StyleSheet.create({
     button: {
+      alignItems: "center",
       backgroundColor: theme.colors.btn[type],
       borderRadius: 10,
-      paddingVertical: 12,
-      paddingHorizontal: 20,
-      alignItems: "center",
       justifyContent: "center",
+      paddingHorizontal: 20,
+      paddingVertical: 12,
+    },
+    disabled: {
+      backgroundColor: "#E0E0E0",
+      color: "#BDBDBD",
     },
     text: {
       color: "white",
       fontSize: theme.fonts.fontSize[fontSize],
       fontWeight: bold ? "bold" : "normal",
-    },
-    disabled: {
-      backgroundColor: "#E0E0E0",
-      color: "#BDBDBD",
     },
   });
 

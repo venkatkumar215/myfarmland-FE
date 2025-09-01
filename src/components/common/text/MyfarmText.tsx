@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import {
   Text,
   StyleSheet,
@@ -44,10 +44,10 @@ const createStyles = (
 ) =>
   StyleSheet.create({
     text: {
-      fontWeight: bold ? "bold" : "normal",
-      fontSize: theme.fonts.fontSize[fontSize] || theme.fonts.fontSize.md,
       color: theme.colors.text[color],
       fontFamily: theme.fonts.fontFamily,
+      fontSize: theme.fonts.fontSize[fontSize] || theme.fonts.fontSize.md,
+      fontWeight: bold ? "bold" : "normal",
     },
     textStart: {
       color: "red",
@@ -74,7 +74,7 @@ const MyFarmText: React.FC<Props> = ({
   return (
     <Text style={[styles.text, style, globalStyle.row]} {...props}>
       {children}
-      {enableStar && <Text style={[styles.textStart]}> {"*"}</Text>}
+      {enableStar && <Text style={styles.textStart}> {"*"}</Text>}
     </Text>
   );
 };

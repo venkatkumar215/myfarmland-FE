@@ -1,12 +1,10 @@
-import React, { use, useMemo } from "react";
-import { StyleSheet, View, Image, Text } from "react-native";
+import React, { useMemo } from "react";
+import { StyleSheet, View, Image } from "react-native";
 import { homeActionList } from "../../config/constants/homeConstant";
 import { useTheme } from "../../context/theme/ThemeContext";
 import MyFarmText from "../common/text/MyfarmText";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { IThemeType } from "../../config/type/uiType/themeType";
-
-type Props = {};
 
 /**
  * HomeActionList is a component that displays a list of actions available on the home screen.
@@ -16,42 +14,42 @@ type Props = {};
  */
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
-    container: {
+    action: {
+      alignItems: "flex-end",
       display: "flex",
-      flexDirection: "column",
-      backgroundColor: theme.colors.background.secondary,
+      flex: 1,
+      justifyContent: "center",
+      paddingRight: 15,
+    },
+    actionIcon: {
+      alignItems: "flex-start",
+      display: "flex",
+      flex: 1,
+      justifyContent: "center",
+      paddingLeft: 15,
     },
     actionList: {
-      display: "flex",
-      flexDirection: "row",
       borderBottomColor: theme.colors.icon.inactive,
       borderBottomWidth: 1,
+      display: "flex",
+      flexDirection: "row",
       paddingBottom: 10,
       paddingTop: 10,
     },
-    actionIcon: {
-      display: "flex",
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "flex-start",
-      paddingLeft: 15,
-    },
     actionText: {
+      alignContent: "center",
       display: "flex",
       flex: 2,
       verticalAlign: "middle",
-      alignContent: "center",
     },
-    action: {
+    container: {
+      backgroundColor: theme.colors.background.secondary,
       display: "flex",
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "flex-end",
-      paddingRight: 15,
+      flexDirection: "column",
     },
   });
 
-const HomeActionList: React.FC<Props> = () => {
+const HomeActionList: React.FC = () => {
   const theme = useTheme();
 
   const styles = useMemo(() => createStyle(theme), [theme]);

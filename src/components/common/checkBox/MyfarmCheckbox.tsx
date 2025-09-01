@@ -35,20 +35,15 @@ export default MyFarmCheckBox;
 
 const createStyles = (theme: IThemeType) =>
   StyleSheet.create({
-    container: {
-      flexDirection: "row",
-      alignItems: "center",
-      marginVertical: 8,
-    },
     checkbox: {
-      width: 24,
-      height: 24,
-      borderWidth: 2,
-      borderColor: theme.colors.btn.primary,
-      justifyContent: "center",
       alignItems: "center",
-      marginRight: 12,
+      borderColor: theme.colors.btn.primary,
       borderRadius: 4,
+      borderWidth: 2,
+      height: 24,
+      justifyContent: "center",
+      marginRight: 12,
+      width: 24,
     },
     checked: {
       backgroundColor: theme.colors.btn.primary,
@@ -56,6 +51,11 @@ const createStyles = (theme: IThemeType) =>
     checkmark: {
       color: "#fff",
       fontSize: 16,
+    },
+    container: {
+      alignItems: "center",
+      flexDirection: "row",
+      marginVertical: 8,
     },
     label: {
       fontSize: 16,

@@ -1,4 +1,3 @@
-import { unitOptions } from "../../config/constants/farmDetailConstant";
 import { IFarmDetail } from "../../config/type/uiType/farmDetailType";
 
 export function getInitializedFarmDetail(): IFarmDetail {

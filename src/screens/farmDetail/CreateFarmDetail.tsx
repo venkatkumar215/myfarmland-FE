@@ -3,8 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import NoFarmDetailComponent from "../../components/farmDetail/NoFarmDetail";
 
 const CreateFarmDetail: React.FC = () => {
-  const [createNewFarmDetail, setCreateNewFarmDetail] =
-    React.useState<boolean>(false);
+  const [createNewFarmDetail] = React.useState<boolean>(false);
   return (
     <SafeAreaView edges={["top", "left", "right", "bottom"]}>
       {createNewFarmDetail ? null : <NoFarmDetailComponent />}

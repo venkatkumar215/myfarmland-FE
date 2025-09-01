@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  ScrollView,
-  ScrollViewComponent,
-  StyleSheet,
-  View,
-} from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import MyFarmText from "../common/text/MyfarmText";
 import CONSTANTS from "../../config/constants/commonConstant";
 import { useGlobalStyle } from "../../styles/globalStyle";
@@ -15,18 +10,18 @@ import { IHealthMonitorType } from "../../config/type/uiType";
 interface Props {}
 
 const styles = StyleSheet.create({
+  cardWidth: {
+    height: 60,
+    width: 68,
+  },
   container: {
+    alignContent: "center",
     display: "flex",
     gap: 10,
     justifyContent: "center",
-    alignContent: "center",
   },
   healthMonitor: {
     flexWrap: "wrap",
-  },
-  cardWidth: {
-    width: 68,
-    height: 60,
   },
 });
 

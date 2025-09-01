@@ -12,28 +12,28 @@ interface Props {}
 
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
-    noFarmDetailcontainer: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      width: "100%",
-      height: "100%",
-      backgroundColor: theme.colors.background.primary,
-    },
     containerBox: {
-      padding: 20,
       alignItems: "center",
+      gap: 15,
       justifyContent: "space-around",
       minHeight: 200,
-      gap: 15,
+      padding: 20,
     },
     image: {
-      minHeight: 100,
-      minWidth: 100,
       maxHeight: 200,
       maxWidth: 200,
+      minHeight: 100,
+      minWidth: 100,
       resizeMode: "cover",
+    },
+    noFarmDetailcontainer: {
+      alignItems: "center",
+      backgroundColor: theme.colors.background.primary,
+      display: "flex",
+      flexDirection: "column",
+      height: "100%",
+      justifyContent: "center",
+      width: "100%",
     },
   });
 

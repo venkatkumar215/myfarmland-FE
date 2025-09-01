@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useMemo } from "react";
+import React, { forwardRef,  useMemo } from "react";
 import {
   StyleSheet,
   TextInput,
@@ -31,16 +31,14 @@ const styles = (
 ) =>
   StyleSheet.create({
     container: {
-      width: "100%",
-      marginVertical: 8,
       flexDirection: "column",
-    },
-    inputContainer: {
-      position: "relative",
+      marginVertical: 8,
       width: "100%",
-      height: 50,
-      flexDirection: "row",
-      alignItems: "center",
+    },
+    errorText: {
+      color: theme.colors.error.primary,
+      marginBottom: 5,
+      marginTop: 5,
     },
     input: {
       flex: 1,
@@ -58,17 +56,19 @@ const styles = (
       fontSize: theme.fonts.fontSize[fontSize],
       backgroundColor: theme.colors.background.primary,
     },
+    inputContainer: {
+      alignItems: "center",
+      flexDirection: "row",
+      height: 50,
+      position: "relative",
+      width: "100%",
+    },
     rightIconWrapper: {
-      position: "absolute",
-      right: 12,
+      alignItems: "center",
       height: 50,
       justifyContent: "center",
-      alignItems: "center",
-    },
-    errorText: {
-      color: theme.colors.error.primary,
-      marginTop: 5,
-      marginBottom: 5,
+      position: "absolute",
+      right: 12,
     },
   });
 

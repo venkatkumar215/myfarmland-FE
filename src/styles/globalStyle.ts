@@ -7,31 +7,21 @@ export const useGlobalStyle = () => {
   return useMemo(
     () =>
       StyleSheet.create({
-        row: {
-          flexDirection: "row",
-          width: "100%",
-        },
-        column: {
-          flexDirection: "column",
-        },
-        spaceBetween: {
-          justifyContent: "space-between",
-        },
-        spaceAround: {
-          justifyContent: "space-around",
-        },
-        center: {
-          justifyContent: "center",
-          alignItems: "center",
-        },
         alignItemCenter: {
           alignItems: "center",
         },
-        justifyContentCenter: {
+        bgPrimary: {
+          backgroundColor: theme.colors.background.primary,
+        },
+        bgSecondary: {
+          backgroundColor: theme.colors.background.secondary,
+        },
+        center: {
+          alignItems: "center",
           justifyContent: "center",
         },
-        width100: {
-          width: "100%",
+        column: {
+          flexDirection: "column",
         },
         flex1: {
           flex: 1,
@@ -45,11 +35,8 @@ export const useGlobalStyle = () => {
         flexGap2: {
           gap: 10,
         },
-        bgPrimary: {
-          backgroundColor: theme.colors.background.primary,
-        },
-        bgSecondary: {
-          backgroundColor: theme.colors.background.secondary,
+        justifyContentCenter: {
+          justifyContent: "center",
         },
         p0: {
           padding: 0,
@@ -60,14 +47,11 @@ export const useGlobalStyle = () => {
         p2: {
           padding: 4,
         },
-        pt0: {
-          paddingTop: 0,
+        pl0: {
+          paddingLeft: 0,
         },
-        pt1: {
-          paddingTop: 4,
-        },
-        pt2: {
-          paddingTop: 8,
+        pl1: {
+          paddingLeft: 4,
         },
         pr0: {
           paddingRight: 0,
@@ -78,11 +62,27 @@ export const useGlobalStyle = () => {
         pr2: {
           paddingRight: 8,
         },
-        pl0: {
-          paddingLeft: 0,
+        pt0: {
+          paddingTop: 0,
         },
-        pl1: {
-          paddingLeft: 4,
+        pt1: {
+          paddingTop: 4,
+        },
+        pt2: {
+          paddingTop: 8,
+        },
+        row: {
+          flexDirection: "row",
+          width: "100%",
+        },
+        spaceAround: {
+          justifyContent: "space-around",
+        },
+        spaceBetween: {
+          justifyContent: "space-between",
+        },
+        width100: {
+          width: "100%",
         },
       }),
     [theme]

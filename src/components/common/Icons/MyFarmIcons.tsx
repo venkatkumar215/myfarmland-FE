@@ -4,7 +4,7 @@ import { View } from "react-native";
 
 interface Props {
   name: any;
-  size?: any;
+  size?: number;
 }
 
 const MyFarmIcons: React.FC<Props> = ({ name, size = 32, ...props }) => {

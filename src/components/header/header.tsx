@@ -1,6 +1,5 @@
-import { ThemeContext } from "@react-navigation/native";
-import React, { useContext, useMemo } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useMemo } from "react";
+import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { IThemeType } from "../../config/type/uiType";
 import { useTheme } from "../../context/theme/ThemeContext";
@@ -13,10 +12,15 @@ interface Props {}
 
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
+    actionContainer: {
+      alignItems: "flex-end",
+      flex: 1,
+      paddingLeft: 10,
+    },
     container: {
-      height: 65,
       alignItems: "center",
       backgroundColor: theme.colors.background.primary,
+      height: 65,
       paddingHorizontal: 16,
     },
     logoContainer: {
@@ -26,11 +30,6 @@ const createStyle = (theme: IThemeType) =>
     logoText: {
       color: theme.colors.btn.primary,
       fontStyle: "italic",
-    },
-    actionContainer: {
-      flex: 1,
-      alignItems: "flex-end",
-      paddingLeft: 10,
     },
   });
 

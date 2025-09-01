@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { View, Pressable, StyleSheet } from "react-native";
 import MyFarmText from "../text/MyfarmText";
 import MyfarmInput from "../input/MyfarmInput";
@@ -29,32 +29,32 @@ const createStyle = (
   currentIndex?: number
 ) =>
   StyleSheet.create({
+    dropDownIcons: {
+      alignContent: "center",
+      display: "flex",
+      justifyContent: "center",
+    },
+    dropDownInputContainer: {},
+    dropDownOption: {
+      backgroundColor: selectedIndex === currentIndex ? "#e0e0e0" : "white",
+      paddingHorizontal: 12,
+      paddingVertical: 10, // light gray when selected
+    },
+    dropDownOptionsContainer: {
+      backgroundColor: "white",
+      borderColor: "#ccc",
+      borderRadius: 4,
+      borderWidth: 1,
+      marginTop: -7,
+      paddingVertical: 4,
+    },
+    dropdownContainer: {
+      margin: 0,
+      padding: 0,
+    },
     title: {
       marginBottom: 0,
     },
-    dropdownContainer: {
-      padding: 0,
-      margin: 0,
-    },
-    dropDownOptionsContainer: {
-      marginTop: -7,
-      backgroundColor: "white",
-      borderWidth: 1,
-      borderColor: "#ccc",
-      borderRadius: 4,
-      paddingVertical: 4,
-    },
-    dropDownOption: {
-      paddingVertical: 10,
-      paddingHorizontal: 12,
-      backgroundColor: selectedIndex === currentIndex ? "#e0e0e0" : "white", // light gray when selected
-    },
-    dropDownIcons: {
-      display: "flex",
-      justifyContent: "center",
-      alignContent: "center",
-    },
-    dropDownInputContainer: {},
   });
 
 const MyFarmLandDropDown: React.FC<Props> = ({
@@ -80,7 +80,7 @@ const MyFarmLandDropDown: React.FC<Props> = ({
     );
 
   return (
-    <View style={[globalStyle.column]}>
+    <View style={globalStyle.column}>
       {title && (
         <View style={createStyle(theme, null, -1).title}>
           <MyFarmText
@@ -99,7 +99,7 @@ const MyFarmLandDropDown: React.FC<Props> = ({
         <Pressable
           accessible
           accessibilityLabel={`Select ${title}`}
-          style={[globalStyle.row]}
+          style={globalStyle.row}
           onPress={() => setshowDropDown(!showDropDown)}
         >
           <MyfarmInput

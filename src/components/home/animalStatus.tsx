@@ -6,7 +6,6 @@ import MyFarmText from "../common/text/MyfarmText";
 import { useTheme } from "../../context/theme/ThemeContext";
 import { IThemeType } from "../../config/type/uiType/themeType";
 
-type Props = {};
 // This component displays the status of animals on the farm
 // It uses the animal_list constant to get the list of animals and their details
 
@@ -19,23 +18,23 @@ type Props = {};
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     animalDetail: {
+      alignItems: "center",
+      backgroundColor: theme.colors.background.secondary,
+      borderRadius: 10,
       display: "flex",
       flex: 1,
-      backgroundColor: theme.colors.background.secondary,
-      padding: 15,
-      maxWidth: 100,
-      marginRight: 10,
-      borderRadius: 10,
       justifyContent: "center",
-      alignItems: "center",
+      marginRight: 10,
+      maxWidth: 100,
+      padding: 15,
     },
     animalIcon: {
       backgroundColor: theme.colors.icon.active,
-      padding: 10,
       borderRadius: 50,
+      padding: 10,
     },
   });
-const AnimalStatus: React.FC<Props> = () => {
+const AnimalStatus: React.FC = () => {
   const theme = useTheme();
 
   const styles = useMemo(() => createStyle(theme), [theme]);

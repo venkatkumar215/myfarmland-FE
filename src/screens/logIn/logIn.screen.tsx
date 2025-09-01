@@ -6,9 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import VerifyOtpComponent from "../../components/login/VerifyOtp";
 import SendOtpComponent from "../../components/login/SendOtp";
 
-type Props = {};
-
-const LogIn: React.FC<Props> = () => {
+const LogIn: React.FC = () => {
   const [verifyOTPFlag, setVerifyOTPFlag] = useState<boolean>(false);
   const [verifyMobileNumber, setVerifyMobileNumber] = useState<string>("");
   const theme = useTheme();
@@ -43,21 +41,21 @@ const LogIn: React.FC<Props> = () => {
 
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
+    actionContainer: {
+      flex: 1,
+    },
     container: {
+      backgroundColor: theme.colors.background.primary,
       display: "flex",
       flexDirection: "column",
       flex: 1,
-      backgroundColor: theme.colors.background.primary,
-    },
-    logInImage: {
-      flex: 1,
     },
     image: {
-      width: "100%",
       height: "100%",
       resizeMode: "cover",
+      width: "100%",
     },
-    actionContainer: {
+    logInImage: {
       flex: 1,
     },
   });

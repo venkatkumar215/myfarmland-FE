@@ -1,35 +1,35 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet,  View } from "react-native";
 import MyFarmText from "../../components/common/text/MyfarmText";
 import AnimalStatus from "../../components/home/AnimalStatus";
 import HomeActionList from "../../components/home/HomeActionList";
 import CONSTANTS from "../../config/constants/commonConstant";
 
-type Props = {};
-// This component represents the home screen of the application
+
+
 
 const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  homeHeaderText: {
-    paddingTop: 15,
-    paddingLeft: 15,
+  actionList: {
+    marginBottom: 10,
+    marginTop: 20,
   },
   animalList: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 20,
     marginLeft: 15,
-  },
-  actionList: {
     marginTop: 20,
-    marginBottom: 10,
+  },
+  container: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  homeHeaderText: {
+    paddingLeft: 15,
+    paddingTop: 15,
   },
 });
-export const HomeScreen: React.FC<Props> = () => {
+export const HomeScreen: React.FC = () => {
   // Define styles for the HomeScreen component
 
   return (

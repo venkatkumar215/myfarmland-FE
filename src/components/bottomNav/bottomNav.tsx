@@ -13,8 +13,8 @@ const Tab = createBottomTabNavigator<RootTabParamList>();
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({
     tabBarLabelStyle: {
-      fontSize: theme.fonts.fontSize.sm,
       fontFamily: theme.fonts.fontFamily,
+      fontSize: theme.fonts.fontSize.sm,
       fontWeight: "bold",
     },
     tabBarStyle: {

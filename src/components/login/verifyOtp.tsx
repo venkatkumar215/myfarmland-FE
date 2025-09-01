@@ -1,5 +1,5 @@
 import React, { useState, useRef, useContext } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet } from "react-native";
 import MyfarmInput from "../common/input/MyfarmInput";
 import MyfarmButton from "../common/button/MyfarmButton";
 import CONSTANTS from "../../config/constants/commonConstant";
@@ -15,43 +15,43 @@ type Props = {
 };
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    marginVertical: 10,
+  },
   container: {
-    display: "flex",
-    justifyContent: "flex-start",
     alignItems: "center",
+    display: "flex",
     flex: 2,
-  },
-  titleText: {
-    marginVertical: 5,
-  },
-  textCenter: {
-    textAlign: "center",
+    justifyContent: "flex-start",
   },
   otpContainer: {
+    alignItems: "center",
     display: "flex",
     flexDirection: "row",
-    margin: 10,
     justifyContent: "center",
-    alignItems: "center",
+    margin: 10,
   },
   otpInput: {
-    width: 40,
-    height: 50,
     borderWidth: 1,
-  },
-  verifyOTPInput: {
-    flex: 1,
-    marginRight: 5,
-    marginLeft: 5,
+    height: 50,
+    width: 40,
   },
   resendOtpText: {
     marginVertical: 10,
   },
-  buttonContainer: {
-    marginVertical: 10,
-  },
   termsContainer: {
     marginVertical: 10,
+  },
+  textCenter: {
+    textAlign: "center",
+  },
+  titleText: {
+    marginVertical: 5,
+  },
+  verifyOTPInput: {
+    flex: 1,
+    marginLeft: 5,
+    marginRight: 5,
   },
 });
 
@@ -183,9 +183,9 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
 
       <View style={styles.termsContainer}>
         <MyFarmText>
-          {CONSTANTS.LOG_IN.AGREE}{" "}
+          {CONSTANTS.LOG_IN.AGREE}
           <MyFarmText bold>{CONSTANTS.LOG_IN.TERMS}</MyFarmText>{" "}
-          {CONSTANTS.LOG_IN.AND}{" "}
+          {CONSTANTS.LOG_IN.AND}
           <MyFarmText bold>{CONSTANTS.LOG_IN.PRIVACY_POLICY}</MyFarmText>
         </MyFarmText>
       </View>

@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import MyFarmText from "../common/text/MyfarmText";
 import CONSTANTS from "../../config/constants/commonConstant";
 import MyfarmCountryFlag from "../common/countryFlag/MyfarmCountryflag";
 import { Controller, useForm } from "react-hook-form";
 import MyfarmInput from "../common/input/MyfarmInput";
 import MyfarmButton from "../common/button/MyfarmButton";
-import { z } from "zod";
+
 import {
   MobileNumberFormData,
   mobileSchema,
@@ -15,48 +15,33 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { ISendOtpPayload } from "../../config/type/apiType/otpType";
 import { sendOtp } from "../../api/otpService";
 import { handleApiError } from "../../utilis/api-errorHandler/errorHandler";
-import { useTheme } from "../../context/theme/ThemeContext";
-import { IThemeType } from "../../config/type/uiType/themeType";
 
 type Props = {
   setVerifyOTPFlag: React.Dispatch<React.SetStateAction<boolean>>;
   setVerifyMobileNumber: React.Dispatch<React.SetStateAction<string>>;
 };
 
-/**
- *
- * SendOtpComponent is a component that allows users to enter their mobile number and request an OTP.
- *
- * @param {IThemeType} theme
- * @returns {*}
- */
-const createStyle = (theme: IThemeType) =>
+const createStyle = () =>
   StyleSheet.create({
+    buttonContainer: {
+      marginVertical: 10,
+    },
     container: {
-      display: "flex",
-      justifyContent: "flex-start",
       alignItems: "center",
+      display: "flex",
       flex: 2,
+      justifyContent: "flex-start",
     },
-    titleText: {
-      marginVertical: 5,
-    },
-    textCenter: {
-      textAlign: "center",
+    mobileNumberContainer: {
+      alignItems: "center",
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      textAlignVertical: "center",
+      width: "75%",
     },
     mobileText: {
       marginVertical: 20,
-    },
-    mobileNumberContainer: {
-      display: "flex",
-      flexDirection: "row",
-      textAlignVertical: "center",
-      width: "75%",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    buttonContainer: {
-      marginVertical: 10,
     },
     termsContainer: {
       display: "flex",
@@ -64,14 +49,19 @@ const createStyle = (theme: IThemeType) =>
 
       marginVertical: 10,
     },
+    textCenter: {
+      textAlign: "center",
+    },
+    titleText: {
+      marginVertical: 5,
+    },
   });
 
 const SendOtpComponent: React.FC<Props> = ({
   setVerifyOTPFlag,
   setVerifyMobileNumber,
 }) => {
-  const theme = useTheme();
-  const styles = useMemo(() => createStyle(theme), [theme]);
+  const styles = useMemo(() => createStyle(), []);
 
   const {
     control,
@@ -115,6 +105,7 @@ const SendOtpComponent: React.FC<Props> = ({
       }
     } catch (error) {
       const errorMessage = handleApiError(error);
+      console.log(errorMessage);
     }
   };
 
@@ -127,7 +118,7 @@ const SendOtpComponent: React.FC<Props> = ({
       </View>
       <View style={styles.titleText}>
         <MyFarmText style={styles.textCenter} fontSize={"lg"}>
-          {CONSTANTS.LOG_IN.WELCOME_MY_FARM_MESSAGE}{" "}
+          {CONSTANTS.LOG_IN.WELCOME_MY_FARM_MESSAGE}
         </MyFarmText>
       </View>
       <View style={styles.mobileText}>
@@ -160,9 +151,9 @@ const SendOtpComponent: React.FC<Props> = ({
         ></MyfarmButton>
       </View>
       <View style={styles.termsContainer}>
-        <MyFarmText>{CONSTANTS.LOG_IN.AGREE} </MyFarmText>
-        <MyFarmText bold>{CONSTANTS.LOG_IN.TERMS} </MyFarmText>
-        <MyFarmText> {CONSTANTS.LOG_IN.AND} </MyFarmText>
+        <MyFarmText>{CONSTANTS.LOG_IN.AGREE}</MyFarmText>
+        <MyFarmText bold>{CONSTANTS.LOG_IN.TERMS}</MyFarmText>
+        <MyFarmText> {CONSTANTS.LOG_IN.AND}</MyFarmText>
         <MyFarmText bold>{CONSTANTS.LOG_IN.PRIVACY_POLICY}</MyFarmText>
       </View>
     </View>

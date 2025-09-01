@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
 import { IAuthContextType } from "../../config/type/uiType/authType";
-import { getToken } from "../../utilis/auth/authHelper";
 
 // Define the shape of the authentication context
 export const AuthContext = createContext<IAuthContextType>({

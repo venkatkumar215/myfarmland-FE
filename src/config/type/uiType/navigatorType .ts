@@ -5,5 +5,5 @@ export interface ITabList {
   name: string;
   iconName: string;
   iconLibrary: typeof FontAwesome5 | typeof FontAwesome6;
-  component: React.ComponentType<any>;
+  component: React.ComponentType<unknown>;
 }

@@ -1,9 +1,8 @@
-import React, { Children, useMemo } from "react";
+import React, { useMemo } from "react";
 import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 import { useGlobalStyle } from "../../../styles/globalStyle";
 import { useTheme } from "../../../context/theme/ThemeContext";
 import { IThemeType } from "../../../config/type/uiType";
-import { no } from "zod/v4/locales";
 
 interface Props {
   children: React.ReactNode;
@@ -18,14 +17,14 @@ const createStyles = (
 ) =>
   StyleSheet.create({
     cardContainer: {
-      borderRadius: 12,
-      padding: 10,
-      borderWidth: border ? 1 : 0,
-      borderColor: theme.colors.border.primary,
-      borderStyle: border ? "solid" : undefined,
       backgroundColor: background
         ? theme.colors.background[background]
         : "transparent",
+      borderColor: theme.colors.border.primary,
+      borderRadius: 12,
+      borderStyle: border ? "solid" : undefined,
+      borderWidth: border ? 1 : 0,
+      padding: 10,
     },
   });
 const MyFarmCard: React.FC<Props> = ({

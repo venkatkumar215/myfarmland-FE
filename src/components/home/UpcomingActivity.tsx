@@ -11,10 +11,10 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   activityItem: {
+    borderBottomWidth: 1,
+    borderColor: "black",
     gap: 5,
     paddingBottom: 4,
-    borderColor: "black",
-    borderBottomWidth: 1,
   },
 });
 
@@ -29,10 +29,10 @@ export const UpcomingActivity: React.FC<Props> = () => {
         {getRecentActivity?.length > 0 &&
           getRecentActivity?.map((activity, index) => (
             <View key={index} style={[globalStyle.row, styles.activityItem]}>
-              <MyFarmText style={[globalStyle.flex1]}>
+              <MyFarmText style={globalStyle.flex1}>
                 {activity.startDate}
               </MyFarmText>
-              <MyFarmText style={[globalStyle.flex1]}>
+              <MyFarmText style={globalStyle.flex1}>
                 {activity.name}
               </MyFarmText>
             </View>

@@ -1,8 +1,6 @@
 import React, { useCallback, useContext, useMemo } from "react";
 import MyFarmText from "../../common/text/MyfarmText";
 import { Image, StyleSheet, View } from "react-native";
-import { useTheme } from "../../../context/theme/ThemeContext";
-import { IThemeType } from "../../../config/type/uiType";
 import { useGlobalStyle } from "../../../styles/globalStyle";
 import MyfarmInput from "../../common/input/MyfarmInput";
 import CONSTANTS from "../../../config/constants/commonConstant";
@@ -11,38 +9,37 @@ import MyFarmLandDropDown from "../../common/dropdown/MyFarmDropDown.component";
 import { FarmDetailContext } from "../../../context/farmDetail/FarmDetailContext";
 import { unitOptions } from "../../../config/constants/farmDetailConstant";
 
-const createStyle = (theme: IThemeType) =>
+const createStyle = () =>
   StyleSheet.create({
     container: {
-      padding: 20,
       flex: 1,
       justifyContent: "flex-start",
-    },
-    titleContainer: {
-      gap: 10,
-      marginBottom: 20,
-      alignItems: "center",
-      maxHeight: 150,
-    },
-    image: {
-      minHeight: 30,
-      minWidth: 30,
-      maxHeight: 80,
-      maxWidth: 80,
-      resizeMode: "cover",
-    },
-    totalArea: {
-      marginRight: 25,
+      padding: 20,
     },
     farmContainer: {
       gap: 15,
     },
+    image: {
+      maxHeight: 80,
+      maxWidth: 80,
+      minHeight: 30,
+      minWidth: 30,
+      resizeMode: "cover",
+    },
+    titleContainer: {
+      alignItems: "center",
+      gap: 10,
+      marginBottom: 20,
+      maxHeight: 150,
+    },
+    totalArea: {
+      marginRight: 25,
+    },
   });
 
 const FarmBasicDetail: React.FC = () => {
-  const theme = useTheme();
   const globalStyle = useGlobalStyle();
-  const styles = useMemo(() => createStyle(theme), [theme]);
+  const styles = useMemo(() => createStyle(), []);
   const { farmDetail, setFarmDetail } = useContext(FarmDetailContext);
 
   const { farmLandName, location, totalArea, unit } =
