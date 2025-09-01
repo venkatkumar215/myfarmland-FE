@@ -24,9 +24,7 @@ export const FarmDetailProvider: React.FC<Props> = ({ children }) => {
   );
 
   useEffect(() => {
-    setTimeout(() => {
-      console.log("farmDetail", farmDetail);
-    }, 100);
+    setTimeout(() => {}, 100);
   }, [farmDetail]);
 
   return (

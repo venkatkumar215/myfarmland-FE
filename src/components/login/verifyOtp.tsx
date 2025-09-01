@@ -8,8 +8,7 @@ import { OtpFormData, otpSchema } from "../../schemas/mobileNumberSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { verifyOtpApi } from "../../api/otpService";
-// import { AuthContext } from "../../context/auth/AuthContext";
-
+import { AuthContext } from "../../context/auth/AuthContext";
 
 type Props = {
   mobileNumber: string;
