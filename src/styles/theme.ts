@@ -1,6 +1,6 @@
 // theme.ts
 
-import { IFontSizeType, IThemeType } from "../config/type/ui-type/theme-type";
+import { IFontSizeType, IThemeType } from "../config/type/uiType/themeType";
 
 export const fontSize: IFontSizeType = {
   xs: 8,
@@ -25,6 +25,9 @@ export const lightTheme: IThemeType = {
     background: {
       primary: "#FAFAF5",
       secondary: "#FFFFFF",
+      active: colorLightTheme.primary,
+      caution: "orange",
+      warning: "red",
     },
     text: {
       primary: "#333333",

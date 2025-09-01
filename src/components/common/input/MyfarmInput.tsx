@@ -7,8 +7,8 @@ import {
   StyleProp,
   TextStyle,
 } from "react-native";
-import { IThemeType } from "../../../config/type/ui-type/theme-type";
-import { useTheme } from "../../../context/theme/themeContext";
+import { IThemeType } from "../../../config/type/uiType/themeType";
+import { useTheme } from "../../../context/theme/ThemeContext";
 
 // Define the props for the MyfarmInput component
 // It extends the TextInput props and adds custom properties for styling and error handling
@@ -54,7 +54,7 @@ const styles = (
       borderRightWidth: bottomBorder ? 0 : 1,
       borderRadius: bottomBorder ? 0 : 10,
       paddingHorizontal: 12,
-      // paddingRight: 40, // extra padding for the right icon need to take a look 
+      // paddingRight: 40, // extra padding for the right icon need to take a look
       fontSize: theme.fonts.fontSize[fontSize],
       backgroundColor: theme.colors.background.primary,
     },

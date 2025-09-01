@@ -1,7 +1,7 @@
 import {
   IFarmDetailPayLoad,
   IFarmDetailResponse,
-} from "../config/type/api-type/farmDetail-type";
+} from "../config/type/apiType/farmDetailType";
 import apiClient from "./apiClient";
 
 export async function getfarmDetail(

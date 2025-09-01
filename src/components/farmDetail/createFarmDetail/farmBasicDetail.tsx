@@ -1,15 +1,15 @@
 import React, { useCallback, useContext, useMemo } from "react";
-import MyFarmText from "../../common/text/myfarm-text";
+import MyFarmText from "../../common/text/MyfarmText";
 import { Image, StyleSheet, View } from "react-native";
-import { useTheme } from "../../../context/theme/themeContext";
-import { IThemeType } from "../../../config/type/ui-type";
+import { useTheme } from "../../../context/theme/ThemeContext";
+import { IThemeType } from "../../../config/type/uiType";
 import { useGlobalStyle } from "../../../styles/globalStyle";
-import MyfarmInput from "../../common/input/myfarm-input";
-import CONSTANTS from "../../../config/constants/common-constant";
-import { FarmDetailKey } from "../../../config/type/ui-type/farmDetail-type";
-import MyFarmLandDropDown from "../../common/dropdown/myFarm-dropDown.component";
-import { FarmDetailContext } from "../../../context/farmDetail/farmDetailContext";
-import { unitOptions } from "../../../config/constants/farmDetail-constant";
+import MyfarmInput from "../../common/input/MyfarmInput";
+import CONSTANTS from "../../../config/constants/commonConstant";
+import { FarmDetailKey } from "../../../config/type/uiType/farmDetailType";
+import MyFarmLandDropDown from "../../common/dropdown/MyFarmDropDown.component";
+import { FarmDetailContext } from "../../../context/farmDetail/FarmDetailContext";
+import { unitOptions } from "../../../config/constants/farmDetailConstant";
 
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({

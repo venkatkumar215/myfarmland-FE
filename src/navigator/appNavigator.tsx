@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { StyleSheet, View } from "react-native";
-
-import { useTheme } from "../context/theme/themeContext";
-import { IThemeType } from "../config/type/ui-type";
-import BottomNavComponent from "../components/bottomNav/bottomNav";
+import { IThemeType } from "../config/type/uiType";
+import BottomNavComponent from "../components/bottomNav/BottomNav";
 import { getfarmDetail } from "../api/farmDetail";
 import { handleApiError } from "../utilis/api-errorHandler/errorHandler";
-import { auth } from "../config/firebaseConfig";
+
 import CreateFarmDetail from "../screens/farmDetail/CreateFarmDetail";
-import { AuthContext } from "../context/auth/authContext";
-import HeaderComponent from "../components/header/header";
+import { AuthContext } from "../context/auth/AuthContext";
+import HeaderComponent from "../components/header/Header";
+import { useTheme } from "../context/theme/ThemeContext";
 
 const createStyle = (theme: IThemeType) =>
   StyleSheet.create({

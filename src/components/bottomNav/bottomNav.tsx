@@ -1,10 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React, { useMemo } from "react";
 import { StyleSheet } from "react-native";
-import { RootTabParamList } from "../../config/type/ui-type/nav-type";
-import { useTheme } from "../../context/theme/themeContext";
-import tabList from "../../config/constants/navigator-constant";
-import { IThemeType } from "../../config/type/ui-type";
+import { RootTabParamList } from "../../config/type/uiType/navType";
+import { useTheme } from "../../context/theme/ThemeContext";
+import tabList from "../../config/constants/navigatorConstant";
+import { IThemeType } from "../../config/type/uiType";
 
 // Create a bottom tab navigator
 // This navigator will manage the tab navigation in the app
@@ -22,7 +22,6 @@ const createStyle = (theme: IThemeType) =>
       borderTopWidth: 0,
       elevation: 0,
     },
-    
   });
 const BottomNavComponent: React.FC = () => {
   const theme = useTheme();

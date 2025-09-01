@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import MyFarmText from "../../components/common/text/myfarm-text";
-import AnimalStatus from "../../components/home/animalStatus";
-import HomeActionList from "../../components/home/homeActionList";
-import CONSTANTS from "../../config/constants/common-constant";
+import MyFarmText from "../../components/common/text/MyfarmText";
+import AnimalStatus from "../../components/home/AnimalStatus";
+import HomeActionList from "../../components/home/HomeActionList";
+import CONSTANTS from "../../config/constants/commonConstant";
 
 type Props = {};
 // This component represents the home screen of the application

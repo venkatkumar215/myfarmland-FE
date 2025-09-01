@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../context/auth/authContext";
-import AppNavigator from "./appNavigator";
-import LogIn from "../screens/logIn/logIn.screen";
-import { LoadingSpinner } from "../components/common/spinner/loadingSpinner";
+import { LoadingSpinner } from "../components/common/spinner/LoadingSpinner";
+import LogIn from "../screens/logIn/LogIn.screen";
+import AppNavigator from "./AppNavigator";
+import { AuthContext } from "../context/auth/AuthContext";
 
 const AuthNavigator = () => {
   const { isAuthenticated, loading } = useContext(AuthContext);

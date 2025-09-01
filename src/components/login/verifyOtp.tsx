@@ -1,15 +1,15 @@
 import React, { useState, useRef, useContext } from "react";
 import { View, StyleSheet, Text } from "react-native";
-import MyfarmInput from "../common/input/myfarm-input";
-import MyfarmButton from "../common/button/myfarm-button";
-import CONSTANTS from "../../config/constants/common-constant";
-import MyFarmText from "../common/text/myfarm-text";
-import { OtpFormData, otpSchema } from "../../schemas/mobileNumber-schema";
+import MyfarmInput from "../common/input/MyfarmInput";
+import MyfarmButton from "../common/button/MyfarmButton";
+import CONSTANTS from "../../config/constants/commonConstant";
+import MyFarmText from "../common/text/MyfarmText";
+import { OtpFormData, otpSchema } from "../../schemas/mobileNumberSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { verifyOtpApi } from "../../api/otpService";
-import { loginWithCustomToken } from "../../utilis/auth/authHelper";
-import { AuthContext } from "../../context/auth/authContext";
+// import { AuthContext } from "../../context/auth/AuthContext";
+
 
 type Props = {
   mobileNumber: string;
@@ -61,9 +61,8 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
   const inputsRef = useRef<Array<any>>([]);
   const [otp, setOtp] = useState<string[]>(Array(OTP_LENGTH).fill(""));
 
-  const { setUserToken } = useContext(AuthContext);
-  const { setUserId } = useContext(AuthContext);
-  const { setIsAuthenticated } = useContext(AuthContext);
+  const { setUserToken, setUserId, setIsAuthenticated } =
+    useContext(AuthContext);
 
   const {
     control,
@@ -147,7 +146,7 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
 
       <View style={styles.otpContainer}>
         {otp.map((digit, index) => (
-          <View key={index} style={styles.verifyOTPInput}>        
+          <View key={index} style={styles.verifyOTPInput}>
             <MyfarmInput
               ref={(ref) => {
                 inputsRef.current[index] = ref!;

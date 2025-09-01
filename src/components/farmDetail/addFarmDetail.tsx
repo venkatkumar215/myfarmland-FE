@@ -1,18 +1,18 @@
 import React, { useContext, useState } from "react";
 import { View } from "react-native";
-import MyFarmStepper from "../common/stepper/myFarmLand-stepper";
-import CONSTANTS from "../../config/constants/common-constant";
+import MyFarmStepper from "../common/stepper/MyFarmLandStepper";
+import CONSTANTS from "../../config/constants/commonConstant";
 import {
   FarmDetailKey,
   IFarmDetail,
   IFarmDetailKey,
-} from "../../config/type/ui-type/farmDetail-type";
-import { FarmDetailContext } from "../../context/farmDetail/farmDetailContext";
+} from "../../config/type/uiType/farmDetailType";
+import { FarmDetailContext } from "../../context/farmDetail/FarmDetailContext";
 
 import {
   stepDetails,
   validKeys,
-} from "../../config/constants/farmDetail-constant";
+} from "../../config/constants/farmDetailConstant";
 
 interface Props {}
 

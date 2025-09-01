@@ -3,7 +3,7 @@ import {
   ISendOtpResponse,
   IVerifyOtpPayload,
   IVerifyOtpResponse,
-} from "../config/type/api-type/otp-type";
+} from "../config/type/apiType/otpType";
 import apiClient from "./apiClient";
 
 export async function sendOtp(

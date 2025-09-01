@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { IAuthContextType } from "../../config/type/ui-type/auth-type";
+import { IAuthContextType } from "../../config/type/uiType/authType";
 import { getToken } from "../../utilis/auth/authHelper";
 
 // Define the shape of the authentication context
@@ -27,11 +27,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     const checkAuth = async () => {
-
       // temporary commented
       // const token = await getToken();
-      console.log("checkAuth initialized",userToken);
-      const token  = userToken;
+      console.log("checkAuth initialized", userToken);
+      const token = userToken;
       setIsAuthenticated(!!token);
       setLoading(false);
     };

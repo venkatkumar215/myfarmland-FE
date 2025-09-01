@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { IFarmDetail } from "../../config/type/ui-type/farmDetail-type";
+import { IFarmDetail } from "../../config/type/uiType/farmDetailType";
 import { getInitializedFarmDetail } from "../../utilis/farmDetail/farmDetail";
 
 interface Props {
@@ -19,11 +19,14 @@ export const FarmDetailContext = createContext<IFarmContext>({
 });
 
 export const FarmDetailProvider: React.FC<Props> = ({ children }) => {
-  const [farmDetail, setFarmDetail] = useState<IFarmDetail | null>(getInitializedFarmDetail());
-
+  const [farmDetail, setFarmDetail] = useState<IFarmDetail | null>(
+    getInitializedFarmDetail()
+  );
 
   useEffect(() => {
-  setTimeout(()=>{console.log("farmDetail", farmDetail);},100)  
+    setTimeout(() => {
+      console.log("farmDetail", farmDetail);
+    }, 100);
   }, [farmDetail]);
 
   return (

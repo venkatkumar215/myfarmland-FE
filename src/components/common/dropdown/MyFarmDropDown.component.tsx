@@ -1,12 +1,12 @@
 import React, { useMemo, useState } from "react";
 import { View, Pressable, StyleSheet } from "react-native";
-import MyFarmText from "../text/myfarm-text";
-import MyfarmInput from "../input/myfarm-input";
-import { useTheme } from "../../../context/theme/themeContext";
-import { IDropDownOptions, IThemeType } from "../../../config/type/ui-type";
+import MyFarmText from "../text/MyfarmText";
+import MyfarmInput from "../input/MyfarmInput";
+import { useTheme } from "../../../context/theme/ThemeContext";
+import { IDropDownOptions, IThemeType } from "../../../config/type/uiType";
 import { useGlobalStyle } from "../../../styles/globalStyle";
 
-import MyFarmIcons from "../Icons/myFarm-Icons";
+import MyFarmIcons from "../Icons/MyFarmIcons";
 
 interface IOptions {
   label: string;

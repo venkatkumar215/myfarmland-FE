@@ -1,5 +1,5 @@
 import { ZodTypeAny } from "zod";
-import { IDropDownOptions } from "./common-type";
+import { IDropDownOptions } from "./commonType";
 
 export interface IStepDetail {
   id: string;

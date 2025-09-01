@@ -6,8 +6,8 @@ import {
   StyleProp,
   TextStyle,
 } from "react-native";
-import { IThemeType } from "../../../config/type/ui-type/theme-type";
-import { useTheme } from "../../../context/theme/themeContext";
+import { IThemeType } from "../../../config/type/uiType/themeType";
+import { useTheme } from "../../../context/theme/ThemeContext";
 import { useGlobalStyle } from "../../../styles/globalStyle";
 
 /**

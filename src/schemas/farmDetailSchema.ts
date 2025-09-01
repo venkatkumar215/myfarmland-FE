@@ -1,5 +1,5 @@
 import { z } from "zod";
-import ERROR_CONSTANTS from "../config/constants/error-constant";
+import ERROR_CONSTANTS from "../config/constants/errorConstant";
 
 export const farmDetailSchema = z.object({
   farmLandName: z.object({

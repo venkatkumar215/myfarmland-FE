@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { useTheme } from "../context/theme/themeContext";
+import { useTheme } from "../context/theme/ThemeContext";
 import { useMemo } from "react";
 
 export const useGlobalStyle = () => {
@@ -35,6 +35,15 @@ export const useGlobalStyle = () => {
         },
         flex1: {
           flex: 1,
+        },
+        flex2: {
+          flex: 2,
+        },
+        flexGap1: {
+          gap: 5,
+        },
+        flexGap2: {
+          gap: 10,
         },
         bgPrimary: {
           backgroundColor: theme.colors.background.primary,

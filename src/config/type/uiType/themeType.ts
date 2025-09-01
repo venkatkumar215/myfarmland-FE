@@ -13,6 +13,9 @@ export interface IThemeType {
     background: {
       primary: string;
       secondary: string;
+      active?: string;
+      caution?: string;
+      warning?: string;
     };
     text: {
       primary: string;

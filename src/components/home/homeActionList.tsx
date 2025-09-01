@@ -1,10 +1,10 @@
 import React, { use, useMemo } from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
-import { home_action_list } from "../../config/constants/home-constant";
-import { useTheme } from "../../context/theme/themeContext";
-import MyFarmText from "../common/text/myfarm-text";
+import { home_action_list } from "../../config/constants/homeConstant";
+import { useTheme } from "../../context/theme/ThemeContext";
+import MyFarmText from "../common/text/MyfarmText";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { IThemeType } from "../../config/type/ui-type/theme-type";
+import { IThemeType } from "../../config/type/uiType/themeType";
 
 type Props = {};
 

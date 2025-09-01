@@ -1,29 +1,29 @@
 import React, { Children, useMemo } from "react";
 import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
 import { useGlobalStyle } from "../../../styles/globalStyle";
-import { useTheme } from "../../../context/theme/themeContext";
-import { IThemeType } from "../../../config/type/ui-type";
+import { useTheme } from "../../../context/theme/ThemeContext";
+import { IThemeType } from "../../../config/type/uiType";
 import { no } from "zod/v4/locales";
 
 interface Props {
   children: React.ReactNode;
   style?: StyleProp<ViewStyle>;
   border?: boolean;
-  background?: boolean;
+  background?: "primary" | "secondary" | "active" | "caution" | "warning";
 }
 const createStyles = (
   theme: IThemeType,
   border: boolean,
-  background: boolean
+  background: "primary" | "secondary" | "active" | "caution" | "warning"
 ) =>
   StyleSheet.create({
     cardContainer: {
       borderColor: theme.colors.border.primary,
       borderWidth: border ? 1 : 0,
-      borderRadius: 7,
+      borderRadius: 12,
       padding: 10,
       ...(background
-        ? { backgroundColor: theme.colors.background.secondary }
+        ? { backgroundColor: theme.colors.background[background] }
         : { backgroundColor: "transparent" }),
       ...(border && { borderStyle: "solid" }),
     },
@@ -32,7 +32,7 @@ const MyFarmCard: React.FC<Props> = ({
   children,
   style,
   border = false,
-  background = true,
+  background = "secondary",
 
   ...props
 }) => {

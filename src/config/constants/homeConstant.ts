@@ -5,8 +5,8 @@ import {
   MaterialIcons,
 } from "@expo/vector-icons";
 
-import CONSTANTS from "./common-constant";
-import { IAnimalType, IHomeActionType } from "../type/ui-type/home-type";
+import CONSTANTS from "./commonConstant";
+import { IAnimalType, IHomeActionType } from "../type/uiType/homeType";
 
 export const animal_list: IAnimalType[] = [
   {

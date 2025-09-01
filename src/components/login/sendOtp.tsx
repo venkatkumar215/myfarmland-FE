@@ -1,22 +1,22 @@
 import React, { useMemo } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import MyFarmText from "../common/text/myfarm-text";
-import CONSTANTS from "../../config/constants/common-constant";
-import MyfarmCountryFlag from "../common/countryFlag/myfarm-countryflag";
+import MyFarmText from "../common/text/MyfarmText";
+import CONSTANTS from "../../config/constants/commonConstant";
+import MyfarmCountryFlag from "../common/countryFlag/MyfarmCountryflag";
 import { Controller, useForm } from "react-hook-form";
-import MyfarmInput from "../common/input/myfarm-input";
-import MyfarmButton from "../common/button/myfarm-button";
+import MyfarmInput from "../common/input/MyfarmInput";
+import MyfarmButton from "../common/button/MyfarmButton";
 import { z } from "zod";
 import {
   MobileNumberFormData,
   mobileSchema,
-} from "../../schemas/mobileNumber-schema";
+} from "../../schemas/mobileNumberSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ISendOtpPayload } from "../../config/type/api-type/otp-type";
+import { ISendOtpPayload } from "../../config/type/apiType/otpType";
 import { sendOtp } from "../../api/otpService";
 import { handleApiError } from "../../utilis/api-errorHandler/errorHandler";
-import { useTheme } from "../../context/theme/themeContext";
-import { IThemeType } from "../../config/type/ui-type/theme-type";
+import { useTheme } from "../../context/theme/ThemeContext";
+import { IThemeType } from "../../config/type/uiType/themeType";
 
 type Props = {
   setVerifyOTPFlag: React.Dispatch<React.SetStateAction<boolean>>;

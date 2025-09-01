@@ -1,6 +1,6 @@
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import NoFarmDetailComponent from "../../components/farmDetail/noFarmDetail";
+import NoFarmDetailComponent from "../../components/farmDetail/NoFarmDetail";
 
 const CreateFarmDetail: React.FC = () => {
   const [createNewFarmDetail, setCreateNewFarmDetail] =

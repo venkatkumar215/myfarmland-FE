@@ -4,18 +4,18 @@ import {
   MaterialCommunityIcons,
   MaterialIcons,
 } from "@expo/vector-icons";
-import FarmBasicDetail from "../../components/farmDetail/createFarmDetail/farmBasicDetail";
-import { farmDetailSchema } from "../../schemas/farmDetail-schema";
-import { IDropDownOptions } from "../type/ui-type";
+import FarmBasicDetail from "../../components/farmDetail/createFarmDetail/FarmBasicDetail";
+import { farmDetailSchema } from "../../schemas/farmDetailSchema";
+import { IDropDownOptions } from "../type/uiType";
 import {
   FarmDetailKey,
   IAnimalOptions,
   ICropOptions,
   IStepDetail,
-} from "../type/ui-type/farmDetail-type";
-import CONSTANTS from "./common-constant";
+} from "../type/uiType/farmDetailType";
+import CONSTANTS from "./commonConstant";
 import FarmAnimalDetail from "../../components/farmDetail/createFarmDetail/FarmAnimalDetail";
-import FarmCropDetail from "../../components/farmDetail/createFarmDetail/farmCropDetail";
+import FarmCropDetail from "../../components/farmDetail/createFarmDetail/FarmCropDetail";
 
 export const validKeys: FarmDetailKey[] = [
   "farmLandName",

@@ -1,12 +1,12 @@
 // Define the type for the tab list
 
 import { FontAwesome5 } from "@expo/vector-icons";
-import { ITabList } from "../type/ui-type/navigator-type ";
-import { SettingScreen } from "../../screens/setting/settingScreen";
-import { CropScreen } from "../../screens/crops/cropScreen";
-import { HomeScreen } from "../../screens/home/homeScreen";
-import { TaskScreen } from "../../screens/task/taskScreen";
-import CONSTANTS from "./common-constant";
+import { ITabList } from "../type/uiType/navigatorType ";
+import CONSTANTS from "./commonConstant";
+import { HomeScreen } from "../../screens/home/HomeScreen";
+import { CropScreen } from "../../screens/crops/CropScreen";
+import { SettingScreen } from "../../screens/setting/SettingScreen";
+import { TaskScreen } from "../../screens/task/TaskScreen";
 
 // This is a list of tabs with their names, icons, and components
 const tabList: ITabList[] = [
@@ -28,7 +28,7 @@ const tabList: ITabList[] = [
   //   iconLibrary: FontAwesome6,
   //   component: SettingScreen,
   // },
-  
+
   {
     name: CONSTANTS.TAB_LIST.TASK,
     iconName: "clipboard-list",

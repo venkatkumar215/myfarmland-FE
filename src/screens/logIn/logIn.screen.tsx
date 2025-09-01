@@ -1,10 +1,10 @@
 import React, { useMemo, useState } from "react";
 import { View, StyleSheet, Image } from "react-native";
-import { useTheme } from "../../context/theme/themeContext";
-import { IThemeType } from "../../config/type/ui-type/theme-type";
+import { useTheme } from "../../context/theme/ThemeContext";
+import { IThemeType } from "../../config/type/uiType/themeType";
 import { SafeAreaView } from "react-native-safe-area-context";
-import VerifyOtpComponent from "../../components/login/verifyOtp";
-import SendOtpComponent from "../../components/login/sendOtp";
+import VerifyOtpComponent from "../../components/login/VerifyOtp";
+import SendOtpComponent from "../../components/login/SendOtp";
 
 type Props = {};
 

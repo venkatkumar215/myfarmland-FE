@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 import { StyleSheet, View } from "react-native";
-import { animal_list } from "../../config/constants/home-constant";
-import { IAnimalType } from "../../config/type/ui-type/home-type";
-import MyFarmText from "../common/text/myfarm-text";
-import { useTheme } from "../../context/theme/themeContext";
-import { IThemeType } from "../../config/type/ui-type/theme-type";
+import { animal_list } from "../../config/constants/homeConstant";
+import { IAnimalType } from "../../config/type/uiType/homeType";
+import MyFarmText from "../common/text/MyfarmText";
+import { useTheme } from "../../context/theme/ThemeContext";
+import { IThemeType } from "../../config/type/uiType/themeType";
 
 type Props = {};
 // This component displays the status of animals on the farm

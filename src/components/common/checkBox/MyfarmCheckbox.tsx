@@ -1,8 +1,8 @@
 // CustomCheckbox.tsx
 import React, { useMemo, useState } from "react";
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
-import { useTheme } from "../../../context/theme/themeContext";
-import { IThemeType } from "../../../config/type/ui-type";
+import { useTheme } from "../../../context/theme/ThemeContext";
+import { IThemeType } from "../../../config/type/uiType";
 
 interface Props {
   label?: string;

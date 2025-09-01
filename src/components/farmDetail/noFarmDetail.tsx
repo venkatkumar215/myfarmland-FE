@@ -1,12 +1,13 @@
 import React, { useMemo, useState } from "react";
 import { View, StyleSheet, Image } from "react-native";
-import { useTheme } from "../../context/theme/themeContext";
-import { IThemeType } from "../../config/type/ui-type";
-import MyfarmButton from "../common/button/myfarm-button";
-import MyFarmText from "../common/text/myfarm-text";
-import AddFarmDetails from "./addFarmDetail";
-import CONSTANTS from "../../config/constants/common-constant";
-import { FarmDetailProvider } from "../../context/farmDetail/farmDetailContext";
+import { useTheme } from "../../context/theme/ThemeContext";
+import { IThemeType } from "../../config/type/uiType";
+import MyfarmButton from "../common/button/MyfarmButton";
+import MyFarmText from "../common/text/MyfarmText";
+import CONSTANTS from "../../config/constants/commonConstant";
+import { FarmDetailProvider } from "../../context/farmDetail/FarmDetailContext";
+import AddFarmDetails from "./AddFarmDetail";
+
 interface Props {}
 
 const createStyle = (theme: IThemeType) =>

@@ -6,19 +6,19 @@ import React, {
   useState,
 } from "react";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
-import MyFarmText from "../../common/text/myfarm-text";
-import { useTheme } from "../../../context/theme/themeContext";
-import { IDropDownOptions, IThemeType } from "../../../config/type/ui-type";
+import MyFarmText from "../../common/text/MyfarmText";
+import { useTheme } from "../../../context/theme/ThemeContext";
+import { IDropDownOptions, IThemeType } from "../../../config/type/uiType";
 import { useGlobalStyle } from "../../../styles/globalStyle";
 
-import CONSTANTS from "../../../config/constants/common-constant";
+import CONSTANTS from "../../../config/constants/commonConstant";
 import {
   animalOptions,
   cropOptional,
-} from "../../../config/constants/farmDetail-constant";
-import MyFarmCard from "../../common/card/myfarm-card";
-import MyFarmCheckBox from "../../common/checkBox/myfarm-checkbox";
-import { FarmDetailContext } from "../../../context/farmDetail/farmDetailContext";
+} from "../../../config/constants/farmDetailConstant";
+import MyFarmCard from "../../common/card/MyfarmCard";
+import MyFarmCheckBox from "../../common/checkBox/MyfarmCheckbox";
+import { FarmDetailContext } from "../../../context/farmDetail/FarmDetailContext";
 
 interface Props {}
 

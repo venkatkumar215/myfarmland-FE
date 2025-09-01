@@ -2,11 +2,11 @@ import { ThemeContext } from "@react-navigation/native";
 import React, { useContext, useMemo } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { IThemeType } from "../../config/type/ui-type";
-import { useTheme } from "../../context/theme/themeContext";
+import { IThemeType } from "../../config/type/uiType";
+import { useTheme } from "../../context/theme/ThemeContext";
 import { useGlobalStyle } from "../../styles/globalStyle";
-import MyFarmText from "../common/text/myfarm-text";
-import CONSTANTS from "../../config/constants/common-constant";
+import MyFarmText from "../common/text/MyfarmText";
+import CONSTANTS from "../../config/constants/commonConstant";
 import { Entypo, Feather } from "@expo/vector-icons";
 
 interface Props {}

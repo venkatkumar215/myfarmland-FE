@@ -1,11 +1,11 @@
 import React, { ReactNode, useEffect, useMemo } from "react";
 import { StyleSheet, View } from "react-native";
-import MyFarmText from "../text/myfarm-text";
-import { IThemeType } from "../../../config/type/ui-type";
-import { useTheme } from "../../../context/theme/themeContext";
-import MyfarmButton from "../button/myfarm-button";
+import MyFarmText from "../text/MyfarmText";
+import { IThemeType } from "../../../config/type/uiType";
+import { useTheme } from "../../../context/theme/ThemeContext";
+import MyfarmButton from "../button/MyfarmButton";
 import { useGlobalStyle } from "../../../styles/globalStyle";
-import CONSTANTS from "../../../config/constants/common-constant";
+import CONSTANTS from "../../../config/constants/commonConstant";
 import { colorLightTheme } from "../../../styles/theme";
 
 interface Props {

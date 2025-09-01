@@ -5,9 +5,9 @@ import {
   StyleSheet,
   GestureResponderEvent,
 } from "react-native";
-import { IThemeType } from "../../../config/type/ui-type/theme-type";
-import { useTheme } from "../../../context/theme/themeContext";
-import MyFarmText from "../text/myfarm-text";
+import { IThemeType } from "../../../config/type/uiType/themeType";
+import { useTheme } from "../../../context/theme/ThemeContext";
+import MyFarmText from "../text/MyfarmText";
 
 interface ButtonProps {
   onPress?: (event: GestureResponderEvent) => void;
