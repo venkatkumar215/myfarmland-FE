@@ -10,6 +10,9 @@ export const useGlobalStyle = () => {
         alignItemCenter: {
           alignItems: "center",
         },
+        alignItemFlexEnd: {
+          alignItems: "flex-end",
+        },
         bgPrimary: {
           backgroundColor: theme.colors.background.primary,
         },
@@ -29,6 +32,9 @@ export const useGlobalStyle = () => {
         flex2: {
           flex: 2,
         },
+        flex3: {
+          flex: 3,
+        },
         flexGap1: {
           gap: 5,
         },
@@ -38,6 +44,9 @@ export const useGlobalStyle = () => {
         justifyContentCenter: {
           justifyContent: "center",
         },
+        justifyContentEnd: {
+          justifyContent: "flex-end",
+        },
         p0: {
           padding: 0,
         },
@@ -46,6 +55,12 @@ export const useGlobalStyle = () => {
         },
         p2: {
           padding: 4,
+        },
+        pb0: {
+          paddingBottom: 0,
+        },
+        pb1: {
+          paddingBottom: 4,
         },
         pl0: {
           paddingLeft: 0,

@@ -71,5 +71,6 @@ const CONSTANTS = {
     CAUTION: "Caution",
     CRITICAL: "Critical",
   },
+  VIEW_ALL:'View All'
 };
 export default CONSTANTS;

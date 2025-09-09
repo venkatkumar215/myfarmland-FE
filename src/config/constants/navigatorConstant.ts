@@ -10,18 +10,19 @@ import { TaskScreen } from "../../screens/task/TaskScreen";
 
 // This is a list of tabs with their names, icons, and components
 const tabList: ITabList[] = [
+    {
+    name: CONSTANTS.TAB_LIST.HOME,
+    iconName: "home",
+    iconLibrary: FontAwesome5,
+    component: HomeScreen,
+  },
   {
     name: CONSTANTS.TAB_LIST.CROPS,
     iconName: "leaf",
     iconLibrary: FontAwesome5,
     component: CropScreen,
   },
-  {
-    name: CONSTANTS.TAB_LIST.HOME,
-    iconName: "home",
-    iconLibrary: FontAwesome5,
-    component: HomeScreen,
-  },
+
   // {
   //   name: CONSTANTS.TAB_LIST.MARKETING,
   //   iconName: "shop",

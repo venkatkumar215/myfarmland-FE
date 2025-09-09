@@ -49,7 +49,7 @@ const createStyles = (
       fontSize: theme.fonts.fontSize[fontSize] || theme.fonts.fontSize.md,
       fontWeight: bold ? "bold" : "normal",
     },
-    textStart: {
+    textStar: {
       color: "red",
     },
   });
@@ -74,7 +74,7 @@ const MyFarmText: React.FC<Props> = ({
   return (
     <Text style={[styles.text, style, globalStyle.row]} {...props}>
       {children}
-      {enableStar && <Text style={styles.textStart}> {"*"}</Text>}
+      {enableStar && <Text style={styles.textStar}> {"*"}</Text>}
     </Text>
   );
 };

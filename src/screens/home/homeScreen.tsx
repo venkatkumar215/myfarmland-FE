@@ -1,49 +1,75 @@
-import React from "react";
-import { StyleSheet,  View } from "react-native";
-import MyFarmText from "../../components/common/text/MyfarmText";
-import AnimalStatus from "../../components/home/AnimalStatus";
-import HomeActionList from "../../components/home/HomeActionList";
-import CONSTANTS from "../../config/constants/commonConstant";
+import React, { useMemo } from "react";
+import { StyleSheet, View } from "react-native";
+import { Weather } from "../../components/home/Weather";
+import { AnimalCount } from "../../components/home/AnimalCount";
+import { Health } from "../../components/home/Health";
+import { RecentActivity } from "../../components/home/RecentActivity";
+import { UpcomingActivity } from "../../components/home/UpcomingActivity";
+import MyFarmCard from "../../components/common/card/MyfarmCard";
+import { useGlobalStyle } from "../../styles/globalStyle";
+import { useTheme } from "../../context/theme/ThemeContext";
+import { IThemeType } from "../../config/type/uiType";
 
+const createStyle = (theme: IThemeType) =>
+  StyleSheet.create({
+    container: {
+      backgroundColor: theme.colors.background.primary,
+      gap: 5,
+      height: "100%",
+      padding: 16,
+      width: "100%",
+    },
+    sectionOne: {
+      maxHeight: 210,
+      minHeight: 200,
+    },
+  });
 
-
-
-const styles = StyleSheet.create({
-  actionList: {
-    marginBottom: 10,
-    marginTop: 20,
-  },
-  animalList: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginLeft: 15,
-    marginTop: 20,
-  },
-  container: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  homeHeaderText: {
-    paddingLeft: 15,
-    paddingTop: 15,
-  },
-});
-export const HomeScreen: React.FC = () => {
+export const HomeScreen = () => {
   // Define styles for the HomeScreen component
-
+  const globalStyle = useGlobalStyle();
+  const theme = useTheme();
+  const styles = useMemo(
+    () => createStyle(theme as unknown as IThemeType),
+    [theme]
+  );
   return (
-    <View style={styles.container}>
-      <View style={styles.homeHeaderText}>
-        <MyFarmText fontSize="xxl" bold>
-          {CONSTANTS.HEADER_TITLE.TODAY_OVERVIEW}
-        </MyFarmText>
+    <View style={[globalStyle.column, styles.container]}>
+      <View style={[globalStyle.row, globalStyle.flexGap2, styles.sectionOne]}>
+        <View
+          style={[globalStyle.flex1, globalStyle.column, globalStyle.flexGap1]}
+        >
+          <MyFarmCard background="active">
+            <Weather></Weather>
+          </MyFarmCard>
+          <MyFarmCard>
+            <AnimalCount></AnimalCount>
+          </MyFarmCard>
+        </View>
+        <View style={globalStyle.flex1}>
+          <MyFarmCard>
+            <Health></Health>
+          </MyFarmCard>
+        </View>
       </View>
-      <View style={styles.animalList}>
-        <AnimalStatus></AnimalStatus>
+
+      <View>
+        <MyFarmCard style={globalStyle.column}>
+          <RecentActivity></RecentActivity>
+        </MyFarmCard>
       </View>
-      <View style={styles.actionList}>
-        <HomeActionList></HomeActionList>
+      <View>
+        <MyFarmCard style={globalStyle.column}>
+          <UpcomingActivity></UpcomingActivity>
+        </MyFarmCard>
+      </View>
+      <View style={globalStyle.row}>
+        {/* <MyFarmCard>
+          <MyFarmText>{}</MyFarmT'ext>
+        </MyFarmCard>
+        <MyFarmCard>
+          <MyFarmText>Growth rate </MyFarmText>
+        </MyFarmCard> */}
       </View>
     </View>
   );

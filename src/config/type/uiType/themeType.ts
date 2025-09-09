@@ -20,6 +20,7 @@ export interface IThemeType {
     text: {
       primary: string;
       secondary: string;
+      tertiary?: string;
     };
     btn: {
       primary: string;
