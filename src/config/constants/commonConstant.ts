@@ -5,6 +5,7 @@ const CONSTANTS = {
     CROPS: "Crops",
     SETTINGS: "Settings",
     TASK: "Task",
+    ADD: "Add",
   },
   HEADER_TITLE: {
     MY_FARM_LAND: "MyFarmLand",
@@ -71,6 +72,6 @@ const CONSTANTS = {
     CAUTION: "Caution",
     CRITICAL: "Critical",
   },
-  VIEW_ALL:'View All'
+  VIEW_ALL: "View All",
 };
 export default CONSTANTS;

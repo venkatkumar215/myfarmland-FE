@@ -32,7 +32,7 @@ const AppNavigator: React.FC = () => {
   useEffect(() => {
     try {
       const payLoad = {
-        userId: userId ? userId : "O59SX5T5sVQycMmuutsdV8OgDN63",
+        userId: userId ? userId : "venkat",
       };
       getfarmDetail(payLoad).then((response) => {
         if (response.success && response?.farmDetail) {

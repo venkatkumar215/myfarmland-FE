@@ -29,10 +29,7 @@ export const HomeScreen = () => {
   // Define styles for the HomeScreen component
   const globalStyle = useGlobalStyle();
   const theme = useTheme();
-  const styles = useMemo(
-    () => createStyle(theme as unknown as IThemeType),
-    [theme]
-  );
+  const styles = useMemo(() => createStyle(theme), [theme]);
   return (
     <View style={[globalStyle.column, styles.container]}>
       <View style={[globalStyle.row, globalStyle.flexGap2, styles.sectionOne]}>
@@ -40,36 +37,28 @@ export const HomeScreen = () => {
           style={[globalStyle.flex1, globalStyle.column, globalStyle.flexGap1]}
         >
           <MyFarmCard background="active">
-            <Weather></Weather>
+            <Weather />
           </MyFarmCard>
           <MyFarmCard>
-            <AnimalCount></AnimalCount>
+            <AnimalCount />
           </MyFarmCard>
         </View>
         <View style={globalStyle.flex1}>
           <MyFarmCard>
-            <Health></Health>
+            <Health />
           </MyFarmCard>
         </View>
       </View>
 
       <View>
         <MyFarmCard style={globalStyle.column}>
-          <RecentActivity></RecentActivity>
+          <RecentActivity />
         </MyFarmCard>
       </View>
       <View>
         <MyFarmCard style={globalStyle.column}>
-          <UpcomingActivity></UpcomingActivity>
+          <UpcomingActivity />
         </MyFarmCard>
-      </View>
-      <View style={globalStyle.row}>
-        {/* <MyFarmCard>
-          <MyFarmText>{}</MyFarmT'ext>
-        </MyFarmCard>
-        <MyFarmCard>
-          <MyFarmText>Growth rate </MyFarmText>
-        </MyFarmCard> */}
       </View>
     </View>
   );

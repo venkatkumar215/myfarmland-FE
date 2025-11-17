@@ -23,8 +23,8 @@ export const lightTheme: IThemeType = {
   colors: {
     // Define the colors used in the light theme
     background: {
-      primary: "#FAFAF5",
-      secondary: "#FFFFFF",
+      primary: "#F6F6F6",
+      secondary: "#FeFeFe",
       active: colorLightTheme.primary,
       caution: "orange",
       warning: "red",
@@ -46,6 +46,7 @@ export const lightTheme: IThemeType = {
     icon: {
       active: colorLightTheme.primary,
       inactive: "#333333",
+      activeBackgroundColor: "#d1e2c4",
     },
     inputText: {
       primary: "#333333",
@@ -92,6 +93,7 @@ export const darkTheme: IThemeType = {
     icon: {
       active: "#356a40",
       inactive: "#E1E8D6",
+      activeBackgroundColor: "#d1e2c4",
     },
     inputText: {
       primary: "#fff",

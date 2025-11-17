@@ -56,10 +56,10 @@ export const UpcomingActivity: React.FC<Props> = () => {
                 globalStyle.pb1,
               ]}
             >
-              <MyFarmText fontSize='lg' style={globalStyle.flex1}>
+              <MyFarmText fontSize="lg" style={globalStyle.flex1}>
                 {activity.startDate}
               </MyFarmText>
-              <MyFarmText  fontSize='lg' style={globalStyle.flex3}>
+              <MyFarmText fontSize="lg" bold style={globalStyle.flex3}>
                 {activity.description}
               </MyFarmText>
               <View

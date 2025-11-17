@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import MyFarmText from "../common/text/MyfarmText";
 import CONSTANTS from "../../config/constants/commonConstant";
 import { useGlobalStyle } from "../../styles/globalStyle";
@@ -34,15 +34,21 @@ export const RecentActivity: React.FC<Props> = () => {
             globalStyle.justifyContentCenter,
           ]}
         >
-          <MyFarmText bold color="tertiary" style={globalStyle.center}>
-            {CONSTANTS.VIEW_ALL}
-            <AntDesign
-              name="arrowright"
-              size={14}
-              color={theme.colors.text.tertiary}
-              style={globalStyle.pt2}
-            />
-          </MyFarmText>
+          <Pressable
+            onPressIn={() => {
+              alert("pressed");
+            }}
+          >
+            <MyFarmText bold color="tertiary" style={globalStyle.center}>
+              {CONSTANTS.VIEW_ALL}
+              <AntDesign
+                name="arrowright"
+                size={14}
+                color={theme.colors.text.tertiary}
+                style={globalStyle.pt2}
+              />
+            </MyFarmText>
+          </Pressable>
         </View>
       </View>
       <View style={[globalStyle.column, globalStyle.flexGap2, globalStyle.pt2]}>
@@ -60,7 +66,7 @@ export const RecentActivity: React.FC<Props> = () => {
               <MyFarmText fontSize="lg" style={globalStyle.flex1}>
                 {activity.startDate}
               </MyFarmText>
-              <MyFarmText fontSize="lg" style={globalStyle.flex3}>
+              <MyFarmText fontSize="lg" bold style={globalStyle.flex3}>
                 {activity.description}
               </MyFarmText>
               <View

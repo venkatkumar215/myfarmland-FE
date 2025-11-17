@@ -4,4 +4,5 @@ export type RootTabParamList = {
   Home: undefined;
   Settings: undefined;
   Task: undefined;
+  Add: undefined;
 };

@@ -34,6 +34,7 @@ export interface IThemeType {
     icon: {
       active: string;
       inactive: string;
+      activeBackgroundColor: string;
     };
     inputText: {
       primary: string;

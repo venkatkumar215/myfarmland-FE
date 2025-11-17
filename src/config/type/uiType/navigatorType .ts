@@ -6,4 +6,7 @@ export interface ITabList {
   iconName: string;
   iconLibrary: typeof FontAwesome5 | typeof FontAwesome6;
   component: React.ComponentType<unknown>;
+  hideName?: boolean;
+  size: number;
+  focusedSize: number;
 }
