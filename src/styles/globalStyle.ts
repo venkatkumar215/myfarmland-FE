@@ -7,6 +7,7 @@ export const useGlobalStyle = () => {
   return useMemo(
     () =>
       StyleSheet.create({
+        displayFlex: { display: "flex" },
         alignItemCenter: {
           alignItems: "center",
         },

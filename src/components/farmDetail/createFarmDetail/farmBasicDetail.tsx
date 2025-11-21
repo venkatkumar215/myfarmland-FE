@@ -1,8 +1,8 @@
 import React, { useCallback, useContext, useMemo } from "react";
-import MyFarmText from "../../common/text/MyfarmText";
+import MyFarmText from "../../common/text/MyFarmText";
 import { Image, StyleSheet, View } from "react-native";
 import { useGlobalStyle } from "../../../styles/globalStyle";
-import MyfarmInput from "../../common/input/MyfarmInput";
+import MyfarmInput from "../../common/input/MyFarmInput";
 import CONSTANTS from "../../../config/constants/commonConstant";
 import { FarmDetailKey } from "../../../config/type/uiType/farmDetailType";
 import MyFarmLandDropDown from "../../common/dropdown/MyFarmDropDown.component";

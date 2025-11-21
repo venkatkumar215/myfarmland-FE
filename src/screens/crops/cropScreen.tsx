@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import MyFarmText from "../../components/common/text/MyfarmText";
+import MyFarmText from "../../components/common/text/MyFarmText";
 import AnimalStatus from "../../components/home/AnimalStatus";
 import HomeActionList from "../../components/home/HomeActionList";
 import CONSTANTS from "../../config/constants/commonConstant";
@@ -28,10 +28,8 @@ const styles = StyleSheet.create({
 });
 
 export const CropScreen = () => {
-
-
   return (
- <View style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.homeHeaderText}>
         <MyFarmText fontSize="xxl" bold>
           {CONSTANTS.HEADER_TITLE.TODAY_OVERVIEW}
@@ -44,7 +42,5 @@ export const CropScreen = () => {
         <HomeActionList></HomeActionList>
       </View>
     </View>
-
-    
   );
 };

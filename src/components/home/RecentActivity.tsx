@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
-import MyFarmText from "../common/text/MyfarmText";
+import MyFarmText from "../common/text/MyFarmText";
 import CONSTANTS from "../../config/constants/commonConstant";
 import { useGlobalStyle } from "../../styles/globalStyle";
 import { getRecentActivity } from "../../mockData/mockData";

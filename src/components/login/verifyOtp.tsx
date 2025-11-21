@@ -1,9 +1,9 @@
 import React, { useState, useRef, useContext } from "react";
 import { View, StyleSheet } from "react-native";
-import MyfarmInput from "../common/input/MyfarmInput";
-import MyfarmButton from "../common/button/MyfarmButton";
+import MyfarmInput from "../common/input/MyFarmInput";
+import MyfarmButton from "../common/button/MyFarmButton";
 import CONSTANTS from "../../config/constants/commonConstant";
-import MyFarmText from "../common/text/MyfarmText";
+import MyFarmText from "../common/text/MyFarmText";
 import { OtpFormData, otpSchema } from "../../schemas/mobileNumberSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";

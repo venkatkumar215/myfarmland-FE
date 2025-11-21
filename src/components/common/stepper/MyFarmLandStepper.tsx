@@ -1,9 +1,9 @@
 import React, { ReactNode, useEffect, useMemo } from "react";
 import { StyleSheet, View } from "react-native";
-import MyFarmText from "../text/MyfarmText";
+import MyFarmText from "../text/MyFarmText";
 import { IThemeType } from "../../../config/type/uiType";
 import { useTheme } from "../../../context/theme/ThemeContext";
-import MyfarmButton from "../button/MyfarmButton";
+import MyfarmButton from "../button/MyFarmButton";
 import { useGlobalStyle } from "../../../styles/globalStyle";
 import CONSTANTS from "../../../config/constants/commonConstant";
 import { colorLightTheme } from "../../../styles/theme";

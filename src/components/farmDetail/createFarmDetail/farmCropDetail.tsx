@@ -1,13 +1,13 @@
 import React, { useContext, useMemo, useState } from "react";
 import { Image, ScrollView, StyleSheet, View } from "react-native";
-import MyFarmText from "../../common/text/MyfarmText";
+import MyFarmText from "../../common/text/MyFarmText";
 import { useTheme } from "../../../context/theme/ThemeContext";
 import { IDropDownOptions } from "../../../config/type/uiType";
 import { useGlobalStyle } from "../../../styles/globalStyle";
 
 import CONSTANTS from "../../../config/constants/commonConstant";
 import { cropOptional } from "../../../config/constants/farmDetailConstant";
-import MyFarmCard from "../../common/card/MyfarmCard";
+import MyFarmCard from "../../common/card/MyFarmCard";
 import MyFarmCheckBox from "../../common/checkBox/MyfarmCheckbox";
 import { FarmDetailContext } from "../../../context/farmDetail/FarmDetailContext";
 

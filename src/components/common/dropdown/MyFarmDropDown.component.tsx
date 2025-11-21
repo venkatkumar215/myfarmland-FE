@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Pressable, StyleSheet } from "react-native";
-import MyFarmText from "../text/MyfarmText";
-import MyfarmInput from "../input/MyfarmInput";
+import MyFarmText from "../text/MyFarmText";
+import MyfarmInput from "../input/MyFarmInput";
 import { useTheme } from "../../../context/theme/ThemeContext";
 import { IDropDownOptions, IThemeType } from "../../../config/type/uiType";
 import { useGlobalStyle } from "../../../styles/globalStyle";

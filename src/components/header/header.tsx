@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { IThemeType } from "../../config/type/uiType";
 import { useTheme } from "../../context/theme/ThemeContext";
 import { useGlobalStyle } from "../../styles/globalStyle";
-import MyFarmText from "../common/text/MyfarmText";
+import MyFarmText from "../common/text/MyFarmText";
 import CONSTANTS from "../../config/constants/commonConstant";
 import { Entypo, Feather } from "@expo/vector-icons";
 

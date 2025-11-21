@@ -5,7 +5,7 @@ import { AnimalCount } from "../../components/home/AnimalCount";
 import { Health } from "../../components/home/Health";
 import { RecentActivity } from "../../components/home/RecentActivity";
 import { UpcomingActivity } from "../../components/home/UpcomingActivity";
-import MyFarmCard from "../../components/common/card/MyfarmCard";
+import MyFarmCard from "../../components/common/card/MyFarmCard";
 import { useGlobalStyle } from "../../styles/globalStyle";
 import { useTheme } from "../../context/theme/ThemeContext";
 import { IThemeType } from "../../config/type/uiType";

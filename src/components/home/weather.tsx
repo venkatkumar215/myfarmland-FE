@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import MyFarmText from "../common/text/MyfarmText";
+import MyFarmText from "../common/text/MyFarmText";
 import { useGlobalStyle } from "../../styles/globalStyle";
 import { Fontisto } from "@expo/vector-icons";
 

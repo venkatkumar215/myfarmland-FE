@@ -16,6 +16,7 @@ export interface IThemeType {
       active?: string;
       caution?: string;
       warning?: string;
+      overlay?: string;
     };
     text: {
       primary: string;

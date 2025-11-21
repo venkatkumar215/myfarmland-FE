@@ -1,9 +1,9 @@
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
-import MyFarmText from "../common/text/MyfarmText";
+import MyFarmText from "../common/text/MyFarmText";
 import CONSTANTS from "../../config/constants/commonConstant";
 import { useGlobalStyle } from "../../styles/globalStyle";
-import MyFarmCard from "../common/card/MyfarmCard";
+import MyFarmCard from "../common/card/MyFarmCard";
 import { healthMonitorCardDetails } from "../../config/constants/homeConstant";
 import { IHealthMonitorType } from "../../config/type/uiType";
 

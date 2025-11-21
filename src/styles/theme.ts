@@ -76,6 +76,7 @@ export const darkTheme: IThemeType = {
     background: {
       primary: "#F9F9F6",
       secondary: "#FFFFFF",
+      overlay: "rgba(0, 0, 0, 0.5)",
     },
     text: {
       primary: "#2E2E2E",

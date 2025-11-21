@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { StyleSheet, View } from "react-native";
 import { animalList } from "../../config/constants/homeConstant";
 import { IAnimalType } from "../../config/type/uiType/homeType";
-import MyFarmText from "../common/text/MyfarmText";
+import MyFarmText from "../common/text/MyFarmText";
 import { useTheme } from "../../context/theme/ThemeContext";
 import { IThemeType } from "../../config/type/uiType/themeType";
 

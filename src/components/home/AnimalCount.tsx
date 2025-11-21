@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import MyFarmText from "../common/text/MyfarmText";
+import MyFarmText from "../common/text/MyFarmText";
 import { useGlobalStyle } from "../../styles/globalStyle";
 import CONSTANTS from "../../config/constants/commonConstant";
 
@@ -19,11 +19,7 @@ export const AnimalCount: React.FC<Props> = () => {
       <MyFarmText style={globalStyle.alignItemCenter} bold fontSize="xl">
         {CONSTANTS.TOTAL_ANIMALS}
       </MyFarmText>
-      <MyFarmText
-        style={globalStyle.justifyContentCenter}
-        bold
-        fontSize="xxxl"
-      >
+      <MyFarmText style={globalStyle.justifyContentCenter} bold fontSize="xxxl">
         150
       </MyFarmText>
     </View>

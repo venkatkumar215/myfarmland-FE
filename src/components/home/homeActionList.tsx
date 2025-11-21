@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { StyleSheet, View, Image } from "react-native";
 import { homeActionList } from "../../config/constants/homeConstant";
 import { useTheme } from "../../context/theme/ThemeContext";
-import MyFarmText from "../common/text/MyfarmText";
+import MyFarmText from "../common/text/MyFarmText";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { IThemeType } from "../../config/type/uiType/themeType";
 
