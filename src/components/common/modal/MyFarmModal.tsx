@@ -11,7 +11,7 @@ import {
 import { useTheme } from "../../../context/theme/ThemeContext";
 import { IThemeType } from "../../../config/type/uiType";
 import { useGlobalStyle } from "../../../styles/globalStyle";
-import { SvgIcon } from "../svgIcon/SvgIcon";
+
 
 interface Props {
   visible: boolean;
@@ -93,7 +93,7 @@ export const MyFarmModal: React.FC<Props> = ({
                 onPress={onClose}
                 style={[globalStyle.justifyContentEnd, globalStyle.row]}
               >
-                <SvgIcon name="close" width={24} height={24} />
+                
               </TouchableOpacity>
             </View>
 
