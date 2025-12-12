@@ -85,7 +85,7 @@ const MyFarmLandDropDown: React.FC<Props> = ({
         <View style={createStyle(theme, null, -1).title}>
           <MyFarmText
             fontSize="lg"
-            bold={titleBold}
+            fontBold={titleBold}
             enableStar={enableStar}
             {...props}
           >
@@ -140,7 +140,7 @@ const MyFarmLandDropDown: React.FC<Props> = ({
                   }}
                   style={styles.dropDownOption}
                 >
-                  <MyFarmText bold fontSize="md" {...props}>
+                  <MyFarmText fontBold fontSize="md" {...props}>
                     {option.label}
                   </MyFarmText>
                 </Pressable>

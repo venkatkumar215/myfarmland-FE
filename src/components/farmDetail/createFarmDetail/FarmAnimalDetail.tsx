@@ -106,7 +106,7 @@ const FarmAnimalDetail: React.FC<Props> = () => {
           source={require("../../../../assets/images/cow.png")}
           style={styles.image}
         ></Image>
-        <MyFarmText bold fontSize="xxxl">
+        <MyFarmText fontBold fontSize="xxxl">
           {CONSTANTS.FARM_DETAIL.SELECT_YOUR_ANIMAL}
         </MyFarmText>
         <MyFarmText fontSize="md">
@@ -121,7 +121,7 @@ const FarmAnimalDetail: React.FC<Props> = () => {
                 <View style={[globalStyle.row, styles.cardContainer]}>
                   <View style={styles.cardIcon}>{getFontIcon(animal)}</View>
                   <View style={[globalStyle.column, styles.cardText]}>
-                    <MyFarmText bold fontSize="lg">
+                    <MyFarmText fontBold fontSize="lg">
                       {animal.label}
                     </MyFarmText>
                     <MyFarmText fontSize="lg">{animal.description}</MyFarmText>

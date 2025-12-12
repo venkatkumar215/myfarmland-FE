@@ -41,7 +41,7 @@ export const Health: React.FC<Props> = () => {
     <View style={[globalStyle.column, styles.container, globalStyle.p2]}>
       <MyFarmText
         style={[globalStyle.column, globalStyle.justifyContentCenter]}
-        bold
+        fontBold
         fontSize="xl"
       >
         {CONSTANTS.HEALTH_MONITOR}
@@ -67,7 +67,7 @@ export const Health: React.FC<Props> = () => {
                   style={[globalStyle.center, styles.cardWidth]}
                 >
                   {getFontIcon(health)}
-                  <MyFarmText color="secondary" fontSize="sm" bold>
+                  <MyFarmText color="secondary" fontSize="sm" fontBold>
                     {health?.status
                       ? health.status
                       : CONSTANTS.HEALTH_STATUS.HEALTHY}

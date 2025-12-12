@@ -19,3 +19,8 @@ export interface IHealthMonitorType extends IIconType {
   status?: string;
   statusColor?: "active" | "caution" | "warning";
 }
+
+export interface ITrackerType {
+  trackerName: string;
+  iconName?: string;
+}

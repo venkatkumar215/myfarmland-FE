@@ -112,7 +112,7 @@ const SendOtpComponent: React.FC<Props> = ({
   return (
     <View style={styles.container}>
       <View style={styles.titleText}>
-        <MyFarmText style={styles.textCenter} fontSize={"xxxl"} bold>
+        <MyFarmText style={styles.textCenter} fontSize={"xxxl"} fontBold>
           {CONSTANTS.LOG_IN.WELCOME_MY_FARM}
         </MyFarmText>
       </View>
@@ -122,7 +122,7 @@ const SendOtpComponent: React.FC<Props> = ({
         </MyFarmText>
       </View>
       <View style={styles.mobileText}>
-        <MyFarmText style={styles.textCenter} bold fontSize={"xxxl"}>
+        <MyFarmText style={styles.textCenter} fontBold fontSize={"xxxl"}>
           {CONSTANTS.LOG_IN.ENTER_MOBILE_NUMBER}
         </MyFarmText>
       </View>
@@ -152,9 +152,9 @@ const SendOtpComponent: React.FC<Props> = ({
       </View>
       <View style={styles.termsContainer}>
         <MyFarmText>{CONSTANTS.LOG_IN.AGREE}</MyFarmText>
-        <MyFarmText bold>{CONSTANTS.LOG_IN.TERMS}</MyFarmText>
+        <MyFarmText fontBold>{CONSTANTS.LOG_IN.TERMS}</MyFarmText>
         <MyFarmText> {CONSTANTS.LOG_IN.AND}</MyFarmText>
-        <MyFarmText bold>{CONSTANTS.LOG_IN.PRIVACY_POLICY}</MyFarmText>
+        <MyFarmText fontBold>{CONSTANTS.LOG_IN.PRIVACY_POLICY}</MyFarmText>
       </View>
     </View>
   );

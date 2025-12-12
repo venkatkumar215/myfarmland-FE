@@ -6,6 +6,9 @@ import { useTheme } from "../../context/theme/ThemeContext";
 import tabList from "../../config/constants/navigatorConstant";
 import { IThemeType } from "../../config/type/uiType";
 import { MyFarmModal } from "../common/modal/MyFarmModal";
+import CONSTANTS from "../../config/constants/commonConstant";
+import AddTrackerList from "../home/AddTrackerList";
+import { useGlobalStyle } from "../../styles/globalStyle";
 
 // Create a bottom tab navigator
 // This navigator will manage the tab navigation in the app
@@ -35,6 +38,7 @@ const createStyle = (theme: IThemeType) =>
 const BottomNavComponent: React.FC = () => {
   const theme = useTheme();
   const styles = useMemo(() => createStyle(theme), [theme]);
+  const globalStyle = useGlobalStyle();
   const [isAddModalVisible, setIsAddModalVisible] = useState(false);
 
   const handleAddPress = (): void => {
@@ -114,7 +118,16 @@ const BottomNavComponent: React.FC = () => {
           );
         })}
       </Tab.Navigator>
-      <MyFarmModal visible={isAddModalVisible} onClose={handleCloseModal} />
+      <MyFarmModal
+        visible={isAddModalVisible}
+        onClose={handleCloseModal}
+        headerName={CONSTANTS.TRACK_SELECTION_PROMPT}
+        height={50}
+      >
+        <View style={globalStyle.pt4}>
+          <AddTrackerList />
+        </View>
+      </MyFarmModal>
     </>
   );
 };

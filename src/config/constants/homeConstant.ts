@@ -70,7 +70,7 @@ export const healthMonitorCardDetails: IHealthMonitorType[] = [
     iconLibrary: MaterialCommunityIcons,
     iconName: "cow",
     iconSize: 28,
-    statusColor:'active'
+    statusColor: "active",
   },
   {
     groupId: "2",
@@ -78,7 +78,7 @@ export const healthMonitorCardDetails: IHealthMonitorType[] = [
     iconLibrary: MaterialIcons,
     iconName: "goat",
     iconSize: 28,
-    statusColor:'active'
+    statusColor: "active",
   },
   {
     groupId: "3",
@@ -86,7 +86,7 @@ export const healthMonitorCardDetails: IHealthMonitorType[] = [
     iconLibrary: Ionicons,
     iconName: "fish",
     iconSize: 28,
-    statusColor:'caution'
+    statusColor: "caution",
   },
   {
     groupId: "4",
@@ -94,6 +94,13 @@ export const healthMonitorCardDetails: IHealthMonitorType[] = [
     iconLibrary: MaterialCommunityIcons,
     iconName: "duck",
     iconSize: 28,
-    statusColor:'warning'
+    statusColor: "warning",
   },
+];
+
+export const trackerTypes = [
+  { name: "Animal ", icon: "cow" },
+  { name: "Crop", icon: "leaf" },
+  { name: "Health", icon: "heart" },
+  { name: "Feed", icon: "food-apple" },
 ];

@@ -50,7 +50,7 @@ const HeaderComponent: React.FC<Props> = () => {
               accessibilityLabel="Farm Leaf Logo"
             />
           </View>
-          <MyFarmText bold fontSize="xxl" style={styles.logoText}>
+          <MyFarmText fontBold fontSize="xxl" style={styles.logoText}>
             {CONSTANTS.HEADER_TITLE.MY_FARM_LAND}
           </MyFarmText>
         </View>

@@ -87,6 +87,12 @@ export const useGlobalStyle = () => {
         pt2: {
           paddingTop: 8,
         },
+        pt3: {
+          paddingTop: 12,
+        },
+        pt4: {
+          paddingTop: 16,
+        },
         row: {
           flexDirection: "row",
           width: "100%",

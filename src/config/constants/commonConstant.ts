@@ -73,5 +73,6 @@ const CONSTANTS = {
     CRITICAL: "Critical",
   },
   VIEW_ALL: "View All",
+  TRACK_SELECTION_PROMPT: "What would you like to track today?",
 };
 export default CONSTANTS;

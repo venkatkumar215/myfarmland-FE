@@ -72,7 +72,7 @@ const FarmBasicDetail: React.FC = () => {
           source={require("../../../../assets/images/Search-Location-2--Streamline-Ux.png")}
           style={styles.image}
         />
-        <MyFarmText bold fontSize="xxxl">
+        <MyFarmText fontBold fontSize="xxxl">
           {CONSTANTS.FARM_DETAIL.WELCOME_TO_FARM_FLOW}
         </MyFarmText>
         <MyFarmText>{CONSTANTS.FARM_DETAIL.DIGITAL_FARM_MANAGEMENT}</MyFarmText>
@@ -82,7 +82,7 @@ const FarmBasicDetail: React.FC = () => {
       <View style={[globalStyle.column, styles.farmContainer]}>
         {/* Farm Name */}
         <View style={globalStyle.width100}>
-          <MyFarmText bold fontSize="lg" enableStar>
+          <MyFarmText fontBold fontSize="lg" enableStar>
             {CONSTANTS.FARM_DETAIL.FARM_DETAIL}
           </MyFarmText>
           <MyfarmInput
@@ -96,7 +96,7 @@ const FarmBasicDetail: React.FC = () => {
 
         {/* Location */}
         <View style={globalStyle.width100}>
-          <MyFarmText bold fontSize="lg" enableStar>
+          <MyFarmText fontBold fontSize="lg" enableStar>
             {CONSTANTS.FARM_DETAIL.FARM_LOCATION}
           </MyFarmText>
           <MyfarmInput
@@ -113,7 +113,7 @@ const FarmBasicDetail: React.FC = () => {
           <View
             style={[globalStyle.column, globalStyle.flex1, styles.totalArea]}
           >
-            <MyFarmText bold fontSize="lg" enableStar>
+            <MyFarmText fontBold fontSize="lg" enableStar>
               {CONSTANTS.FARM_DETAIL.TOTAL_AREA}
             </MyFarmText>
             <MyfarmInput

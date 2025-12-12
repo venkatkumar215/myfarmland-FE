@@ -4,7 +4,7 @@ import { IDropDownOptions } from "./commonType";
 export interface IStepDetail {
   id: string;
   title: string;
-  componentName: React.ComponentType<unknown>;
+  componentName: React.ComponentType<any>;
   schema?: ZodTypeAny;
 }
 

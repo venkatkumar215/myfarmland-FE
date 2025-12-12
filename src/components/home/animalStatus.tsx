@@ -52,8 +52,8 @@ const AnimalStatus: React.FC = () => {
       {animalList.map((animal, index) => (
         <View key={index} style={styles.animalDetail}>
           <View style={styles.animalIcon}>{getFontIcon(animal)}</View>
-          <MyFarmText bold>{animal.name}</MyFarmText>
-          <MyFarmText fontSize="xxl" bold>
+          <MyFarmText fontBold>{animal.name}</MyFarmText>
+          <MyFarmText fontSize="xxl" fontBold>
             {animal.count}
           </MyFarmText>
         </View>

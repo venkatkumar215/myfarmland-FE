@@ -57,7 +57,7 @@ const NoFarmDetailComponent: React.FC<Props> = () => {
                 ></Image>
               </View>
               <View>
-                <MyFarmText bold fontSize="xxxl">
+                <MyFarmText fontBold fontSize="xxxl">
                   {CONSTANTS.FARM_DETAIL.NO_FARM_DETAILS_FOUND}
                 </MyFarmText>
               </View>

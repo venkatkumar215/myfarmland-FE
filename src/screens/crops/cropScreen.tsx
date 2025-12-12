@@ -31,7 +31,7 @@ export const CropScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.homeHeaderText}>
-        <MyFarmText fontSize="xxl" bold>
+        <MyFarmText fontSize="xxl" fontBold>
           {CONSTANTS.HEADER_TITLE.TODAY_OVERVIEW}
         </MyFarmText>
       </View>

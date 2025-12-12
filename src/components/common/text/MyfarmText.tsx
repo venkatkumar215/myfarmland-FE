@@ -21,7 +21,7 @@ import { useGlobalStyle } from "../../../styles/globalStyle";
 interface Props extends TextProps {
   style?: StyleProp<TextStyle>;
   children: React.ReactNode;
-  bold?: boolean;
+  fontBold?: boolean;
   fontSize?: keyof IThemeType["fonts"]["fontSize"];
   color?: keyof IThemeType["colors"]["text"];
   enableStar?: boolean;
@@ -32,14 +32,14 @@ interface Props extends TextProps {
  *
  * @param {IThemeType} theme
  * @param {keyof IThemeType["fonts"]["fontSize"]} fontSize
- * @param {boolean} bold
+ * @param {boolean} fontBold
  * @param {keyof IThemeType["colors"]["text"]} color
  * @returns {*}
  */
 const createStyles = (
   theme: IThemeType,
   fontSize: keyof IThemeType["fonts"]["fontSize"],
-  bold: boolean,
+  fontBold: boolean,
   color: keyof IThemeType["colors"]["text"]
 ) =>
   StyleSheet.create({
@@ -47,7 +47,7 @@ const createStyles = (
       color: theme.colors.text[color],
       fontFamily: theme.fonts.fontFamily,
       fontSize: theme.fonts.fontSize[fontSize] || theme.fonts.fontSize.md,
-      fontWeight: bold ? "bold" : "normal",
+      fontWeight: fontBold ? "bold" : "normal",
     },
     textStar: {
       color: "red",
@@ -56,7 +56,7 @@ const createStyles = (
 
 const MyFarmText: React.FC<Props> = ({
   children,
-  bold = false,
+  fontBold = false,
   fontSize = "md",
   color = "primary",
   style,
@@ -67,8 +67,8 @@ const MyFarmText: React.FC<Props> = ({
   const globalStyle = useGlobalStyle();
 
   const styles = useMemo(
-    () => createStyles(theme, fontSize, bold, color),
-    [theme, fontSize, bold, color]
+    () => createStyles(theme, fontSize, fontBold, color),
+    [theme, fontSize, fontBold, color]
   );
 
   return (

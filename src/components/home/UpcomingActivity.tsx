@@ -24,7 +24,7 @@ export const UpcomingActivity: React.FC<Props> = () => {
   return (
     <View style={[globalStyle.column, globalStyle.width100]}>
       <View style={globalStyle.row}>
-        <MyFarmText bold fontSize="xl" style={globalStyle.flex1}>
+        <MyFarmText fontBold fontSize="xl" style={globalStyle.flex1}>
           {CONSTANTS.UPCOMING_ACTIVITY}
         </MyFarmText>
         <View
@@ -33,7 +33,7 @@ export const UpcomingActivity: React.FC<Props> = () => {
             globalStyle.justifyContentCenter,
           ]}
         >
-          <MyFarmText bold color="tertiary" style={globalStyle.center}>
+          <MyFarmText fontBold color="tertiary" style={globalStyle.center}>
             {CONSTANTS.VIEW_ALL}
             <AntDesign
               name="arrowright"
@@ -59,7 +59,7 @@ export const UpcomingActivity: React.FC<Props> = () => {
               <MyFarmText fontSize="lg" style={globalStyle.flex1}>
                 {activity.startDate}
               </MyFarmText>
-              <MyFarmText fontSize="lg" bold style={globalStyle.flex3}>
+              <MyFarmText fontSize="lg" fontBold style={globalStyle.flex3}>
                 {activity.description}
               </MyFarmText>
               <View

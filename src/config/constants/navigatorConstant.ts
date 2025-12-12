@@ -34,8 +34,8 @@ const tabList: ITabList[] = [
     iconName: "plus-circle",
     iconLibrary: FontAwesome,
     component: SettingScreen,
-    size: 32,
-    focusedSize: 32,
+    size: 34,
+    focusedSize: 34,
   },
 
   {

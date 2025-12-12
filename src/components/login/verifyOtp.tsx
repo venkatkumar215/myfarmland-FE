@@ -132,7 +132,7 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
   return (
     <View style={styles.container}>
       <View style={styles.titleText}>
-        <MyFarmText style={styles.textCenter} fontSize={"xxxl"} bold>
+        <MyFarmText style={styles.textCenter} fontSize={"xxxl"} fontBold>
           {CONSTANTS.LOG_IN.ENTER_OTP_VERIFY}
         </MyFarmText>
       </View>
@@ -184,9 +184,9 @@ const VerifyOtpComponent: React.FC<Props> = ({ mobileNumber }) => {
       <View style={styles.termsContainer}>
         <MyFarmText>
           {CONSTANTS.LOG_IN.AGREE}
-          <MyFarmText bold>{CONSTANTS.LOG_IN.TERMS}</MyFarmText>{" "}
+          <MyFarmText fontBold>{CONSTANTS.LOG_IN.TERMS}</MyFarmText>{" "}
           {CONSTANTS.LOG_IN.AND}
-          <MyFarmText bold>{CONSTANTS.LOG_IN.PRIVACY_POLICY}</MyFarmText>
+          <MyFarmText fontBold>{CONSTANTS.LOG_IN.PRIVACY_POLICY}</MyFarmText>
         </MyFarmText>
       </View>
     </View>

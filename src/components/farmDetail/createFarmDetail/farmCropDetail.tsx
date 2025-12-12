@@ -99,7 +99,7 @@ const FarmCropDetail: React.FC<Props> = () => {
           source={require("../../../../assets/images/crop.png")}
           style={styles.image}
         ></Image>
-        <MyFarmText bold fontSize="xxxl">
+        <MyFarmText   fontBold fontSize="xxxl">
           {CONSTANTS.FARM_DETAIL.CHOOSE_YOUR_CROP}
         </MyFarmText>
         <MyFarmText fontSize="md">

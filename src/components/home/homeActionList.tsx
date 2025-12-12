@@ -71,7 +71,7 @@ const HomeActionList: React.FC = () => {
               style={{ width: 60, height: 60 }}
             ></Image>
           </View>
-          <MyFarmText style={styles.actionText} fontSize="xl" bold>
+          <MyFarmText style={styles.actionText} fontSize="xl" fontBold>
             {action.name}
           </MyFarmText>
           <View style={styles.action}>

@@ -5,13 +5,12 @@ import {
   View,
   TouchableOpacity,
   Dimensions,
-  Text,
-  Image,
 } from "react-native";
 import { useTheme } from "../../../context/theme/ThemeContext";
 import { IThemeType } from "../../../config/type/uiType";
 import { useGlobalStyle } from "../../../styles/globalStyle";
-
+import Ionicons from "@expo/vector-icons/Ionicons";
+import MyFarmText from "../text/MyFarmText";
 
 interface Props {
   visible: boolean;
@@ -66,7 +65,7 @@ export const MyFarmModal: React.FC<Props> = ({
           activeOpacity={1}
           onPress={(e) => e.stopPropagation()}
         >
-          <View style={styles.modalContent}>
+          <View style={[styles.modalContent, globalStyle.column]}>
             <View
               style={[
                 globalStyle.row,
@@ -75,26 +74,20 @@ export const MyFarmModal: React.FC<Props> = ({
               ]}
             >
               {headerName && (
-                <Text
-                  style={[
-                    globalStyle.flex1,
-                    {
-                      fontSize: 18,
-                      fontWeight: "600",
-                      color: theme.colors.text.primary,
-                    },
-                  ]}
-                >
-                  {headerName}
-                </Text>
+                <View style={globalStyle.flex2}>
+                  <MyFarmText fontBold fontSize="lg">
+                    {headerName}
+                  </MyFarmText>
+                </View>
               )}
-
-              <TouchableOpacity
-                onPress={onClose}
-                style={[globalStyle.justifyContentEnd, globalStyle.row]}
-              >
-                
-              </TouchableOpacity>
+              <View style={globalStyle.flex1}>
+                <TouchableOpacity
+                  onPress={onClose}
+                  style={[globalStyle.justifyContentEnd, globalStyle.row]}
+                >
+                  <Ionicons name="close" size={16}   color="black" />
+                </TouchableOpacity>
+              </View>
             </View>
 
             {children}
